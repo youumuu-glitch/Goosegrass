@@ -56,6 +56,7 @@ if (Test-Path -LiteralPath $projectFile) {
         'GENERATE_INFOPLIST_FILE = YES;'
         'SWIFT_VERSION = 5.0;'
         'ENABLE_TESTABILITY = YES;'
+        'MARKETING_VERSION = 0.1.0;'
     )
 
     foreach ($setting in $requiredProjectSettings) {

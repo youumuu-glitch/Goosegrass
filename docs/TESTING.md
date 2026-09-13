@@ -16,3 +16,9 @@ The Phase 0 Windows repository validation passed on 2026-09-13. This result prov
 GitHub Actions runs `xcodebuild build` and `xcodebuild test` on a macOS runner with code signing disabled. The Phase 0 pull-request workflow completed both steps successfully on 2026-09-13.
 
 Real Mac verification is required for window behavior, UI appearance, keyboard navigation, VoiceOver, notification authorization and delivery, signing, notarization, and packaging.
+
+## Phase 1 gates
+
+Windows runs `scripts/validate-phase1.ps1`, which first preserves every Phase 0 check and then verifies the Phase 1 source/test inventory, seven-record versioned schema, migration plan, scene-level container injection, and Xcode target membership. This static gate passed on 2026-09-13; it cannot compile or execute SwiftData.
+
+The macOS test target now covers schema registration, Customer CRUD/search/archive, duplicate candidates, Appointment CRUD, inverse Customer/Appointment relationships, a disk-store reopen, and shared-container composition. These tests and the Phase 1 Xcode build are **Not Verified** until GitHub Actions completes for the Phase 1 branch and pull request.

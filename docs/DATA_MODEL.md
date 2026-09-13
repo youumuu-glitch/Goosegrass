@@ -1,6 +1,17 @@
 # Data Model
 
-Phase 0 defines Foundation-only value models. They are architectural contracts, not SwiftData persistence entities. Phase 1 will introduce a versioned SwiftData schema after migration and relationship behavior can be tested on macOS.
+Foundation-only value models remain the domain contracts. Phase 1 adds `PersistenceSchemaV1` records in Infrastructure and maps them at repository boundaries; domain code still does not import SwiftData.
+
+## Schema version and relationships
+
+- Schema version: `1.0.0`, registered through `GoosegrassMigrationPlan`.
+- Persisted Phase 1 records: Customer, Appointment, Activity, FollowUp, LeadSource, Tag, and Reminder.
+- Customer owns navigable collections for appointments, activities, follow-ups, and tags.
+- Appointment retains its durable `customerID` and a SwiftData relationship back to Customer.
+- Relationship delete rules nullify references rather than cascading business history. Customer deletion is represented by archive, and only draft appointments have a repository-level hard-delete operation.
+- Status/type values are stored using stable enum raw values. Invalid stored values surface as persistence errors instead of silently changing business state.
+
+Future schema changes require a new `VersionedSchema`, an explicit migration assessment, and macOS migration tests before being described as safe.
 
 ## Primary entities
 

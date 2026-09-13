@@ -55,7 +55,7 @@ xcodebuild test \
 
 | Gate | Status |
 | --- | --- |
-| Windows repository validation | Pending Phase 0 completion |
+| Windows repository validation | Passed on 2026-09-13 |
 | Xcode project parse | Not Verified |
 | macOS build | Not Verified |
 | macOS unit tests | Not Verified |

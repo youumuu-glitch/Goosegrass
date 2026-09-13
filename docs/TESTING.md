@@ -11,6 +11,8 @@
 
 Windows runs `scripts/validate-phase0.ps1` to verify repository shape, master-spec integrity, identity, unsigned Xcode configuration, shared scheme, and CI configuration.
 
+The Phase 0 Windows repository validation passed on 2026-09-13. This result proves only the static checks implemented by that script.
+
 GitHub Actions runs `xcodebuild build` and `xcodebuild test` on a macOS runner with code signing disabled. A workflow file is not proof of a successful run; build and tests remain **Not Verified** until logs are available.
 
 Real Mac verification is required for window behavior, UI appearance, keyboard navigation, VoiceOver, notification authorization and delivery, signing, notarization, and packaging.

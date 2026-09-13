@@ -55,6 +55,7 @@ if (Test-Path -LiteralPath $projectFile) {
         'PRODUCT_BUNDLE_IDENTIFIER = com.gravityedge.goosegrassTests;'
         'GENERATE_INFOPLIST_FILE = YES;'
         'SWIFT_VERSION = 5.0;'
+        'ENABLE_TESTABILITY = YES;'
     )
 
     foreach ($setting in $requiredProjectSettings) {

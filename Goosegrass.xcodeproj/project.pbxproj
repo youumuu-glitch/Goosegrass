@@ -11,6 +11,9 @@
 		B00000000000000000000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000002 /* ContentView.swift */; };
 		B00000000000000000000003 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000003 /* Assets.xcassets */; };
 		B00000000000000000000004 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000004 /* Preview Assets.xcassets */; };
+		B00000000000000000000005 /* DomainModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000007 /* DomainModelTests.swift */; };
+		B00000000000000000000006 /* DomainEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000008 /* DomainEnums.swift */; };
+		B00000000000000000000007 /* DomainModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000009 /* DomainModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +33,9 @@
 		C00000000000000000000004 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C00000000000000000000005 /* Goosegrass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Goosegrass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C00000000000000000000006 /* GoosegrassTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoosegrassTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C00000000000000000000007 /* DomainModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainModelTests.swift; sourceTree = "<group>"; };
+		C00000000000000000000008 /* DomainEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainEnums.swift; sourceTree = "<group>"; };
+		C00000000000000000000009 /* DomainModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				100000000000000000000003 /* App */,
+				100000000000000000000005 /* Domain */,
 				C00000000000000000000003 /* Assets.xcassets */,
 				100000000000000000000004 /* Preview Content */,
 			);
@@ -86,9 +93,35 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		100000000000000000000005 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				100000000000000000000009 /* Enums */,
+				10000000000000000000000A /* Models */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		100000000000000000000009 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				C00000000000000000000008 /* DomainEnums.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		10000000000000000000000A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C00000000000000000000009 /* DomainModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		100000000000000000000007 /* GoosegrassTests */ = {
 			isa = PBXGroup;
 			children = (
+				C00000000000000000000007 /* DomainModelTests.swift */,
 			);
 			path = GoosegrassTests;
 			sourceTree = "<group>";
@@ -204,6 +237,8 @@
 			files = (
 				B00000000000000000000001 /* GoosegrassApp.swift in Sources */,
 				B00000000000000000000002 /* ContentView.swift in Sources */,
+				B00000000000000000000006 /* DomainEnums.swift in Sources */,
+				B00000000000000000000007 /* DomainModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B00000000000000000000005 /* DomainModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,16 @@
+# Testing
+
+## Layers
+
+- Domain unit tests cover pure state, validation, normalization, and calculations.
+- Repository tests cover CRUD, relationships, search, archive, and migrations beginning in Phase 1.
+- Service tests cover appointment/reminder/follow-up lifecycles in their implementation phases.
+- macOS UI tests cover critical end-to-end flows once those features exist.
+
+## Phase 0 gates
+
+Windows runs `scripts/validate-phase0.ps1` to verify repository shape, master-spec integrity, identity, unsigned Xcode configuration, shared scheme, and CI configuration.
+
+GitHub Actions runs `xcodebuild build` and `xcodebuild test` on a macOS runner with code signing disabled. A workflow file is not proof of a successful run; build and tests remain **Not Verified** until logs are available.
+
+Real Mac verification is required for window behavior, UI appearance, keyboard navigation, VoiceOver, notification authorization and delivery, signing, notarization, and packaging.

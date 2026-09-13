@@ -1,1 +1,13 @@
 .worktrees/
+.DS_Store
+DerivedData/
+build/
+*.xcuserstate
+xcuserdata/
+*.xccheckout
+*.xcscmblueprint
+.swiftpm/
+.build/
+.env
+.env.*
+!.env.example

@@ -24,4 +24,5 @@ All notable project changes are documented here.
 - macOS UI, notifications, permissions, signing, and packaging: **Not Verified**.
 - Windows Phase 0 static validation: passed on 2026-09-13.
 - Windows Phase 1 static validation: passed on 2026-09-13.
-- Phase 1 macOS build and SwiftData XCTest: **Not Verified** pending GitHub Actions.
+- Phase 1 macOS build and SwiftData XCTest: passed in GitHub Actions push run `34765881687` on 2026-09-13.
+- Phase 1 pull-request CI: **Not Verified** pending PR creation.

@@ -12,8 +12,8 @@
 
 ### Task 1: Add Phase 1 validation gates
 
-- [ ] Add `scripts/validate-phase1.ps1` that invokes Phase 0 validation and requires all Phase 1 source/test files, imports, schema declarations, migrations, app container injection, and Xcode target membership.
-- [ ] Run `pwsh -NoProfile -File scripts/validate-phase1.ps1` and confirm it fails because persistence files are absent.
+- [x] Add `scripts/validate-phase1.ps1` that invokes Phase 0 validation and requires all Phase 1 source/test files, imports, schema declarations, migrations, app container injection, and Xcode target membership.
+- [x] Run `pwsh -NoProfile -File scripts/validate-phase1.ps1` and confirm it fails because persistence files are absent.
 
 ### Task 2: Define the versioned SwiftData schema
 
@@ -23,11 +23,11 @@
 - Create: `Goosegrass/Infrastructure/Persistence/PersistenceMapper.swift`
 - Test: `GoosegrassTests/PersistenceSchemaTests.swift`
 
-- [ ] Write schema tests first for the seven required model types and Customer-to-Appointment inverse relationship.
-- [ ] Implement `PersistenceSchemaV1` with Customer, Appointment, Activity, FollowUp, LeadSource, Tag, and Reminder records. Store enum values as stable raw strings and preserve UUID/Date business fields.
-- [ ] Use nullifying inverse relationships where deleting a parent must not silently cascade business history; repositories perform explicit archive/cancel semantics.
-- [ ] Add `GoosegrassMigrationPlan` with V1 as the only current schema and no migration stages.
-- [ ] Add bidirectional mapping between Customer/Appointment records and domain values.
+- [x] Write schema tests first for the seven required model types and Customer-to-Appointment inverse relationship.
+- [x] Implement `PersistenceSchemaV1` with Customer, Appointment, Activity, FollowUp, LeadSource, Tag, and Reminder records. Store enum values as stable raw strings and preserve UUID/Date business fields.
+- [x] Use nullifying inverse relationships where deleting a parent must not silently cascade business history; repositories perform explicit archive/cancel semantics.
+- [x] Add `GoosegrassMigrationPlan` with V1 as the only current schema and no migration stages.
+- [x] Add bidirectional mapping between Customer/Appointment records and domain values.
 
 ### Task 3: Add repository contracts and local SwiftData repositories
 
@@ -38,10 +38,10 @@
 - Create: `Goosegrass/Infrastructure/Persistence/LocalAppointmentRepository.swift`
 - Test: `GoosegrassTests/PersistenceRepositoryTests.swift`
 
-- [ ] Write failing macOS tests for Customer CRUD/search/archive and Appointment CRUD.
-- [ ] Write a failing relationship test proving a fetched appointment resolves its customer and the customer lists that appointment.
-- [ ] Implement local repositories around an injected `ModelContext`; never construct a container inside a repository.
-- [ ] Keep duplicate normalized phone numbers legal and return them as candidates rather than silently merging.
+- [x] Add macOS tests before implementation for Customer CRUD/search/archive and Appointment CRUD; Windows could not execute the initial XCTest RED state.
+- [x] Add a relationship test before implementation proving a fetched appointment resolves its customer and the customer lists that appointment.
+- [x] Implement local repositories around an injected `ModelContext`; never construct a container inside a repository.
+- [x] Keep duplicate normalized phone numbers legal and return them as candidates rather than silently merging.
 
 ### Task 4: Add persistence lifecycle and application services
 
@@ -52,11 +52,11 @@
 - Modify: `Goosegrass/App/GoosegrassApp.swift`
 - Test: `GoosegrassTests/PersistenceLifecycleTests.swift`
 
-- [ ] Write a failing disk-reopen test that creates data, releases its context/container, reopens the same store URL, and fetches the same UUID and relationship.
-- [ ] Write a lifecycle test proving repository/service composition reuses one injected container rather than initializing hidden containers.
-- [ ] Implement `PersistenceController` as the app composition owner with production and in-memory test factories.
-- [ ] Implement thin Customer and Appointment services that depend only on repository protocols.
-- [ ] Inject the controller's container once with SwiftUI `.modelContainer`.
+- [x] Add a disk-reopen test before implementation that creates data, releases its context/container, reopens the same store URL, and fetches the same UUID and relationship.
+- [x] Write a lifecycle test proving repository/service composition reuses one injected container rather than initializing hidden containers.
+- [x] Implement `PersistenceController` as the app composition owner with production and in-memory test factories.
+- [x] Implement thin Customer and Appointment services that depend only on repository protocols.
+- [x] Inject the controller's container once with SwiftUI `.modelContainer`.
 
 ### Task 5: Wire Xcode, documentation, and verification
 
@@ -68,9 +68,9 @@
 - Modify: `docs/CHANGELOG.md`
 - Modify: `README.md`
 
-- [ ] Add every Phase 1 source and test to the correct Xcode build phase.
-- [ ] Run `pwsh -NoProfile -File scripts/validate-phase1.ps1` and require PASS.
-- [ ] Commit and push `feature/phase-1-persistence`.
+- [x] Add every Phase 1 source and test to the correct Xcode build phase.
+- [x] Run `pwsh -NoProfile -File scripts/validate-phase1.ps1` and require PASS.
+- [x] Commit and push `feature/phase-1-persistence`.
 - [ ] Open a PR to `main`; require macOS `xcodebuild build` and `xcodebuild test` PASS.
 - [ ] Fix CI failures using evidence from logs, then merge only when all checks pass.
 - [ ] Mark real interactive Mac validation as **Not Verified**; Phase 1 does not claim signing or release validation.

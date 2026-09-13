@@ -59,9 +59,9 @@ xcodebuild test \
 | Phase 0 Xcode project parse | Passed in GitHub Actions on 2026-09-13 |
 | Phase 0 macOS build | Passed in GitHub Actions on 2026-09-13 |
 | Phase 0 macOS unit tests | Passed in GitHub Actions on 2026-09-13 |
-| Phase 1 macOS build and SwiftData tests | Not Verified |
+| Phase 1 macOS build and SwiftData tests | Passed in GitHub Actions on 2026-09-13 |
 | macOS UI and manual QA | Not Verified |
 | Notifications and permissions | Not Verified |
 | Signing and packaging | Not Verified |
 
-The Phase 0 pull-request workflow completed its Xcode build and XCTest steps successfully. Phase 1 SwiftData compilation, CRUD, relationships, and disk-reopen behavior remain **Not Verified** until the feature branch runs on macOS CI. Interactive UX, notification, permission, signing, and packaging validation still require a real Mac.
+The Phase 0 pull-request workflow and the Phase 1 feature-branch workflow completed their Xcode build and XCTest steps successfully. Interactive UX, notification, permission, signing, and packaging validation still require a real Mac.

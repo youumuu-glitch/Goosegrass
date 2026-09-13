@@ -56,11 +56,11 @@ xcodebuild test \
 | Gate | Status |
 | --- | --- |
 | Windows repository validation | Passed on 2026-09-13 |
-| Xcode project parse | Not Verified |
-| macOS build | Not Verified |
-| macOS unit tests | Not Verified |
+| Xcode project parse | Passed in GitHub Actions on 2026-09-13 |
+| macOS build | Passed in GitHub Actions on 2026-09-13 |
+| macOS unit tests | Passed in GitHub Actions on 2026-09-13 |
 | macOS UI and manual QA | Not Verified |
 | Notifications and permissions | Not Verified |
 | Signing and packaging | Not Verified |
 
-GitHub Actions supplies the macOS build gate after this repository is pushed to GitHub. Interactive UX, notification, permission, signing, and packaging validation still require a real Mac.
+The Phase 0 pull-request workflow completed its Xcode build and XCTest steps successfully. Interactive UX, notification, permission, signing, and packaging validation still require a real Mac.

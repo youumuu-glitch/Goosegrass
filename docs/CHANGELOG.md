@@ -15,5 +15,6 @@ All notable project changes are documented here.
 
 ### Verification
 
-- macOS build, XCTest, UI, notifications, signing, and packaging: **Not Verified**.
+- Xcode project parsing, macOS build, and XCTest: passed in GitHub Actions on 2026-09-13.
+- macOS UI, notifications, permissions, signing, and packaging: **Not Verified**.
 - Windows Phase 0 static validation: passed on 2026-09-13.

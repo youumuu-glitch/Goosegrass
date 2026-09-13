@@ -8,11 +8,13 @@ final class PersistenceRepositoryTests: XCTestCase {
         let controller = try PersistenceController(inMemory: true)
         let repository = LocalCustomerRepository(context: controller.context)
         let id = try XCTUnwrap(UUID(uuidString: "AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAAAA"))
+        let sourceID = try XCTUnwrap(UUID(uuidString: "ABABABAB-ABAB-ABAB-ABAB-ABABABABABAB"))
         var customer = Customer(
             id: id,
             displayName: "王女士",
             phone: "138 0000 8888",
             normalizedPhone: "13800008888",
+            sourceID: sourceID,
             notes: "初次咨询",
             createdAt: Date(timeIntervalSince1970: 100),
             updatedAt: Date(timeIntervalSince1970: 100)
@@ -20,6 +22,7 @@ final class PersistenceRepositoryTests: XCTestCase {
 
         try repository.create(customer)
         XCTAssertEqual(try repository.fetch(id: id)?.displayName, "王女士")
+        XCTAssertEqual(try repository.fetch(id: id)?.sourceID, sourceID)
         XCTAssertEqual(try repository.search(query: "0000").map(\.id), [id])
         XCTAssertEqual(try repository.findPossibleDuplicates(normalizedPhone: "13800008888").map(\.id), [id])
 

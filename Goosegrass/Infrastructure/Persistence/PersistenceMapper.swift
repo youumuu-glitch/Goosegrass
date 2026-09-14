@@ -146,4 +146,51 @@ enum PersistenceMapper {
             lastSyncedAt: record.lastSyncedAt
         )
     }
+
+    static func makeActivityRecord(
+        from activity: Activity,
+        customer: PersistenceSchemaV1.CustomerRecord,
+        appointment: PersistenceSchemaV1.AppointmentRecord?
+    ) -> PersistenceSchemaV1.ActivityRecord {
+        PersistenceSchemaV1.ActivityRecord(
+            id: activity.id,
+            customerID: activity.customerID,
+            appointmentID: activity.appointmentID,
+            typeRawValue: activity.type.rawValue,
+            title: activity.title,
+            detail: activity.detail,
+            createdAt: activity.createdAt,
+            customer: customer,
+            appointment: appointment
+        )
+    }
+
+    static func makeActivity(from record: PersistenceSchemaV1.ActivityRecord) throws -> Activity {
+        guard let type = ActivityType(rawValue: record.typeRawValue) else {
+            throw PersistenceError.invalidStoredValue(field: "Activity.type", value: record.typeRawValue)
+        }
+        return Activity(
+            id: record.id,
+            customerID: record.customerID,
+            appointmentID: record.appointmentID,
+            type: type,
+            title: record.title,
+            detail: record.detail,
+            createdAt: record.createdAt
+        )
+    }
+
+    static func makeLeadSource(from record: PersistenceSchemaV1.LeadSourceRecord) -> LeadSource {
+        LeadSource(
+            id: record.id,
+            name: record.name,
+            iconName: record.iconName,
+            isActive: record.isActive,
+            createdAt: record.createdAt
+        )
+    }
+
+    static func makeTag(from record: PersistenceSchemaV1.TagRecord) -> Tag {
+        Tag(id: record.id, name: record.name, createdAt: record.createdAt)
+    }
 }

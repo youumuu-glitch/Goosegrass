@@ -67,9 +67,9 @@ struct CustomerCatalog: Equatable {
 
 - [x] Add failing repository tests proving search matches notes, source name, tag name, and phone tail; source seeding is idempotent; activities are newest first; tags deduplicate case-insensitively.
 - [x] Add a failing merge test that creates both customers with appointments, activities, follow-ups, and overlapping tags, then requires every relationship to point at the retained customer, the duplicate to be archived, and one `customerMerged` activity to exist.
-- [ ] Implement read-model assembly from the injected `ModelContext`, resolving source, tags, next active appointment, and activities without creating a container.
-- [ ] Seed exactly `小红书`, `抖音`, `大众点评`, `微信`, `电话`, `朋友介绍`, `线下`, and `其他`, preserving existing records.
-- [ ] Implement merge as one mutation/save operation. Move relationships, union tags by ID, update durable foreign-key UUIDs, archive the duplicate, and insert the merge activity before saving.
+- [x] Implement read-model assembly from the injected `ModelContext`, resolving source, tags, next active appointment, and activities without creating a container.
+- [x] Seed exactly `小红书`, `抖音`, `大众点评`, `微信`, `电话`, `朋友介绍`, `线下`, and `其他`, preserving existing records.
+- [x] Implement merge as one mutation/save operation. Move relationships, union tags by ID, update durable foreign-key UUIDs, archive the duplicate, and insert the merge activity before saving.
 - [ ] Run all persistence tests and require GREEN; run the complete test target to detect regressions.
 - [ ] Commit with `feat(customers): add customer aggregate persistence`.
 

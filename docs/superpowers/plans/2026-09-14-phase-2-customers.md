@@ -30,7 +30,7 @@
 - Create: `GoosegrassTests/CustomerServiceTests.swift`
 
 - [x] Write failing service tests for an active-customer list sorted by `updatedAt`, expanded search, reverse-chronological activities, source/tag choices, and duplicate choices.
-- [ ] Add focused immutable values:
+- [x] Add focused immutable values:
 
 ```swift
 struct CustomerListItem: Identifiable, Equatable {
@@ -65,8 +65,8 @@ struct CustomerCatalog: Equatable {
 - Modify: `Goosegrass/Infrastructure/Persistence/PersistenceController.swift`
 - Modify: `GoosegrassTests/PersistenceRepositoryTests.swift`
 
-- [ ] Add failing repository tests proving search matches notes, source name, tag name, and phone tail; source seeding is idempotent; activities are newest first; tags deduplicate case-insensitively.
-- [ ] Add a failing merge test that creates both customers with appointments, activities, follow-ups, and overlapping tags, then requires every relationship to point at the retained customer, the duplicate to be archived, and one `customerMerged` activity to exist.
+- [x] Add failing repository tests proving search matches notes, source name, tag name, and phone tail; source seeding is idempotent; activities are newest first; tags deduplicate case-insensitively.
+- [x] Add a failing merge test that creates both customers with appointments, activities, follow-ups, and overlapping tags, then requires every relationship to point at the retained customer, the duplicate to be archived, and one `customerMerged` activity to exist.
 - [ ] Implement read-model assembly from the injected `ModelContext`, resolving source, tags, next active appointment, and activities without creating a container.
 - [ ] Seed exactly `小红书`, `抖音`, `大众点评`, `微信`, `电话`, `朋友介绍`, `线下`, and `其他`, preserving existing records.
 - [ ] Implement merge as one mutation/save operation. Move relationships, union tags by ID, update durable foreign-key UUIDs, archive the duplicate, and insert the merge activity before saving.

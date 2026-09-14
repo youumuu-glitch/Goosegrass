@@ -13,6 +13,8 @@ protocol CustomerRepository {
     func fetchDetail(id: UUID) throws -> CustomerDetail?
     func fetchCatalog() throws -> CustomerCatalog
     func seedDefaultSources() throws
+    func upsertTag(named name: String) throws -> Tag
+    func assignTags(_ tagIDs: [UUID], to customerID: UUID) throws
     func appendActivity(_ activity: Activity) throws
     func merge(retaining retainedID: UUID, archiving duplicateID: UUID, at: Date) throws
 }
@@ -48,6 +50,12 @@ extension CustomerRepository {
 
     func seedDefaultSources() throws {}
 
+    func upsertTag(named name: String) throws -> Tag {
+        throw CustomerRepositoryError.emptyTagName
+    }
+
+    func assignTags(_ tagIDs: [UUID], to customerID: UUID) throws {}
+
     func appendActivity(_ activity: Activity) throws {}
 
     func merge(retaining retainedID: UUID, archiving duplicateID: UUID, at: Date) throws {
@@ -58,4 +66,5 @@ extension CustomerRepository {
 enum CustomerRepositoryError: Error, Equatable {
     case mergeNotImplemented
     case cannotMergeSameCustomer
+    case emptyTagName
 }

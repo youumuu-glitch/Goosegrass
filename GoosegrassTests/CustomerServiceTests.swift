@@ -93,6 +93,8 @@ private final class CustomerServiceRepositoryStub: CustomerRepository {
     func fetchDetail(id: UUID) throws -> CustomerDetail? { detailValue }
     func fetchCatalog() throws -> CustomerCatalog { catalogValue }
     func seedDefaultSources() throws { seedCallCount += 1 }
+    func upsertTag(named name: String) throws -> Tag { Tag(name: name) }
+    func assignTags(_ tagIDs: [UUID], to customerID: UUID) throws {}
     func appendActivity(_ activity: Activity) throws {}
     func merge(retaining retainedID: UUID, archiving duplicateID: UUID, at: Date) throws {}
 }

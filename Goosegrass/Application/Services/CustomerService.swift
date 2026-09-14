@@ -28,6 +28,19 @@ final class CustomerService {
         try repository.findPossibleDuplicates(normalizedPhone: normalizedPhone)
     }
 
+    func list(query: String = "") throws -> [CustomerListItem] {
+        try repository.fetchList(query: query)
+    }
+
+    func detail(id: UUID) throws -> CustomerDetail? {
+        try repository.fetchDetail(id: id)
+    }
+
+    func catalog() throws -> CustomerCatalog {
+        try repository.seedDefaultSources()
+        return try repository.fetchCatalog()
+    }
+
     func archive(id: UUID, at: Date = Date()) throws {
         try repository.archive(id: id, at: at)
     }

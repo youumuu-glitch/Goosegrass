@@ -29,7 +29,7 @@
 - Modify: `Goosegrass/Application/Services/CustomerService.swift`
 - Create: `GoosegrassTests/CustomerServiceTests.swift`
 
-- [ ] Write failing service tests for an active-customer list sorted by `updatedAt`, expanded search, reverse-chronological activities, source/tag choices, and duplicate choices.
+- [x] Write failing service tests for an active-customer list sorted by `updatedAt`, expanded search, reverse-chronological activities, source/tag choices, and duplicate choices.
 - [ ] Add focused immutable values:
 
 ```swift
@@ -53,9 +53,9 @@ struct CustomerCatalog: Equatable {
 }
 ```
 
-- [ ] Extend `CustomerRepository` with `fetchList(query:)`, `fetchDetail(id:)`, `fetchCatalog()`, `seedDefaultSources()`, `appendActivity(_:)`, and `merge(retaining:archiving:at:)`.
-- [ ] Expose thin service methods with the same domain vocabulary; keep validation and duplicate decisions in the service, not in SwiftUI.
-- [ ] Run the focused XCTest in macOS CI and require the expected RED compile/test result before implementation.
+- [x] Extend `CustomerRepository` with `fetchList(query:)`, `fetchDetail(id:)`, `fetchCatalog()`, `seedDefaultSources()`, `appendActivity(_:)`, and `merge(retaining:archiving:at:)`.
+- [x] Expose thin service methods with the same domain vocabulary; keep validation and duplicate decisions in the service, not in SwiftUI.
+- [x] Run the focused XCTest in macOS CI and require the expected RED compile/test result before implementation (`34859703564`).
 
 ### Task 3: Implement aggregate persistence, history, search, and merge
 

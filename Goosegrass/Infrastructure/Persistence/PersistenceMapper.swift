@@ -16,6 +16,7 @@ enum PersistenceMapper {
             phone: customer.phone,
             normalizedPhone: customer.normalizedPhone,
             email: customer.email,
+            sourceID: customer.sourceID,
             statusRawValue: customer.status.rawValue,
             notes: customer.notes,
             isArchived: customer.isArchived,
@@ -34,6 +35,7 @@ enum PersistenceMapper {
         record.phone = customer.phone
         record.normalizedPhone = customer.normalizedPhone
         record.email = customer.email
+        record.sourceID = customer.sourceID
         record.statusRawValue = customer.status.rawValue
         record.notes = customer.notes
         record.isArchived = customer.isArchived
@@ -55,7 +57,7 @@ enum PersistenceMapper {
             phone: record.phone,
             normalizedPhone: record.normalizedPhone,
             email: record.email,
-            sourceID: record.source?.id,
+            sourceID: record.source?.id ?? record.sourceID,
             status: status,
             notes: record.notes,
             isArchived: record.isArchived,

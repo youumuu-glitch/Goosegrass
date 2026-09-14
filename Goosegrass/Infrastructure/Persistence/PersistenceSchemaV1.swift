@@ -24,6 +24,7 @@ enum PersistenceSchemaV1: VersionedSchema {
         var phone: String
         var normalizedPhone: String
         var email: String?
+        var sourceID: UUID?
         var statusRawValue: String
         var notes: String
         var isArchived: Bool
@@ -50,6 +51,7 @@ enum PersistenceSchemaV1: VersionedSchema {
             phone: String,
             normalizedPhone: String,
             email: String? = nil,
+            sourceID: UUID? = nil,
             statusRawValue: String = CustomerStatus.new.rawValue,
             notes: String = "",
             isArchived: Bool = false,
@@ -71,6 +73,7 @@ enum PersistenceSchemaV1: VersionedSchema {
             self.phone = phone
             self.normalizedPhone = normalizedPhone
             self.email = email
+            self.sourceID = sourceID
             self.statusRawValue = statusRawValue
             self.notes = notes
             self.isArchived = isArchived

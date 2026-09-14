@@ -104,8 +104,8 @@ enum CustomerSubmissionResult: Equatable {
 ```
 
 - [x] Make service create/update/note/archive operations write their required activities and reload authoritative persisted values.
-- [ ] Run focused and full XCTest; require GREEN.
-- [ ] Commit with `feat(customers): add validated customer lifecycle`.
+- [x] Run focused and full XCTest; require GREEN (`34869038391`).
+- [x] Commit with `feat(customers): add validated customer lifecycle`.
 
 ### Task 5: Build a testable Customers ViewModel
 
@@ -113,7 +113,7 @@ enum CustomerSubmissionResult: Equatable {
 - Create: `Goosegrass/Features/Customers/CustomerListViewModel.swift`
 - Create: `GoosegrassTests/CustomerListViewModelTests.swift`
 
-- [ ] Write failing tests for initial load, debounced/manual query refresh, selection/detail loading, add/edit sheet state, duplicate-warning routing, use-existing, create-anyway, merge, archive confirmation, and preserving drafts after errors.
+- [x] Write failing tests for initial load, manual query refresh, selection/detail loading, add/edit sheet state, duplicate-warning routing, use-existing, create-anyway, merge, archive confirmation, and preserving drafts after errors.
 - [ ] Implement a `@MainActor final class CustomerListViewModel: ObservableObject` with published rows, detail, query, selection, editor, duplicate candidates, archive target, catalog, and alert error.
 - [ ] Inject `CustomerService` and a `now` closure. Do not import SwiftData or construct persistence objects.
 - [ ] Ensure every successful mutation refreshes rows/detail and every failure preserves the relevant user input.

@@ -37,7 +37,7 @@ final class PersistenceController {
             migrationPlan: GoosegrassMigrationPlan.self,
             configurations: [configuration]
         )
-        context = ModelContext(container)
+        context = container.mainContext
         context.autosaveEnabled = false
     }
 

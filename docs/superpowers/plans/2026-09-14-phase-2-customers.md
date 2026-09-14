@@ -81,7 +81,7 @@ struct CustomerCatalog: Equatable {
 - Modify: `GoosegrassTests/CustomerServiceTests.swift`
 
 - [x] Write failing tests for trimmed required name, phone normalization, invalid empty phone, create activity, edit preservation of immutable identity/created date, note activity, duplicate warning, explicit create-anyway, and archive.
-- [ ] Implement:
+- [x] Implement:
 
 ```swift
 struct CustomerEditorDraft: Equatable {
@@ -103,7 +103,7 @@ enum CustomerSubmissionResult: Equatable {
 }
 ```
 
-- [ ] Make service create/update/note/archive operations write their required activities and reload authoritative persisted values.
+- [x] Make service create/update/note/archive operations write their required activities and reload authoritative persisted values.
 - [ ] Run focused and full XCTest; require GREEN.
 - [ ] Commit with `feat(customers): add validated customer lifecycle`.
 

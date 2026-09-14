@@ -70,8 +70,8 @@ struct CustomerCatalog: Equatable {
 - [x] Implement read-model assembly from the injected `ModelContext`, resolving source, tags, next active appointment, and activities without creating a container.
 - [x] Seed exactly `小红书`, `抖音`, `大众点评`, `微信`, `电话`, `朋友介绍`, `线下`, and `其他`, preserving existing records.
 - [x] Implement merge as one mutation/save operation. Move relationships, union tags by ID, update durable foreign-key UUIDs, archive the duplicate, and insert the merge activity before saving.
-- [ ] Run all persistence tests and require GREEN; run the complete test target to detect regressions.
-- [ ] Commit with `feat(customers): add customer aggregate persistence`.
+- [x] Run all persistence tests and require GREEN; run the complete test target to detect regressions (`34868402247`).
+- [x] Commit with `feat(customers): add customer aggregate persistence`.
 
 ### Task 4: Add validated editor drafts and lifecycle service behavior
 
@@ -80,7 +80,7 @@ struct CustomerCatalog: Equatable {
 - Modify: `Goosegrass/Application/Services/CustomerService.swift`
 - Modify: `GoosegrassTests/CustomerServiceTests.swift`
 
-- [ ] Write failing tests for trimmed required name, phone normalization, invalid empty phone, create activity, edit preservation of immutable identity/created date, note activity, duplicate warning, explicit create-anyway, and archive.
+- [x] Write failing tests for trimmed required name, phone normalization, invalid empty phone, create activity, edit preservation of immutable identity/created date, note activity, duplicate warning, explicit create-anyway, and archive.
 - [ ] Implement:
 
 ```swift

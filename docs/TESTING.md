@@ -26,3 +26,7 @@ The macOS test target now covers schema registration, Customer CRUD/search/archi
 Two persistence regressions were verified with macOS CI RED/GREEN cycles: run `34766301093` failed the new Customer source-identity round-trip assertion before run `34854777091` passed after the fix; run `34854907950` failed the new shared-main-context assertion before run `34855354576` passed after the fix. Pull-request run `34857548677` completed both build and test successfully for PR #2 on 2026-09-14.
 
 Real Mac interactive UI, keyboard navigation, VoiceOver, notification permission and delivery, signing, notarization, and packaging remain **Not Verified**.
+
+## Phase 2 gates
+
+Phase 2 adds customer service, persistence, ViewModel, composition, and disk-relaunch acceptance coverage. Until its push and pull-request workflows complete, macOS build and XCTest remain **Not Verified**. Real Mac UI appearance, keyboard navigation, focus behavior, and VoiceOver also remain **Not Verified**.

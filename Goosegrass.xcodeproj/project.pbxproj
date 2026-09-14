@@ -30,6 +30,18 @@
 		B00000000000000000000015 /* PersistenceSchemaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000017 /* PersistenceSchemaTests.swift */; };
 		B00000000000000000000016 /* PersistenceRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000018 /* PersistenceRepositoryTests.swift */; };
 		B00000000000000000000017 /* PersistenceLifecycleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000019 /* PersistenceLifecycleTests.swift */; };
+		B00000000000000000000018 /* CustomerPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000001A /* CustomerPresentation.swift */; };
+		B00000000000000000000019 /* CustomerEditorDraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000001B /* CustomerEditorDraft.swift */; };
+		B0000000000000000000001A /* CustomerListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000001C /* CustomerListViewModel.swift */; };
+		B0000000000000000000001B /* CustomersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000001D /* CustomersView.swift */; };
+		B0000000000000000000001C /* CustomerEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000001E /* CustomerEditorView.swift */; };
+		B0000000000000000000001D /* CustomerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000001F /* CustomerDetailView.swift */; };
+		B0000000000000000000001E /* DuplicateCustomerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000020 /* DuplicateCustomerView.swift */; };
+		B0000000000000000000001F /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000021 /* EmptyStateView.swift */; };
+		B00000000000000000000020 /* CustomerServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000022 /* CustomerServiceTests.swift */; };
+		B00000000000000000000021 /* CustomerListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000023 /* CustomerListViewModelTests.swift */; };
+		B00000000000000000000022 /* CustomerFeatureCompositionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000024 /* CustomerFeatureCompositionTests.swift */; };
+		B00000000000000000000023 /* CustomerAcceptanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000025 /* CustomerAcceptanceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +80,18 @@
 		C00000000000000000000017 /* PersistenceSchemaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceSchemaTests.swift; sourceTree = "<group>"; };
 		C00000000000000000000018 /* PersistenceRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceRepositoryTests.swift; sourceTree = "<group>"; };
 		C00000000000000000000019 /* PersistenceLifecycleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceLifecycleTests.swift; sourceTree = "<group>"; };
+		C0000000000000000000001A /* CustomerPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerPresentation.swift; sourceTree = "<group>"; };
+		C0000000000000000000001B /* CustomerEditorDraft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerEditorDraft.swift; sourceTree = "<group>"; };
+		C0000000000000000000001C /* CustomerListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerListViewModel.swift; sourceTree = "<group>"; };
+		C0000000000000000000001D /* CustomersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomersView.swift; sourceTree = "<group>"; };
+		C0000000000000000000001E /* CustomerEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerEditorView.swift; sourceTree = "<group>"; };
+		C0000000000000000000001F /* CustomerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerDetailView.swift; sourceTree = "<group>"; };
+		C00000000000000000000020 /* DuplicateCustomerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicateCustomerView.swift; sourceTree = "<group>"; };
+		C00000000000000000000021 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
+		C00000000000000000000022 /* CustomerServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerServiceTests.swift; sourceTree = "<group>"; };
+		C00000000000000000000023 /* CustomerListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerListViewModelTests.swift; sourceTree = "<group>"; };
+		C00000000000000000000024 /* CustomerFeatureCompositionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerFeatureCompositionTests.swift; sourceTree = "<group>"; };
+		C00000000000000000000025 /* CustomerAcceptanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerAcceptanceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +128,8 @@
 				100000000000000000000005 /* Domain */,
 				10000000000000000000000C /* Application */,
 				10000000000000000000000F /* Infrastructure */,
+				100000000000000000000012 /* Features */,
+				100000000000000000000014 /* Shared */,
 				C00000000000000000000003 /* Assets.xcassets */,
 				100000000000000000000004 /* Preview Content */,
 			);
@@ -165,10 +191,56 @@
 		10000000000000000000000C /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				100000000000000000000011 /* DTO */,
 				10000000000000000000000D /* Repositories */,
 				10000000000000000000000E /* Services */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		100000000000000000000011 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				C0000000000000000000001A /* CustomerPresentation.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		100000000000000000000012 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				100000000000000000000013 /* Customers */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		100000000000000000000013 /* Customers */ = {
+			isa = PBXGroup;
+			children = (
+				C0000000000000000000001B /* CustomerEditorDraft.swift */,
+				C0000000000000000000001C /* CustomerListViewModel.swift */,
+				C0000000000000000000001D /* CustomersView.swift */,
+				C0000000000000000000001E /* CustomerEditorView.swift */,
+				C0000000000000000000001F /* CustomerDetailView.swift */,
+				C00000000000000000000020 /* DuplicateCustomerView.swift */,
+			);
+			path = Customers;
+			sourceTree = "<group>";
+		};
+		100000000000000000000014 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				100000000000000000000015 /* Components */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		100000000000000000000015 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C00000000000000000000021 /* EmptyStateView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		10000000000000000000000D /* Repositories */ = {
@@ -218,6 +290,10 @@
 				C00000000000000000000017 /* PersistenceSchemaTests.swift */,
 				C00000000000000000000018 /* PersistenceRepositoryTests.swift */,
 				C00000000000000000000019 /* PersistenceLifecycleTests.swift */,
+				C00000000000000000000022 /* CustomerServiceTests.swift */,
+				C00000000000000000000023 /* CustomerListViewModelTests.swift */,
+				C00000000000000000000024 /* CustomerFeatureCompositionTests.swift */,
+				C00000000000000000000025 /* CustomerAcceptanceTests.swift */,
 			);
 			path = GoosegrassTests;
 			sourceTree = "<group>";
@@ -347,6 +423,14 @@
 				B00000000000000000000012 /* LocalCustomerRepository.swift in Sources */,
 				B00000000000000000000013 /* LocalAppointmentRepository.swift in Sources */,
 				B00000000000000000000014 /* PersistenceController.swift in Sources */,
+				B00000000000000000000018 /* CustomerPresentation.swift in Sources */,
+				B00000000000000000000019 /* CustomerEditorDraft.swift in Sources */,
+				B0000000000000000000001A /* CustomerListViewModel.swift in Sources */,
+				B0000000000000000000001B /* CustomersView.swift in Sources */,
+				B0000000000000000000001C /* CustomerEditorView.swift in Sources */,
+				B0000000000000000000001D /* CustomerDetailView.swift in Sources */,
+				B0000000000000000000001E /* DuplicateCustomerView.swift in Sources */,
+				B0000000000000000000001F /* EmptyStateView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +443,10 @@
 				B00000000000000000000015 /* PersistenceSchemaTests.swift in Sources */,
 				B00000000000000000000016 /* PersistenceRepositoryTests.swift in Sources */,
 				B00000000000000000000017 /* PersistenceLifecycleTests.swift in Sources */,
+				B00000000000000000000020 /* CustomerServiceTests.swift in Sources */,
+				B00000000000000000000021 /* CustomerListViewModelTests.swift in Sources */,
+				B00000000000000000000022 /* CustomerFeatureCompositionTests.swift in Sources */,
+				B00000000000000000000023 /* CustomerAcceptanceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

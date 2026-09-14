@@ -21,4 +21,6 @@ Real Mac verification is required for window behavior, UI appearance, keyboard n
 
 Windows runs `scripts/validate-phase1.ps1`, which first preserves every Phase 0 check and then verifies the Phase 1 source/test inventory, seven-record versioned schema, migration plan, scene-level container injection, and Xcode target membership. This static gate passed on 2026-09-13; it cannot compile or execute SwiftData.
 
-The macOS test target now covers schema registration, Customer CRUD/search/archive, duplicate candidates, Appointment CRUD, inverse Customer/Appointment relationships, a disk-store reopen, and shared-container composition. GitHub Actions push run `34765881687` completed both `xcodebuild build` and `xcodebuild test` successfully on 2026-09-13. Pull-request CI remains **Not Verified** until the Phase 1 PR is opened.
+The macOS test target now covers schema registration, Customer CRUD/search/archive, duplicate candidates, Appointment CRUD, inverse Customer/Appointment relationships, a disk-store reopen, and shared-container composition. GitHub Actions push run `34855354576` completed both `xcodebuild build` and `xcodebuild test` successfully on 2026-09-14.
+
+Two persistence regressions were verified with macOS CI RED/GREEN cycles: run `34766301093` failed the new Customer source-identity round-trip assertion before run `34854777091` passed after the fix; run `34854907950` failed the new shared-main-context assertion before run `34855354576` passed after the fix. Pull-request CI remains **Not Verified** until the Phase 1 PR is opened.

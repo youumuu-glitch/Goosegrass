@@ -64,5 +64,8 @@ final class PersistenceRepositoryTests: XCTestCase {
         try appointments.update(appointment)
         XCTAssertEqual(try appointments.fetch(id: appointmentID)?.partySize, 4)
         XCTAssertEqual(try appointments.fetch(id: appointmentID)?.internalNote, "靠窗")
+
+        try appointments.deleteDraft(id: appointmentID)
+        XCTAssertNil(try appointments.fetch(id: appointmentID))
     }
 }

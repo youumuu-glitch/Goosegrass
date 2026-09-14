@@ -16,9 +16,9 @@
 - Create: `scripts/validate-phase2.ps1`
 - Modify: `.github/workflows/macos-build.yml`
 
-- [ ] Add a validator that invokes `validate-phase1.ps1`, requires every Phase 2 source/test file, rejects `import SwiftData` in feature/ViewModel files, verifies Xcode target membership, and requires the Phase 2 Not Verified statement.
-- [ ] Run `pwsh -NoProfile -File scripts/validate-phase2.ps1` and record the expected RED result listing the missing Phase 2 files.
-- [ ] Update CI to run the latest static validator before `xcodebuild`, while retaining unsigned build/test commands.
+- [x] Add a validator that invokes `validate-phase1.ps1`, requires every Phase 2 source/test file, rejects `import SwiftData` in feature/ViewModel files, verifies Xcode target membership, and requires the Phase 2 Not Verified statement.
+- [x] Run `pwsh -NoProfile -File scripts/validate-phase2.ps1` and record the expected RED result listing the missing Phase 2 files.
+- [x] Update CI to run the latest static validator before `xcodebuild`, while retaining unsigned build/test commands.
 - [ ] Commit the red gate with `test(customers): define Phase 2 acceptance gate`.
 
 ### Task 2: Define customer presentation models and aggregate contracts

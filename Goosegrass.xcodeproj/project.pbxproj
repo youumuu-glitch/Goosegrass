@@ -17,6 +17,19 @@
 		B00000000000000000000008 /* DomainRulesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000000A /* DomainRulesTests.swift */; };
 		B00000000000000000000009 /* PhoneNormalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000000B /* PhoneNormalizer.swift */; };
 		B0000000000000000000000A /* AppointmentValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000000C /* AppointmentValidator.swift */; };
+		B0000000000000000000000B /* CustomerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000000D /* CustomerRepository.swift */; };
+		B0000000000000000000000C /* AppointmentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000000E /* AppointmentRepository.swift */; };
+		B0000000000000000000000D /* CustomerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000000F /* CustomerService.swift */; };
+		B0000000000000000000000E /* AppointmentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000010 /* AppointmentService.swift */; };
+		B0000000000000000000000F /* PersistenceSchemaV1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000011 /* PersistenceSchemaV1.swift */; };
+		B00000000000000000000010 /* GoosegrassMigrationPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000012 /* GoosegrassMigrationPlan.swift */; };
+		B00000000000000000000011 /* PersistenceMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000013 /* PersistenceMapper.swift */; };
+		B00000000000000000000012 /* LocalCustomerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000014 /* LocalCustomerRepository.swift */; };
+		B00000000000000000000013 /* LocalAppointmentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000015 /* LocalAppointmentRepository.swift */; };
+		B00000000000000000000014 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000016 /* PersistenceController.swift */; };
+		B00000000000000000000015 /* PersistenceSchemaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000017 /* PersistenceSchemaTests.swift */; };
+		B00000000000000000000016 /* PersistenceRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000018 /* PersistenceRepositoryTests.swift */; };
+		B00000000000000000000017 /* PersistenceLifecycleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000019 /* PersistenceLifecycleTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +55,19 @@
 		C0000000000000000000000A /* DomainRulesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainRulesTests.swift; sourceTree = "<group>"; };
 		C0000000000000000000000B /* PhoneNormalizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNormalizer.swift; sourceTree = "<group>"; };
 		C0000000000000000000000C /* AppointmentValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentValidator.swift; sourceTree = "<group>"; };
+		C0000000000000000000000D /* CustomerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerRepository.swift; sourceTree = "<group>"; };
+		C0000000000000000000000E /* AppointmentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentRepository.swift; sourceTree = "<group>"; };
+		C0000000000000000000000F /* CustomerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerService.swift; sourceTree = "<group>"; };
+		C00000000000000000000010 /* AppointmentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentService.swift; sourceTree = "<group>"; };
+		C00000000000000000000011 /* PersistenceSchemaV1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceSchemaV1.swift; sourceTree = "<group>"; };
+		C00000000000000000000012 /* GoosegrassMigrationPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoosegrassMigrationPlan.swift; sourceTree = "<group>"; };
+		C00000000000000000000013 /* PersistenceMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceMapper.swift; sourceTree = "<group>"; };
+		C00000000000000000000014 /* LocalCustomerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCustomerRepository.swift; sourceTree = "<group>"; };
+		C00000000000000000000015 /* LocalAppointmentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAppointmentRepository.swift; sourceTree = "<group>"; };
+		C00000000000000000000016 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		C00000000000000000000017 /* PersistenceSchemaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceSchemaTests.swift; sourceTree = "<group>"; };
+		C00000000000000000000018 /* PersistenceRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceRepositoryTests.swift; sourceTree = "<group>"; };
+		C00000000000000000000019 /* PersistenceLifecycleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceLifecycleTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +102,8 @@
 			children = (
 				100000000000000000000003 /* App */,
 				100000000000000000000005 /* Domain */,
+				10000000000000000000000C /* Application */,
+				10000000000000000000000F /* Infrastructure */,
 				C00000000000000000000003 /* Assets.xcassets */,
 				100000000000000000000004 /* Preview Content */,
 			);
@@ -134,11 +162,62 @@
 			path = Rules;
 			sourceTree = "<group>";
 		};
+		10000000000000000000000C /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				10000000000000000000000D /* Repositories */,
+				10000000000000000000000E /* Services */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		10000000000000000000000D /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				C0000000000000000000000D /* CustomerRepository.swift */,
+				C0000000000000000000000E /* AppointmentRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		10000000000000000000000E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C0000000000000000000000F /* CustomerService.swift */,
+				C00000000000000000000010 /* AppointmentService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		10000000000000000000000F /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				100000000000000000000010 /* Persistence */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		100000000000000000000010 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				C00000000000000000000011 /* PersistenceSchemaV1.swift */,
+				C00000000000000000000012 /* GoosegrassMigrationPlan.swift */,
+				C00000000000000000000013 /* PersistenceMapper.swift */,
+				C00000000000000000000014 /* LocalCustomerRepository.swift */,
+				C00000000000000000000015 /* LocalAppointmentRepository.swift */,
+				C00000000000000000000016 /* PersistenceController.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
 		100000000000000000000007 /* GoosegrassTests */ = {
 			isa = PBXGroup;
 			children = (
 				C00000000000000000000007 /* DomainModelTests.swift */,
 				C0000000000000000000000A /* DomainRulesTests.swift */,
+				C00000000000000000000017 /* PersistenceSchemaTests.swift */,
+				C00000000000000000000018 /* PersistenceRepositoryTests.swift */,
+				C00000000000000000000019 /* PersistenceLifecycleTests.swift */,
 			);
 			path = GoosegrassTests;
 			sourceTree = "<group>";
@@ -258,6 +337,16 @@
 				B00000000000000000000007 /* DomainModels.swift in Sources */,
 				B00000000000000000000009 /* PhoneNormalizer.swift in Sources */,
 				B0000000000000000000000A /* AppointmentValidator.swift in Sources */,
+				B0000000000000000000000B /* CustomerRepository.swift in Sources */,
+				B0000000000000000000000C /* AppointmentRepository.swift in Sources */,
+				B0000000000000000000000D /* CustomerService.swift in Sources */,
+				B0000000000000000000000E /* AppointmentService.swift in Sources */,
+				B0000000000000000000000F /* PersistenceSchemaV1.swift in Sources */,
+				B00000000000000000000010 /* GoosegrassMigrationPlan.swift in Sources */,
+				B00000000000000000000011 /* PersistenceMapper.swift in Sources */,
+				B00000000000000000000012 /* LocalCustomerRepository.swift in Sources */,
+				B00000000000000000000013 /* LocalAppointmentRepository.swift in Sources */,
+				B00000000000000000000014 /* PersistenceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +356,9 @@
 			files = (
 				B00000000000000000000005 /* DomainModelTests.swift in Sources */,
 				B00000000000000000000008 /* DomainRulesTests.swift in Sources */,
+				B00000000000000000000015 /* PersistenceSchemaTests.swift in Sources */,
+				B00000000000000000000016 /* PersistenceRepositoryTests.swift in Sources */,
+				B00000000000000000000017 /* PersistenceLifecycleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

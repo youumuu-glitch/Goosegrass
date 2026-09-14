@@ -26,6 +26,14 @@ Dependencies point inward. Domain code uses Foundation value types and pure rule
 
 Phase 0 establishes the project, boundaries, and value-oriented domain contracts. Phase 1 owns SwiftData schema versions, persistence entities, repositories, model-container lifecycle, migrations, and CRUD/relationship verification. Later phases add product workflows without bypassing services and repositories.
 
+## Local persistence composition
+
+`PersistenceSchemaV1` is the first explicit SwiftData schema version and `GoosegrassMigrationPlan` is the only place schema evolution is registered. Persistence records remain internal to Infrastructure and map to Foundation domain values at repository boundaries.
+
+`PersistenceController` owns the one application `ModelContainer` and its main `ModelContext`. The app injects that container once at the scene boundary. Local repositories receive a context; they never create hidden containers. Tests may create isolated in-memory containers or an explicitly located disk store.
+
+Phase 1 implements Customer and Appointment repository/service foundations. Activity, FollowUp, LeadSource, Tag, and Reminder are present in the schema so later phases extend behavior without introducing an unversioned store.
+
 ## Identity and signing
 
 The app bundle identifier is `com.gravityedge.goosegrass`. Bundle identity is independent of signing. No team, certificate, profile, or distribution identity is committed in Phase 0.

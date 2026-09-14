@@ -16,3 +16,13 @@ The Phase 0 Windows repository validation passed on 2026-09-13. This result prov
 GitHub Actions runs `xcodebuild build` and `xcodebuild test` on a macOS runner with code signing disabled. The Phase 0 pull-request workflow completed both steps successfully on 2026-09-13.
 
 Real Mac verification is required for window behavior, UI appearance, keyboard navigation, VoiceOver, notification authorization and delivery, signing, notarization, and packaging.
+
+## Phase 1 gates
+
+Windows runs `scripts/validate-phase1.ps1`, which first preserves every Phase 0 check and then verifies the Phase 1 source/test inventory, seven-record versioned schema, migration plan, scene-level container injection, and Xcode target membership. This static gate passed on 2026-09-13; it cannot compile or execute SwiftData.
+
+The macOS test target now covers schema registration, Customer CRUD/search/archive, duplicate candidates, Appointment CRUD, inverse Customer/Appointment relationships, a disk-store reopen, and shared-container composition. GitHub Actions push run `34855677073` completed both `xcodebuild build` and `xcodebuild test` successfully on 2026-09-14.
+
+Two persistence regressions were verified with macOS CI RED/GREEN cycles: run `34766301093` failed the new Customer source-identity round-trip assertion before run `34854777091` passed after the fix; run `34854907950` failed the new shared-main-context assertion before run `34855354576` passed after the fix. Pull-request run `34857548677` completed both build and test successfully for PR #2 on 2026-09-14.
+
+Real Mac interactive UI, keyboard navigation, VoiceOver, notification permission and delivery, signing, notarization, and packaging remain **Not Verified**.

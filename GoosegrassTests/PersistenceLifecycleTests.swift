@@ -43,6 +43,7 @@ final class PersistenceLifecycleTests: XCTestCase {
         let customers = LocalCustomerRepository(context: controller.context)
         let appointments = LocalAppointmentRepository(context: controller.context)
 
+        XCTAssertTrue(controller.context === controller.container.mainContext)
         XCTAssertTrue(customers.container === controller.container)
         XCTAssertTrue(appointments.container === controller.container)
     }

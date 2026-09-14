@@ -71,6 +71,6 @@
 - [x] Add every Phase 1 source and test to the correct Xcode build phase.
 - [x] Run `pwsh -NoProfile -File scripts/validate-phase1.ps1` and require PASS.
 - [x] Commit and push `feature/phase-1-persistence`.
-- [ ] Open a PR to `main`; require macOS `xcodebuild build` and `xcodebuild test` PASS.
-- [ ] Fix CI failures using evidence from logs, then merge only when all checks pass.
-- [ ] Mark real interactive Mac validation as **Not Verified**; Phase 1 does not claim signing or release validation.
+- [x] Open PR #2 to `main`; macOS `xcodebuild build` and `xcodebuild test` passed in run `34857548677`.
+- [x] Verify the PR is conflict-free and all required checks pass; no PR CI failure required remediation.
+- [x] Mark real interactive Mac validation as **Not Verified**; Phase 1 does not claim signing or release validation.

@@ -154,7 +154,7 @@ git push
 - Modify: `GoosegrassTests/PersistenceSchemaTests.swift`
 - Create: `GoosegrassTests/AppointmentMigrationTests.swift`
 
-- [ ] **Write RED schema and disk migration tests**
+- [x] **Write RED schema and disk migration tests (`43ee18e`; expected RED macOS CI `34943912874`)**
 
 Require V1 to remain unchanged and V2 to add exactly one model:
 
@@ -169,7 +169,7 @@ In `AppointmentMigrationTests`, create a V1-only disk container at a temporary U
 
 Push the tests and require RED because `PersistenceSchemaV2` and change mapping do not exist.
 
-- [ ] **Implement the additive schema and migration stage**
+- [x] **Implement the additive schema and migration stage (`95bb26f`)**
 
 ```swift
 enum PersistenceSchemaV2: VersionedSchema {
@@ -202,7 +202,7 @@ static var stages: [MigrationStage] {
 
 Change `PersistenceController` to construct `Schema(versionedSchema: PersistenceSchemaV2.self)`. Add mapper functions in both directions; invalid change-type raw values must throw `PersistenceError.invalidStoredValue`.
 
-- [ ] **Run migration/full CI and commit GREEN**
+- [x] **Run migration/full CI and commit GREEN (macOS CI `34944143389`)**
 
 Require the disk migration and complete test target to pass on macOS, then commit:
 

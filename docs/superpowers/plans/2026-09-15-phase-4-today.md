@@ -154,7 +154,7 @@ Require the complete macOS test target to pass and record RED/GREEN run IDs in t
 - Create: `Goosegrass/Features/Today/TodayViewModel.swift`
 - Create: `GoosegrassTests/TodayViewModelTests.swift`
 
-- [ ] **Write RED ViewModel tests**
+- [x] **Write RED ViewModel tests (`7a9d481`; expected RED macOS CI `34984876473`)**
 
 Cover initial load, card selection, all-history restoration, appointment selection/detail, Need Contact selection, quick-action availability, cancellation confirmation, reschedule draft, successful authoritative refresh, record disappearance, and error preservation.
 
@@ -177,7 +177,7 @@ final class TodayViewModel: ObservableObject {
 
 Prove that a future confirmed appointment appears under Upcoming Arrivals while its stored status remains confirmed. After arrive/no-show/cancel/reschedule, assert counts and rows are reloaded from the service rather than patched optimistically. Push and require expected RED for the missing ViewModel.
 
-- [ ] **Implement injected state and commands**
+- [x] **Implement injected state and commands (`2af9b8c`)**
 
 Provide:
 
@@ -196,7 +196,7 @@ func clearError()
 
 Cancellation sets `pendingAction` before mutation. Reschedule opens a draft only when `.reschedule` is allowed. Every successful mutation calls one `reloadThrowing()` that replaces snapshot, visible rows, and selected detail from `TodayService`. Failed operations keep the reschedule draft and expose the error.
 
-- [ ] **Run full CI and commit ViewModel GREEN**
+- [x] **Run full CI and commit ViewModel GREEN (macOS CI `34985334535`)**
 
 ```powershell
 git add Goosegrass/Features/Today/TodayViewModel.swift GoosegrassTests/TodayViewModelTests.swift

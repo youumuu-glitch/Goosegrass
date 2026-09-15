@@ -287,7 +287,7 @@ git push
 - Modify: `Goosegrass/Infrastructure/Persistence/PersistenceMapper.swift`
 - Modify: `GoosegrassTests/AppointmentRepositoryAggregateTests.swift`
 
-- [ ] **Add focused RED repository behavior**
+- [x] **Add focused RED repository behavior (`0c33276`; expected RED macOS CI `34944864317`)**
 
 Create customers with distinct sources/tags and appointments across date/status ranges. Assert each filter independently and in combination, list ordering by `startAt`, source/tag resolution, reminder summaries, detail change/activity ordering, and exclusion of appointments whose customer is archived from active workflow lists.
 
@@ -300,11 +300,11 @@ XCTAssertNil(try repository.fetch(id: orphan.id))
 XCTAssertTrue(try repository.fetchChanges(appointmentID: orphan.id).isEmpty)
 ```
 
-- [ ] **Implement aggregate reads and a single-save mutation**
+- [x] **Implement aggregate reads and a single-save mutation (`6274924`, `0f4c130`, `1d04ee0`)**
 
 Resolve customer, source, tags, reminders, appointment-scoped activities, and V2 change records in the injected context. `commit(_:)` must validate all referenced IDs first, insert/update the appointment, insert every change/activity, and invoke `context.save()` once. Do not create a container or import SwiftUI.
 
-- [ ] **Run focused/full CI and commit GREEN**
+- [x] **Run focused/full CI and commit GREEN (macOS CI `34945680101`)**
 
 ```powershell
 git add Goosegrass/Infrastructure/Persistence/LocalAppointmentRepository.swift Goosegrass/Infrastructure/Persistence/PersistenceMapper.swift GoosegrassTests/AppointmentRepositoryAggregateTests.swift

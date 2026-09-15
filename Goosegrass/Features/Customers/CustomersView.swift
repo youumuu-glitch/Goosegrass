@@ -93,13 +93,21 @@ struct CustomersView: View {
     private var customerList: some View {
         Group {
             if viewModel.rows.isEmpty {
-                EmptyStateView(
-                    icon: viewModel.query.isEmpty ? "person.2" : "magnifyingglass",
-                    title: viewModel.query.isEmpty ? "No customers yet" : "No matching customers",
-                    message: viewModel.query.isEmpty ? "Add the first customer to start building history." : "Try a different name, phone, note, tag, or source.",
-                    actionTitle: viewModel.query.isEmpty ? "Add Customer" : nil,
-                    action: viewModel.query.isEmpty ? viewModel.beginAdd : nil
-                )
+                if viewModel.query.isEmpty {
+                    EmptyStateView(
+                        icon: "person.2",
+                        title: "No customers yet",
+                        message: "Add the first customer to start building history.",
+                        actionTitle: "Add Customer",
+                        action: viewModel.beginAdd
+                    )
+                } else {
+                    EmptyStateView(
+                        icon: "magnifyingglass",
+                        title: "No matching customers",
+                        message: "Try a different name, phone, note, tag, or source."
+                    )
+                }
             } else {
                 List(selection: selection) {
                     ForEach(viewModel.rows) { row in

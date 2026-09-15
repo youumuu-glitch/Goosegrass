@@ -219,7 +219,7 @@ git push
 - Modify: `Goosegrass/Application/Repositories/AppointmentRepository.swift`
 - Create: `GoosegrassTests/AppointmentRepositoryAggregateTests.swift`
 
-- [ ] **Write RED contract tests**
+- [x] **Write RED contract tests (`2091c9b`; expected RED macOS CI `34944411710`)**
 
 Require list results to expose customer/source/tag/reminder information, detail to return newest changes and activities first, and filter values to cover date, status, customer, source, and tag.
 
@@ -268,11 +268,11 @@ func commit(_ mutation: AppointmentMutation) throws
 
 Push and require the expected RED compile failure.
 
-- [ ] **Add minimal DTOs and protocol defaults**
+- [x] **Add minimal DTOs and protocol defaults (`5a52fc2`)**
 
 Keep existing CRUD methods for compatibility. Default aggregate methods may assemble simple DTOs from existing values, while the local repository will provide the complete implementation in Task 5.
 
-- [ ] **Run full CI and commit GREEN contract boundary**
+- [x] **Run full CI and commit GREEN contract boundary (macOS CI `34944625072`)**
 
 ```powershell
 git add Goosegrass/Application/DTO/AppointmentPresentation.swift Goosegrass/Application/Repositories/AppointmentRepository.swift GoosegrassTests/AppointmentRepositoryAggregateTests.swift

@@ -88,7 +88,7 @@ Require the scaffold macOS Build/Test run to pass before adding RED tests.
 - Create: `GoosegrassTests/AppointmentLifecycleTests.swift`
 - Modify: `GoosegrassTests/DomainRulesTests.swift`
 
-- [ ] **Write a table-driven failing state-machine test**
+- [x] **Write a table-driven failing state-machine test (`29a3c69`; expected RED macOS CI `34943355526`)**
 
 Define the full action set and expected legal edges in the test:
 
@@ -115,7 +115,7 @@ for status in AppointmentStatus.allCases {
 
 Push this test alone and require the expected RED compile failure for missing lifecycle types.
 
-- [ ] **Implement the minimal pure lifecycle API**
+- [x] **Implement the minimal pure lifecycle API (`b1aeff7`)**
 
 ```swift
 enum AppointmentAction: String, CaseIterable, Equatable, Sendable {
@@ -134,7 +134,7 @@ enum AppointmentLifecycle {
 
 Keep the transition table in this Foundation-only file. Preserve the existing validator behavior: nil customer and party size below one fail, while past dates remain allowed.
 
-- [ ] **Run full CI and commit GREEN**
+- [x] **Run full CI and commit GREEN (macOS CI `34943676494`)**
 
 Require the complete test target to pass, then commit:
 

@@ -10,6 +10,13 @@ final class PersistenceSchemaTests: XCTestCase {
         XCTAssertEqual(PersistenceSchemaV1.models.count, 7)
     }
 
+    func testV2AddsOnlyAppointmentChanges() {
+        XCTAssertEqual(PersistenceSchemaV1.versionIdentifier, Schema.Version(1, 0, 0))
+        XCTAssertEqual(PersistenceSchemaV1.models.count, 7)
+        XCTAssertEqual(PersistenceSchemaV2.versionIdentifier, Schema.Version(2, 0, 0))
+        XCTAssertEqual(PersistenceSchemaV2.models.count, 8)
+    }
+
     func testCustomerAppointmentRelationshipHasAnInverse() throws {
         let controller = try PersistenceController(inMemory: true)
         let customer = PersistenceSchemaV1.CustomerRecord(

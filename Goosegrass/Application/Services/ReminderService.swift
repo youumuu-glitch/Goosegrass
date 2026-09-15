@@ -1,7 +1,12 @@
 import Foundation
 
 @MainActor
-final class ReminderService {
+protocol AppointmentReminderScheduling: AnyObject {
+    func synchronizeAfterAppointmentMutation(_ appointment: Appointment)
+}
+
+@MainActor
+final class ReminderService: AppointmentReminderScheduling {
     private let repository: any ReminderRepository
     private let appointmentRepository: any AppointmentRepository
     private let notificationCenter: any LocalNotificationCenter
@@ -30,6 +35,17 @@ final class ReminderService {
 
     func authorizationStatus() async -> LocalNotificationAuthorizationStatus {
         await notificationCenter.authorizationStatus()
+    }
+
+    func synchronizeAfterAppointmentMutation(_ appointment: Appointment) {
+        Task { [weak self] in
+            guard let self else { return }
+            if appointment.status == .rescheduled {
+                _ = await reschedule(appointment)
+            } else {
+                _ = await rebuildForAppointment(appointment)
+            }
+        }
     }
 
     func requestPermission() async throws -> Bool {

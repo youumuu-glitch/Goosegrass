@@ -57,19 +57,23 @@ final class PersistenceController {
         CustomerService(repository: makeCustomerRepository())
     }
 
-    func makeAppointmentService() -> AppointmentService {
+    func makeAppointmentService(
+        reminderScheduler: (any AppointmentReminderScheduling)? = nil
+    ) -> AppointmentService {
         AppointmentService(
             repository: makeAppointmentRepository(),
-            customerRepository: makeCustomerRepository()
+            customerRepository: makeCustomerRepository(),
+            reminderScheduler: reminderScheduler
         )
     }
 
     func makeTodayService(
+        reminderScheduler: (any AppointmentReminderScheduling)? = nil,
         calendar: Calendar = .current,
         now: @escaping () -> Date = Date.init
     ) -> TodayService {
         TodayService(
-            appointmentService: makeAppointmentService(),
+            appointmentService: makeAppointmentService(reminderScheduler: reminderScheduler),
             customerService: makeCustomerService(),
             calendar: calendar,
             now: now

@@ -19,6 +19,8 @@ final class AppointmentListViewModel: ObservableObject {
     @Published private(set) var editingAppointment: Appointment?
     @Published private(set) var pendingAction: AppointmentAction?
     @Published private(set) var datePreset: AppointmentDatePreset = .today
+    @Published private(set) var customerRows: [CustomerListItem] = []
+    @Published private(set) var catalog = CustomerCatalog(sources: [], tags: [])
     @Published private(set) var errorMessage: String?
 
     private let service: AppointmentService
@@ -52,8 +54,14 @@ final class AppointmentListViewModel: ObservableObject {
         editorDraft?.isHistorical(relativeTo: now()) ?? false
     }
 
+    var isReschedulingEditor: Bool { isRescheduling }
+
     func load() {
-        refresh()
+        perform {
+            catalog = try customerService.catalog()
+            customerRows = try customerService.list()
+            try refreshThrowing()
+        }
     }
 
     func refresh() {

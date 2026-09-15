@@ -67,7 +67,7 @@ Require unsigned macOS Build and the complete XCTest target to pass before addin
 - Create: `Goosegrass/Application/Services/TodayService.swift`
 - Create: `GoosegrassTests/TodayAggregationTests.swift`
 
-- [ ] **Write RED aggregation tests**
+- [x] **Write RED aggregation tests (`769fa5b`; expected RED macOS CI `34983956109`)**
 
 Define fixtures covering yesterday, today, tomorrow, every terminal status, a future `confirmed` appointment, a future `upcoming` appointment, a past confirmed appointment, archived customers, and `needContact` customers. Require these public values:
 
@@ -108,7 +108,7 @@ XCTAssertEqual(snapshot.appointments(for: .all).contains { $0.appointment.status
 
 Use `America/Los_Angeles` on the spring-forward date and assert the generated interval is the calendar's day interval rather than a fixed 86,400 seconds. Push the tests and require expected RED for absent Today types.
 
-- [ ] **Implement the minimal runtime aggregator**
+- [x] **Implement the minimal runtime aggregator (`20fd7cc`)**
 
 Implement:
 
@@ -138,7 +138,7 @@ row.appointment.startAt >= generatedAt
 
 Do not mutate status while taking a snapshot and do not create a timer.
 
-- [ ] **Run full CI and commit aggregation GREEN**
+- [x] **Run full CI and commit aggregation GREEN (macOS CI `34984242542`)**
 
 ```powershell
 git add Goosegrass/Application/DTO/TodayPresentation.swift Goosegrass/Application/Services/TodayService.swift GoosegrassTests/TodayAggregationTests.swift

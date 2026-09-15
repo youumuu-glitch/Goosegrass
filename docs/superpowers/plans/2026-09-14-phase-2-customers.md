@@ -114,9 +114,9 @@ enum CustomerSubmissionResult: Equatable {
 - Create: `GoosegrassTests/CustomerListViewModelTests.swift`
 
 - [x] Write failing tests for initial load, manual query refresh, selection/detail loading, add/edit sheet state, duplicate-warning routing, use-existing, create-anyway, merge, archive confirmation, and preserving drafts after errors.
-- [ ] Implement a `@MainActor final class CustomerListViewModel: ObservableObject` with published rows, detail, query, selection, editor, duplicate candidates, archive target, catalog, and alert error.
-- [ ] Inject `CustomerService` and a `now` closure. Do not import SwiftData or construct persistence objects.
-- [ ] Ensure every successful mutation refreshes rows/detail and every failure preserves the relevant user input.
+- [x] Implement a `@MainActor final class CustomerListViewModel: ObservableObject` with published rows, detail, query, selection, editor, duplicate candidates, archive target, catalog, and alert error.
+- [x] Inject `CustomerService` and a `now` closure. Do not import SwiftData or construct persistence objects.
+- [x] Ensure every successful mutation refreshes rows/detail and every failure preserves the relevant user input.
 - [ ] Run focused and full XCTest; require GREEN.
 - [ ] Commit with `feat(customers): add customer feature state`.
 

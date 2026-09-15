@@ -63,7 +63,7 @@ xcodebuild test \
 | Phase 2 macOS build and customer tests | Disk-relaunch acceptance passed in push run `34940016333`; latest source candidate passed in push run `34940456953`; PR run `34941002213` passed on 2026-09-15 |
 | Phase 3 macOS build and appointment tests | Schema migration passed in `34944143389`; workspace passed in `34947553894`; disk lifecycle acceptance passed in `34947854294` on 2026-09-15 |
 | Phase 3 PR and post-merge verification | PR #4 passed in `34948458801`; merged `main` passed in `34948667447` on 2026-09-15 |
-| Phase 4 macOS build and Today tests | Aggregation passed in `34984242542`; ViewModel in `34985334535`; workspace in `34986213102`; disk-relaunch acceptance in `34986598003` on 2026-09-15 |
+| Phase 4 macOS build and Today tests | Aggregation passed in `34984242542`; ViewModel in `34985334535`; workspace in `34986213102`; disk-relaunch acceptance in `34986598003`; documented source candidate in `34987024444` on 2026-09-15 |
 | Real Mac UI, keyboard, focus, and VoiceOver QA | Not Verified |
 | Notifications and permissions | Not Verified |
 | Signing and packaging | Not Verified |

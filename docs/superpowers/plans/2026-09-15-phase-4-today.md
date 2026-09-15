@@ -275,7 +275,7 @@ git push
 
 Document runtime-only Upcoming Arrivals, card/list semantic separation, authoritative refresh, unchanged Schema V2, all Phase 4 RED/GREEN run IDs, Phase 3 post-merge main run `34948667447`, and every remaining **Not Verified** real-Mac/signing item.
 
-- [ ] **Run fresh candidate verification**
+- [x] **Run fresh candidate verification (Windows Phase 0–4 gate and diff checks passed; source candidate `5f8437b` macOS CI `34987024444`)**
 
 ```powershell
 pwsh -NoProfile -File scripts/validate-phase4.ps1

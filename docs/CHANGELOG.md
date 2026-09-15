@@ -44,6 +44,6 @@ All notable project changes are documented here.
 - Phase 3 Schema V2 migration, workspace, and lifecycle acceptance passed in macOS runs `34944143389`, `34947553894`, and `34947854294`.
 - Phase 3 PR #4 and post-merge main CI passed in runs `34948458801` and `34948667447`.
 - Windows Phase 4 static validation passed on 2026-09-15.
-- Phase 4 aggregation, ViewModel, workspace, and disk-relaunch acceptance passed in macOS runs `34984242542`, `34985334535`, `34986213102`, and `34986598003`.
+- Phase 4 aggregation, ViewModel, workspace, disk-relaunch acceptance, and documented source candidate passed in macOS runs `34984242542`, `34985334535`, `34986213102`, `34986598003`, and `34987024444`.
 - Real Mac Customers UI appearance, keyboard navigation, focus behavior, and VoiceOver: **Not Verified**.
 - Apple Developer Team, signing, provisioning, notarization, and packaging: **Not Verified**.

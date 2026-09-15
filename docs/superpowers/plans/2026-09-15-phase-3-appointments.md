@@ -320,7 +320,7 @@ git push
 - Modify: `Goosegrass/Infrastructure/Persistence/PersistenceController.swift`
 - Create: `GoosegrassTests/AppointmentServiceLifecycleTests.swift`
 
-- [ ] **Write RED service tests for every operation**
+- [x] **Write RED service tests for every operation (`28829f9`; expected RED macOS CI `34946064682`)**
 
 Use recording repository stubs to prove:
 
@@ -333,7 +333,7 @@ Use recording repository stubs to prove:
 
 Push RED before implementation.
 
-- [ ] **Implement the editor draft and service API**
+- [x] **Implement the editor draft and service API (`e5e5611`)**
 
 ```swift
 struct AppointmentEditorDraft: Equatable, Sendable {
@@ -364,7 +364,7 @@ final class AppointmentService {
 
 Use Codable field snapshots and stable ISO-8601 encoding. Trim request/note/reason fields. Route all writes through one `AppointmentMutation` commit. Add `PersistenceController.makeAppointmentService()` using repositories from the same context.
 
-- [ ] **Run service/full CI and commit GREEN**
+- [x] **Run service/full CI and commit GREEN (macOS CI `34946414804`)**
 
 ```powershell
 git add Goosegrass/Features/Appointments/AppointmentEditorDraft.swift Goosegrass/Application/Services/AppointmentService.swift Goosegrass/Infrastructure/Persistence/PersistenceController.swift GoosegrassTests/AppointmentServiceLifecycleTests.swift

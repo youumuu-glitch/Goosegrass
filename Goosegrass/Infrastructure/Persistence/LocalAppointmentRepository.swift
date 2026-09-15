@@ -61,7 +61,9 @@ final class LocalAppointmentRepository: AppointmentRepository {
             guard let customer = record.customer, !customer.isArchived else { return nil }
             guard filter.customerID == nil || record.customerID == filter.customerID else { return nil }
             guard filter.dateInterval?.contains(record.startAt) ?? true else { return nil }
-            guard filter.statuses.isEmpty || filter.statuses.contains(try appointmentStatus(record)) else { return nil }
+            if !filter.statuses.isEmpty {
+                guard filter.statuses.contains(try appointmentStatus(record)) else { return nil }
+            }
             guard filter.sourceID == nil || record.sourceID == filter.sourceID else { return nil }
             guard filter.tagID == nil || customer.tags.contains(where: { $0.id == filter.tagID }) else { return nil }
             return try makeListItem(from: record, customer: customer)

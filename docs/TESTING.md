@@ -45,4 +45,8 @@ Real Mac appointment UI appearance, keyboard/focus behavior, VoiceOver, notifica
 
 ## Phase 4 gates
 
-Phase 4 adds the runtime Today dashboard, counts, complete same-day history, quick actions, inspector reuse, and disk-backed refresh acceptance. Until Phase 4 macOS workflows execute, its Build and XCTest results are **Not Verified**. Real Mac Today UI appearance, keyboard/focus behavior, VoiceOver, notification delivery, Apple Developer Team configuration, signing, provisioning, notarization, and packaging remain **Not Verified**.
+Windows `scripts/validate-phase4.ps1` passed on 2026-09-15. It preserves Phase 0–3 gates and checks the Today source/test inventory, feature boundary, unchanged Schema V2, workflow integration, documentation, and Xcode membership; Windows cannot compile Swift or execute SwiftData.
+
+macOS CI covers local-calendar aggregation, future-confirmed runtime inclusion without status mutation, card/list semantic separation, ViewModel selection and authoritative refresh, shared application composition, native SwiftUI compilation, and a two-relaunch disk acceptance chain. Expected RED runs were aggregation `34983956109`, ViewModel `34984876473`, and composition `34985697981`. Their GREEN runs were `34984242542`, `34985334535`, and `34986213102`; disk-relaunch acceptance passed in `34986598003`. Phase 3 PR #4 and post-merge `main` passed in `34948458801` and `34948667447`.
+
+Real Mac Today UI appearance, keyboard/focus behavior, VoiceOver, notification delivery, Apple Developer Team configuration, signing, provisioning, notarization, and packaging remain **Not Verified**.

@@ -244,13 +244,13 @@ git push
 **Files:**
 - Create: `GoosegrassTests/TodayAcceptanceTests.swift`
 
-- [ ] **Write disk-backed acceptance coverage before corrective code**
+- [x] **Write disk-backed acceptance coverage before corrective code (`1e190fd`; macOS CI `34986598003`; no corrective production code required)**
 
 Create a temporary disk store with stable UUIDs and a fixed local calendar. Persist same-day confirmed, upcoming, completed, cancelled, and no-show appointments plus a need-contact customer. Relaunch, build a Today snapshot, and assert exact counts and complete main-list IDs. Then perform arrive, cancel, no-show, and reschedule commands through `TodayViewModel`, relaunch again, and assert counts, statuses, histories, and customer relationships remain correct.
 
 The test must explicitly assert that taking a snapshot leaves a future confirmed appointment's stored status unchanged.
 
-- [ ] **Run acceptance/full CI and make only tested corrections**
+- [x] **Run acceptance/full CI and make only tested corrections (macOS CI `34986598003`)**
 
 If the test exposes a defect, preserve the failing commit/run, add the smallest correction, and re-run the complete macOS target. Commit the final acceptance state:
 
@@ -271,7 +271,7 @@ git push
 - Modify: `docs/superpowers/plans/2026-09-15-phase-3-appointments.md`
 - Modify: `docs/superpowers/plans/2026-09-15-phase-4-today.md`
 
-- [ ] **Record behavior and verification evidence**
+- [x] **Record behavior and verification evidence**
 
 Document runtime-only Upcoming Arrivals, card/list semantic separation, authoritative refresh, unchanged Schema V2, all Phase 4 RED/GREEN run IDs, Phase 3 post-merge main run `34948667447`, and every remaining **Not Verified** real-Mac/signing item.
 

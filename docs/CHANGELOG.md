@@ -23,6 +23,8 @@ All notable project changes are documented here.
 - Schema V2 with durable appointment-change records and a tested V1 lightweight migration.
 - Explicit appointment lifecycle policy, aggregate repository/service boundary, filters, histories, observable feature state, and native Appointments workspace.
 - Disk-backed acceptance for complete, cancel, reschedule/reconfirm, and no-show lifecycle paths.
+- Default Today workspace with four summary cards, a complete same-day appointment list, Need Contact queue, Phase 3 inspector reuse, and lifecycle-derived quick actions.
+- Runtime Upcoming Arrivals aggregation for future confirmed/upcoming appointments, card/list semantic separation, authoritative post-action refresh, and two-relaunch disk acceptance without a schema change.
 
 ### Verification
 
@@ -40,5 +42,8 @@ All notable project changes are documented here.
 - Phase 2 post-merge main CI: passed in GitHub Actions run `34941490470` on 2026-09-15.
 - Windows Phase 3 static validation: passed on 2026-09-15.
 - Phase 3 Schema V2 migration, workspace, and lifecycle acceptance passed in macOS runs `34944143389`, `34947553894`, and `34947854294`.
+- Phase 3 PR #4 and post-merge main CI passed in runs `34948458801` and `34948667447`.
+- Windows Phase 4 static validation passed on 2026-09-15.
+- Phase 4 aggregation, ViewModel, workspace, disk-relaunch acceptance, and documented source candidate passed in macOS runs `34984242542`, `34985334535`, `34986213102`, `34986598003`, and `34987024444`.
 - Real Mac Customers UI appearance, keyboard navigation, focus behavior, and VoiceOver: **Not Verified**.
 - Apple Developer Team, signing, provisioning, notarization, and packaging: **Not Verified**.

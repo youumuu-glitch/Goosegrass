@@ -478,7 +478,7 @@ Assert stable appointment/customer UUIDs, exact lifecycle timestamps, ordered Ap
 
 Record Schema V2, transition rules, filters, acceptance runs, Phase 2 post-merge main run `34941490470`, and all Phase 3 RED/GREEN run IDs. Mark real Mac appearance, keyboard/focus, VoiceOver, notification delivery, Team ID, signing, provisioning, notarization, and packaging **Not Verified**.
 
-- [ ] **Run candidate verification**
+- [x] **Run candidate verification (Windows gate and macOS push CI passed)**
 
 ```powershell
 pwsh -NoProfile -File scripts/validate-phase3.ps1
@@ -488,10 +488,10 @@ git status --short
 
 Require a clean candidate and a successful macOS push Build/Test run.
 
-- [ ] **Create, verify, and merge the PR**
+- [x] **Create, verify, and merge the PR (PR #4 CI `34948458801`; post-merge main CI `34948667447`)**
 
 Create a PR from `feature/phase-3-appointments` to `main`. Require pull-request Build/Test success, `mergeable=true`, and no conflict before merge. After merging, synchronize local main and require post-merge main Build/Test success.
 
-- [ ] **Clean up only after post-merge success**
+- [x] **Clean up only after post-merge success**
 
 From `E:\Goosegrass`, verify the worktree path resolves under `E:\Goosegrass\.worktrees`, remove it with `git worktree remove`, prune, delete the merged local branch, and delete the remote feature branch. Then begin Phase 4 from the verified main commit.

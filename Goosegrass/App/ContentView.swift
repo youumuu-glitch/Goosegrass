@@ -28,11 +28,19 @@ enum AppDestination: String, CaseIterable, Identifiable {
 
 @MainActor
 struct ContentView: View {
-    @State private var destination: AppDestination? = .customers
+    static let initialDestination: AppDestination = .today
+
+    @State private var destination: AppDestination? = Self.initialDestination
+    @StateObject private var todayViewModel: TodayViewModel
     @StateObject private var customerViewModel: CustomerListViewModel
     @StateObject private var appointmentViewModel: AppointmentListViewModel
 
-    init(customerService: CustomerService, appointmentService: AppointmentService) {
+    init(
+        customerService: CustomerService,
+        appointmentService: AppointmentService,
+        todayService: TodayService
+    ) {
+        _todayViewModel = StateObject(wrappedValue: TodayViewModel(service: todayService))
         _customerViewModel = StateObject(wrappedValue: CustomerListViewModel(service: customerService))
         _appointmentViewModel = StateObject(wrappedValue: AppointmentListViewModel(
             service: appointmentService,
@@ -50,6 +58,11 @@ struct ContentView: View {
             .frame(minWidth: 190)
         } detail: {
             switch destination {
+            case .today:
+                TodayView(viewModel: todayViewModel) {
+                    appointmentViewModel.beginAdd()
+                    destination = .appointments
+                }
             case .appointments:
                 AppointmentsView(viewModel: appointmentViewModel)
             case .customers:

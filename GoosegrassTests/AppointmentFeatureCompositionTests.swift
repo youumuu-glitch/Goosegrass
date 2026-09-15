@@ -36,7 +36,8 @@ final class AppointmentFeatureCompositionTests: XCTestCase {
         _ = AppointmentsView(viewModel: viewModel).body
         _ = ContentView(
             customerService: controller.makeCustomerService(),
-            appointmentService: controller.makeAppointmentService()
+            appointmentService: controller.makeAppointmentService(),
+            todayService: controller.makeTodayService()
         ).body
     }
 }

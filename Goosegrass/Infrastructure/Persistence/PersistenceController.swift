@@ -59,4 +59,16 @@ final class PersistenceController {
             customerRepository: makeCustomerRepository()
         )
     }
+
+    func makeTodayService(
+        calendar: Calendar = .current,
+        now: @escaping () -> Date = Date.init
+    ) -> TodayService {
+        TodayService(
+            appointmentService: makeAppointmentService(),
+            customerService: makeCustomerService(),
+            calendar: calendar,
+            now: now
+        )
+    }
 }

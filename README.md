@@ -28,10 +28,10 @@ No Apple Development Team, signing identity, or provisioning profile is configur
 ## Windows validation
 
 ```powershell
-pwsh -NoProfile -File scripts/validate-phase3.ps1
+pwsh -NoProfile -File scripts/validate-phase4.ps1
 ```
 
-This preserves earlier gates and checks the Phase 3 appointment source/test inventory, feature boundaries, schema versioning, documentation, and Xcode target membership. It does not compile Swift or execute SwiftData.
+This preserves earlier gates and checks the Phase 4 Today source/test inventory, feature boundaries, unchanged Schema V2, documentation, and Xcode target membership. It does not compile Swift or execute SwiftData.
 
 ## macOS build and test
 
@@ -62,8 +62,10 @@ xcodebuild test \
 | Phase 1 macOS build and SwiftData tests | Passed in GitHub Actions push run `34855677073` and PR run `34857548677` on 2026-09-14 |
 | Phase 2 macOS build and customer tests | Disk-relaunch acceptance passed in push run `34940016333`; latest source candidate passed in push run `34940456953`; PR run `34941002213` passed on 2026-09-15 |
 | Phase 3 macOS build and appointment tests | Schema migration passed in `34944143389`; workspace passed in `34947553894`; disk lifecycle acceptance passed in `34947854294` on 2026-09-15 |
+| Phase 3 PR and post-merge verification | PR #4 passed in `34948458801`; merged `main` passed in `34948667447` on 2026-09-15 |
+| Phase 4 macOS build and Today tests | Aggregation passed in `34984242542`; ViewModel in `34985334535`; workspace in `34986213102`; disk-relaunch acceptance in `34986598003`; documented source candidate in `34987024444` on 2026-09-15 |
 | Real Mac UI, keyboard, focus, and VoiceOver QA | Not Verified |
 | Notifications and permissions | Not Verified |
 | Signing and packaging | Not Verified |
 
-Phase 3 now provides the persistent Appointments workspace, explicit lifecycle rules, aggregate filters/history, Schema V2 appointment changes, and disk-backed relaunch acceptance. Interactive UX, notification, permission, signing, and packaging validation still require a real Mac.
+Phase 4 now provides the default Today workspace, runtime-only upcoming-arrival aggregation, complete same-day history, quick actions with authoritative reloads, and disk-backed relaunch acceptance. Interactive UX, notification, permission, signing, and packaging validation still require a real Mac.

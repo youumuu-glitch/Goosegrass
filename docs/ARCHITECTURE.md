@@ -24,7 +24,7 @@ Dependencies point inward. Domain code uses Foundation value types and pure rule
 
 ## Phase ownership
 
-Phase 0 establishes the project, boundaries, and value-oriented domain contracts. Phase 1 owns SwiftData schema versions, persistence entities, repositories, model-container lifecycle, migrations, and CRUD/relationship verification. Phase 2 adds the Customers workflow through presentation DTOs, `CustomerService`, and an observable feature ViewModel without bypassing those boundaries. Later phases follow the same dependency direction.
+Phase 0 establishes the project, boundaries, and value-oriented domain contracts. Phase 1 owns SwiftData schema versions, persistence entities, repositories, model-container lifecycle, migrations, and CRUD/relationship verification. Phase 2 adds Customers, Phase 3 adds Appointments, and Phase 4 composes their application services into the Today workspace without bypassing those boundaries. Later phases follow the same dependency direction.
 
 ## Local persistence composition
 
@@ -37,6 +37,12 @@ Phase 1 implements Customer and Appointment repository/service foundations. Acti
 ## Appointments feature composition
 
 `ContentView` owns one `AppointmentListViewModel` alongside the customer feature. Both services are created from the same application `PersistenceController`. The pure `AppointmentLifecycle` rejects illegal edges; `AppointmentService` creates changes and activities; `LocalAppointmentRepository.commit` validates the whole aggregate before one save. SwiftUI does not import SwiftData, and notification delivery remains Phase 5 work.
+
+## Today feature composition
+
+`TodayService` combines `AppointmentService` and `CustomerService` at runtime; it introduces no repository, cache, timer, or stored dashboard state. `Calendar.dateInterval(of: .day)` defines the local civil day. Upcoming Arrivals includes future `confirmed` and `upcoming` appointments without changing their persisted lifecycle status. The Today's Appointments card excludes cancelled records, while the default main list preserves every same-day record for complete operational history.
+
+`TodayViewModel` replaces its snapshot, selected rows, counts, and inspector detail by rereading `TodayService` after every successful action. `ContentView` owns this ViewModel, makes Today the initial destination, and reuses the Phase 3 appointment inspector and editor. Schema V2 remains unchanged, and Phase 5 notification behavior is not implemented here.
 
 ## Customers feature composition
 

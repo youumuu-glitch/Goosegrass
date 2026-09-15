@@ -36,3 +36,7 @@ The macOS suite covers service validation and lifecycle behavior, aggregate repo
 Phase 2 retained explicit RED/GREEN evidence: service boundary run `34859703564`, aggregate run `34860552262`, lifecycle run `34868753639`, ViewModel run `34869420174`, and composition run `34921577925` failed before their implementations; SwiftUI integration run `34921966148` exposed a compiler diagnostic before corrected run `34939712021` passed. Pull-request run `34941002213` completed both Build and Test successfully for PR #3 on 2026-09-15.
 
 Real Mac UI appearance, keyboard navigation, focus behavior, VoiceOver, notification permission/delivery, Apple Developer Team configuration, signing, provisioning, notarization, and packaging remain **Not Verified**.
+
+## Phase 3 gates
+
+Phase 3 adds the appointment lifecycle, structured change history, Schema V2 migration, aggregate repository, ViewModel, composition, and disk-backed acceptance coverage. Until the Phase 3 macOS workflows execute, Schema V2 migration, Build, and XCTest are **Not Verified**. Real Mac appointment UI appearance, keyboard/focus behavior, VoiceOver, notification delivery, Apple Developer Team configuration, signing, provisioning, notarization, and packaging remain **Not Verified**.

@@ -18,7 +18,7 @@
 - Modify: `Goosegrass.xcodeproj/project.pbxproj`
 - Create empty source/test files listed by the validator
 
-- [ ] **Write the Phase 3 validator and run the expected RED gate**
+- [x] **Write the Phase 3 validator and run the expected RED gate**
 
 Require these production files:
 
@@ -59,7 +59,7 @@ pwsh -NoProfile -File scripts/validate-phase3.ps1
 
 Expected: FAIL listing the absent Phase 3 source/test files.
 
-- [ ] **Wire CI and add compile-neutral placeholders**
+- [x] **Wire CI and add compile-neutral placeholders**
 
 Change the workflow validation step to:
 

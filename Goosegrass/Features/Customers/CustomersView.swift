@@ -29,8 +29,8 @@ struct CustomersView: View {
         }
         .navigationTitle("Customers")
         .searchable(text: $viewModel.query, placement: .toolbar, prompt: "Name, phone, notes, tag, or source")
-        .onSubmit(of: .search, viewModel.refresh)
-        .onChange(of: viewModel.query) { _ in viewModel.refresh() }
+        .onSubmit(of: .search) { viewModel.refresh() }
+        .onChange(of: viewModel.query) { viewModel.refresh() }
         .toolbar {
             ToolbarItemGroup {
                 Button(action: viewModel.beginAdd) {
@@ -121,7 +121,10 @@ struct CustomersView: View {
     }
 
     private var selection: Binding<UUID?> {
-        Binding(get: { viewModel.selectedCustomerID }, set: viewModel.select)
+        Binding(
+            get: { viewModel.selectedCustomerID },
+            set: { selectedID in viewModel.select(selectedID) }
+        )
     }
 
     private var editorPresented: Binding<Bool> {
@@ -175,6 +178,24 @@ private struct CustomerRow: View {
             if !item.customer.notes.isEmpty {
                 Text(item.customer.notes).lineLimit(1).font(.caption)
             }
+            HStack(spacing: 12) {
+                if let lastContactedAt = item.customer.lastContactedAt {
+                    Label {
+                        Text("Contacted \(lastContactedAt, format: .dateTime.year().month().day())")
+                    } icon: {
+                        Image(systemName: "bubble.left")
+                    }
+                }
+                if let nextAppointmentAt = item.nextAppointmentAt {
+                    Label {
+                        Text("Next \(nextAppointmentAt, format: .dateTime.month().day().hour().minute())")
+                    } icon: {
+                        Image(systemName: "calendar")
+                    }
+                }
+            }
+            .font(.caption2)
+            .foregroundStyle(.secondary)
         }
         .padding(.vertical, 4)
         .accessibilityElement(children: .combine)

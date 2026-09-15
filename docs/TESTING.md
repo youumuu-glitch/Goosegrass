@@ -29,4 +29,10 @@ Real Mac interactive UI, keyboard navigation, VoiceOver, notification permission
 
 ## Phase 2 gates
 
-Phase 2 adds customer service, persistence, ViewModel, composition, and disk-relaunch acceptance coverage. Until its push and pull-request workflows complete, macOS build and XCTest remain **Not Verified**. Real Mac UI appearance, keyboard navigation, focus behavior, and VoiceOver also remain **Not Verified**.
+Windows runs `scripts/validate-phase2.ps1`, preserving all Phase 0/1 checks and verifying the customer source/test inventory, feature-to-persistence boundary, Xcode target membership, and required verification wording. It passed on 2026-09-15; as a static gate it cannot compile Swift or execute SwiftData.
+
+The macOS suite covers service validation and lifecycle behavior, aggregate repository search/catalog/timeline/merge behavior, ViewModel state transitions, application-owned dependency composition, and a disk-backed `Create → Relaunch → Search → Edit → Archive → Relaunch` acceptance chain with stable UUID assertions. Push run `34940016333` completed unsigned `xcodebuild build` and the complete XCTest target successfully on 2026-09-15.
+
+Phase 2 retained explicit RED/GREEN evidence: service boundary run `34859703564`, aggregate run `34860552262`, lifecycle run `34868753639`, ViewModel run `34869420174`, and composition run `34921577925` failed before their implementations; SwiftUI integration run `34921966148` exposed a compiler diagnostic before corrected run `34939712021` passed. Pull-request CI remains pending until the Phase 2 PR exists.
+
+Real Mac UI appearance, keyboard navigation, focus behavior, VoiceOver, notification permission/delivery, Apple Developer Team configuration, signing, provisioning, notarization, and packaging remain **Not Verified**.

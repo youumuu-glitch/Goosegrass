@@ -19,7 +19,7 @@
 - [x] Add a validator that invokes `validate-phase1.ps1`, requires every Phase 2 source/test file, rejects `import SwiftData` in feature/ViewModel files, verifies Xcode target membership, and requires the Phase 2 Not Verified statement.
 - [x] Run `pwsh -NoProfile -File scripts/validate-phase2.ps1` and record the expected RED result listing the missing Phase 2 files.
 - [x] Update CI to run the latest static validator before `xcodebuild`, while retaining unsigned build/test commands.
-- [ ] Commit the red gate with `test(customers): define Phase 2 acceptance gate`.
+- [x] Commit the red gate with `test(customers): define Phase 2 acceptance gate`.
 
 ### Task 2: Define customer presentation models and aggregate contracts
 
@@ -137,18 +137,18 @@ enum CustomerSubmissionResult: Equatable {
 - [x] Build a searchable customer table/list, selection-driven detail, toolbar Add/Edit/Archive commands, form validation, duplicate sheet with all three choices, and archive confirmation.
 - [x] Build a reverse-chronological timeline and clear empty/loading/error states. Add accessibility labels, help text, focus order, `Command-N`, Return, and Escape behavior where SwiftUI supports it.
 - [x] Keep future destination rows as clearly labeled placeholders without speculative services or containers.
-- [ ] Run the complete XCTest target in macOS CI and require GREEN.
-- [ ] Commit with `feat(customers): build customer workspace`.
+- [x] Run the complete XCTest target in macOS CI and require GREEN (`34939712021`).
+- [x] Commit with `feat(customers): build customer workspace` (`8abc852`; compiler-composition fix `5f8536d`).
 
 ### Task 7: Prove the Phase 2 relaunch acceptance chain
 
 **Files:**
 - Create: `GoosegrassTests/CustomerAcceptanceTests.swift`
 
-- [ ] Write a disk-backed test that executes `Create → close container → reopen → Search → Edit → Archive`, asserting the same UUID survives and the default list becomes empty only after archive.
-- [ ] Run the new test before any corrective code and confirm RED if the chain exposes a defect; fix only through a minimal tested change.
-- [ ] Run all tests and `pwsh -NoProfile -File scripts/validate-phase2.ps1`; require GREEN/PASS.
-- [ ] Commit with `test(customers): prove relaunch acceptance chain`.
+- [x] Write a disk-backed test that executes `Create → close container → reopen → Search → Edit → Archive`, asserting the same UUID survives and the default list becomes empty only after archive.
+- [x] Run the new test before any corrective code; it passed without exposing a persistence defect (`34940016333`).
+- [x] Run all tests and `pwsh -NoProfile -File scripts/validate-phase2.ps1`; require GREEN/PASS (`34940016333`).
+- [x] Commit with `test(customers): prove relaunch acceptance chain` (`68bd6a7`).
 
 ### Task 8: Wire Xcode, document evidence, and finish the branch
 
@@ -161,9 +161,9 @@ enum CustomerSubmissionResult: Equatable {
 - Modify: `docs/CHANGELOG.md`
 - Modify: `docs/superpowers/plans/2026-09-14-phase-2-customers.md`
 
-- [ ] Add every Phase 2 source and test to the correct Xcode Sources build phase.
-- [ ] Update architecture, data model, testing, README, and changelog with exact implemented behavior and evidence IDs.
-- [ ] Explicitly mark real Mac UI appearance, keyboard, focus, VoiceOver, and notification delivery as **Not Verified**; keep Team ID/signing/provisioning unset.
+- [x] Add every Phase 2 source and test to the correct Xcode Sources build phase.
+- [x] Update architecture, data model, testing, README, and changelog with exact implemented behavior and evidence IDs.
+- [x] Explicitly mark real Mac UI appearance, keyboard, focus, VoiceOver, and notification delivery as **Not Verified**; keep Team ID/signing/provisioning unset.
 - [ ] Run `git diff --check` and `pwsh -NoProfile -File scripts/validate-phase2.ps1` from a clean candidate tree.
 - [ ] Push `feature/phase-2-customers`, require macOS push CI Build/Test PASS, open a PR, and require PR CI Build/Test PASS.
 - [ ] Merge only when PR checks pass and the PR is conflict-free; require post-merge `main` CI PASS before branch/worktree cleanup.

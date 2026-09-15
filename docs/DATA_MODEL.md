@@ -34,3 +34,12 @@ All main records use UUID identifiers and `Date` values. Business timestamps use
 - Customer requests and internal notes are separate fields.
 - Archive/cancel operations must retain related history.
 - Rescheduling must produce change history before Phase 3 can be accepted.
+
+## Phase 2 customer aggregates
+
+- Customer lists resolve source and tag names plus the next active appointment without exposing persistence records to SwiftUI.
+- Customer detail resolves source, tags, and activities ordered newest first.
+- Search covers display/legal name, original and normalized phone (including phone tail), email, notes, source name, and tag name; archived customers remain excluded from the default list.
+- The initial source catalog is seeded idempotently with `小红书`, `抖音`, `大众点评`, `微信`, `电话`, `朋友介绍`, `线下`, and `其他`.
+- Tags deduplicate case-insensitively. A normalized-phone match creates an explicit duplicate decision; create-anyway, use-existing, and merge remain separate user choices.
+- Customer updates preserve UUID and `createdAt`. Archive sets the archive flag and status while retaining relationships and timeline history.

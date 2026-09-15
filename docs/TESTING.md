@@ -42,3 +42,7 @@ Real Mac UI appearance, keyboard navigation, focus behavior, VoiceOver, notifica
 Windows `scripts/validate-phase3.ps1` passed on 2026-09-15. macOS CI proved Schema V2 migration (`34944143389`), lifecycle policy/service and aggregate persistence (`34943676494`, `34945680101`, `34946414804`), ViewModel (`34946975700`), workspace composition (`34947553894`), and disk-backed complete/cancel/reschedule/no-show acceptance (`34947854294`). Expected RED runs were `34943355526`, `34943912874`, `34944411710`, `34944864317`, `34946064682`, `34946693321`, and `34947208275`.
 
 Real Mac appointment UI appearance, keyboard/focus behavior, VoiceOver, notification delivery, Apple Developer Team configuration, signing, provisioning, notarization, and packaging remain **Not Verified**.
+
+## Phase 4 gates
+
+Phase 4 adds the runtime Today dashboard, counts, complete same-day history, quick actions, inspector reuse, and disk-backed refresh acceptance. Until Phase 4 macOS workflows execute, its Build and XCTest results are **Not Verified**. Real Mac Today UI appearance, keyboard/focus behavior, VoiceOver, notification delivery, Apple Developer Team configuration, signing, provisioning, notarization, and packaging remain **Not Verified**.

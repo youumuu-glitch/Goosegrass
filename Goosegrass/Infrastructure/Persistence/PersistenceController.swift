@@ -52,4 +52,11 @@ final class PersistenceController {
     func makeCustomerService() -> CustomerService {
         CustomerService(repository: makeCustomerRepository())
     }
+
+    func makeAppointmentService() -> AppointmentService {
+        AppointmentService(
+            repository: makeAppointmentRepository(),
+            customerRepository: makeCustomerRepository()
+        )
+    }
 }

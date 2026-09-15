@@ -378,11 +378,11 @@ git push
 - Create: `Goosegrass/Features/Appointments/AppointmentListViewModel.swift`
 - Create: `GoosegrassTests/AppointmentListViewModelTests.swift`
 
-- [ ] **Write RED observable-state tests**
+- [x] **Write RED observable-state tests (`9e1c478`; expected RED macOS CI `34946693321`)**
 
 Cover initial load, date presets, combined filters, selection/detail, add/edit/reschedule draft state, historical warning, cancel confirmation, allowed action list, each lifecycle command, authoritative refresh, customer preselection, and preservation of drafts after errors.
 
-- [ ] **Implement injected feature state**
+- [x] **Implement injected feature state (`ce18ec6`)**
 
 ```swift
 @MainActor
@@ -400,7 +400,7 @@ final class AppointmentListViewModel: ObservableObject {
 
 Inject `AppointmentService`, `CustomerService`, `Calendar`, and `now`. Compute today/tomorrow/week intervals using `Calendar`; never hard-code seconds for civil-day boundaries. Do not import SwiftData.
 
-- [ ] **Run ViewModel/full CI and commit GREEN**
+- [x] **Run ViewModel/full CI and commit GREEN (macOS CI `34946975700`)**
 
 ```powershell
 git add Goosegrass/Features/Appointments/AppointmentListViewModel.swift GoosegrassTests/AppointmentListViewModelTests.swift

@@ -5,7 +5,7 @@ Work proceeds one verifiable phase at a time:
 1. Phase 0 — repository, architecture, native app/test scaffold, domain contracts, and CI gate.
 2. Phase 1 — versioned SwiftData persistence, repositories, services, Customer/Appointment relationships, and persistence tests.
 3. Phase 2 — customer workflows.
-4. Phase 3 — appointment lifecycle and history.
+4. Phase 3 — appointment lifecycle and history. **Implemented; PR verification pending.**
 5. Phase 4 — Today workspace.
 6. Phase 5 — local notifications.
 7. Phase 6 — follow-up workflows.

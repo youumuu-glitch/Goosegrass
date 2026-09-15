@@ -167,4 +167,4 @@ enum CustomerSubmissionResult: Equatable {
 - [x] Run `git diff --check` and `pwsh -NoProfile -File scripts/validate-phase2.ps1` from the candidate tree.
 - [x] Push `feature/phase-2-customers` and require macOS push CI Build/Test PASS (`34940456953`).
 - [x] Open PR #3 and require PR CI Build/Test PASS (`34941002213`).
-- [ ] Merge only when PR checks pass and the PR is conflict-free; require post-merge `main` CI PASS before branch/worktree cleanup.
+- [x] Merge only when PR checks pass and the PR is conflict-free; post-merge `main` CI `34941490470` passed before branch/worktree cleanup.

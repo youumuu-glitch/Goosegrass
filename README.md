@@ -28,10 +28,10 @@ No Apple Development Team, signing identity, or provisioning profile is configur
 ## Windows validation
 
 ```powershell
-pwsh -NoProfile -File scripts/validate-phase2.ps1
+pwsh -NoProfile -File scripts/validate-phase3.ps1
 ```
 
-This checks repository shape, Phase 1 persistence wiring, the Phase 2 customer feature inventory and boundaries, and Xcode target membership. It does not compile Swift or execute SwiftData.
+This preserves earlier gates and checks the Phase 3 appointment source/test inventory, feature boundaries, schema versioning, documentation, and Xcode target membership. It does not compile Swift or execute SwiftData.
 
 ## macOS build and test
 
@@ -61,8 +61,9 @@ xcodebuild test \
 | Phase 0 macOS unit tests | Passed in GitHub Actions on 2026-09-13 |
 | Phase 1 macOS build and SwiftData tests | Passed in GitHub Actions push run `34855677073` and PR run `34857548677` on 2026-09-14 |
 | Phase 2 macOS build and customer tests | Disk-relaunch acceptance passed in push run `34940016333`; latest source candidate passed in push run `34940456953`; PR run `34941002213` passed on 2026-09-15 |
+| Phase 3 macOS build and appointment tests | Schema migration passed in `34944143389`; workspace passed in `34947553894`; disk lifecycle acceptance passed in `34947854294` on 2026-09-15 |
 | Real Mac UI, keyboard, focus, and VoiceOver QA | Not Verified |
 | Notifications and permissions | Not Verified |
 | Signing and packaging | Not Verified |
 
-Phase 2 now provides the persistent Customers workspace: create/edit/search/archive, detail and activity timeline, source/tag catalog, duplicate review and merge, and a disk-backed relaunch acceptance chain. Interactive UX, notification, permission, signing, and packaging validation still require a real Mac.
+Phase 3 now provides the persistent Appointments workspace, explicit lifecycle rules, aggregate filters/history, Schema V2 appointment changes, and disk-backed relaunch acceptance. Interactive UX, notification, permission, signing, and packaging validation still require a real Mac.

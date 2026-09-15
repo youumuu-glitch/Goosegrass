@@ -4,7 +4,7 @@ Foundation-only value models remain the domain contracts. Phase 1 adds `Persiste
 
 ## Schema version and relationships
 
-- Schema version: `1.0.0`, registered through `GoosegrassMigrationPlan`.
+- Current schema version: `2.0.0`, registered through `GoosegrassMigrationPlan`; V1 remains unchanged at `1.0.0`.
 - Persisted Phase 1 records: Customer, Appointment, Activity, FollowUp, LeadSource, Tag, and Reminder.
 - Customer owns navigable collections for appointments, activities, follow-ups, and tags.
 - Appointment retains its durable `customerID` and a SwiftData relationship back to Customer.
@@ -12,6 +12,8 @@ Foundation-only value models remain the domain contracts. Phase 1 adds `Persiste
 - Status/type values are stored using stable enum raw values. Invalid stored values surface as persistence errors instead of silently changing business state.
 
 Future schema changes require a new `VersionedSchema`, an explicit migration assessment, and macOS migration tests before being described as safe.
+
+Schema V2 adds only `AppointmentChangeRecord`, keyed by `appointmentID`, with stable change-type raw values, old/new JSON snapshots, reason, and timestamp. Rescheduling preserves the Appointment UUID. Legal lifecycle edges are `draft → pendingConfirmation/cancelled`, `pendingConfirmation → confirmed/rescheduled/cancelled`, `confirmed → upcoming/rescheduled/cancelled`, `upcoming → arrived/rescheduled/noShow/cancelled`, `arrived → completed`, and `rescheduled → confirmed/cancelled`; completed, cancelled, and no-show are terminal.
 
 ## Primary entities
 

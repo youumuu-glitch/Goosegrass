@@ -28,11 +28,15 @@ Phase 0 establishes the project, boundaries, and value-oriented domain contracts
 
 ## Local persistence composition
 
-`PersistenceSchemaV1` is the first explicit SwiftData schema version and `GoosegrassMigrationPlan` is the only place schema evolution is registered. Persistence records remain internal to Infrastructure and map to Foundation domain values at repository boundaries.
+`PersistenceSchemaV1` is the first explicit SwiftData schema version. Phase 3 adds `PersistenceSchemaV2` through a lightweight migration, preserving all seven V1 record definitions and adding one append-only `AppointmentChangeRecord`. `GoosegrassMigrationPlan` remains the only place schema evolution is registered. Persistence records remain internal to Infrastructure and map to Foundation domain values at repository boundaries.
 
 `PersistenceController` owns the one application `ModelContainer` and its main `ModelContext`. The app injects that container once at the scene boundary. Local repositories receive a context; they never create hidden containers. Tests may create isolated in-memory containers or an explicitly located disk store.
 
 Phase 1 implements Customer and Appointment repository/service foundations. Activity, FollowUp, LeadSource, Tag, and Reminder are present in the schema so later phases extend behavior without introducing an unversioned store.
+
+## Appointments feature composition
+
+`ContentView` owns one `AppointmentListViewModel` alongside the customer feature. Both services are created from the same application `PersistenceController`. The pure `AppointmentLifecycle` rejects illegal edges; `AppointmentService` creates changes and activities; `LocalAppointmentRepository.commit` validates the whole aggregate before one save. SwiftUI does not import SwiftData, and notification delivery remains Phase 5 work.
 
 ## Customers feature composition
 

@@ -461,7 +461,7 @@ git push
 - Modify: `docs/superpowers/plans/2026-09-14-phase-2-customers.md`
 - Modify: `docs/superpowers/plans/2026-09-15-phase-3-appointments.md`
 
-- [ ] **Write disk-backed RED/acceptance coverage**
+- [x] **Write disk-backed RED/acceptance coverage (`3b82bcc`; macOS CI `34947854294`)**
 
 Use temporary disk stores and stable timestamps to prove:
 
@@ -474,7 +474,7 @@ Create → Confirm → Upcoming → No Show → Relaunch
 
 Assert stable appointment/customer UUIDs, exact lifecycle timestamps, ordered AppointmentChanges, required Activities, preserved customer relationship/history, and zero outgoing actions for terminal states. Run before corrective code; if it exposes a defect, apply only a minimal tested fix.
 
-- [ ] **Update authoritative evidence docs**
+- [x] **Update authoritative evidence docs**
 
 Record Schema V2, transition rules, filters, acceptance runs, Phase 2 post-merge main run `34941490470`, and all Phase 3 RED/GREEN run IDs. Mark real Mac appearance, keyboard/focus, VoiceOver, notification delivery, Team ID, signing, provisioning, notarization, and packaging **Not Verified**.
 

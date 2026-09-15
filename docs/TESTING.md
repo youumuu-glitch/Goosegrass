@@ -39,4 +39,6 @@ Real Mac UI appearance, keyboard navigation, focus behavior, VoiceOver, notifica
 
 ## Phase 3 gates
 
-Phase 3 adds the appointment lifecycle, structured change history, Schema V2 migration, aggregate repository, ViewModel, composition, and disk-backed acceptance coverage. Until the Phase 3 macOS workflows execute, Schema V2 migration, Build, and XCTest are **Not Verified**. Real Mac appointment UI appearance, keyboard/focus behavior, VoiceOver, notification delivery, Apple Developer Team configuration, signing, provisioning, notarization, and packaging remain **Not Verified**.
+Windows `scripts/validate-phase3.ps1` passed on 2026-09-15. macOS CI proved Schema V2 migration (`34944143389`), lifecycle policy/service and aggregate persistence (`34943676494`, `34945680101`, `34946414804`), ViewModel (`34946975700`), workspace composition (`34947553894`), and disk-backed complete/cancel/reschedule/no-show acceptance (`34947854294`). Expected RED runs were `34943355526`, `34943912874`, `34944411710`, `34944864317`, `34946064682`, `34946693321`, and `34947208275`.
+
+Real Mac appointment UI appearance, keyboard/focus behavior, VoiceOver, notification delivery, Apple Developer Team configuration, signing, provisioning, notarization, and packaging remain **Not Verified**.

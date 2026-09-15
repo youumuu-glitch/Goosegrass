@@ -26,7 +26,7 @@
 - Create: `GoosegrassTests/TodayFeatureCompositionTests.swift`
 - Create: `GoosegrassTests/TodayAcceptanceTests.swift`
 
-- [ ] **Write and run the expected RED repository validator**
+- [x] **Write and run the expected RED repository validator**
 
 Create a PowerShell validator that invokes `validate-phase3.ps1`, requires all Phase 4 files above, rejects `import SwiftData` and `import UserNotifications` under `Features/Today`, verifies every source/test belongs to the correct Xcode Sources phase, requires the workflow to call `validate-phase4.ps1`, proves `PersistenceSchemaV2.versionIdentifier` remains `2.0.0`, and requires Phase 4 evidence plus the real-Mac **Not Verified** statement in `docs/TESTING.md`.
 
@@ -38,7 +38,7 @@ pwsh -NoProfile -File scripts/validate-phase4.ps1
 
 Expected: FAIL listing missing Today files, target membership, workflow wiring, and evidence.
 
-- [ ] **Add compile-neutral placeholders and CI wiring**
+- [x] **Add compile-neutral placeholders and CI wiring**
 
 Create the empty Swift files, add app/test build references to `Goosegrass.xcodeproj/project.pbxproj`, and change the workflow validation command to:
 
@@ -50,7 +50,7 @@ Create the empty Swift files, add app/test build references to `Goosegrass.xcode
 
 Add a Phase 4 Not Verified stub to `docs/TESTING.md`. Re-run the validator and require `Phase 4 static validation passed.`
 
-- [ ] **Commit, push, and require scaffold macOS GREEN**
+- [x] **Commit, push, and require scaffold macOS GREEN (`9afd57b`; macOS CI `34960532729`)**
 
 ```powershell
 git add scripts/validate-phase4.ps1 .github/workflows/macos-build.yml Goosegrass.xcodeproj/project.pbxproj Goosegrass GoosegrassTests docs/TESTING.md

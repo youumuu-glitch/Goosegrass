@@ -420,11 +420,11 @@ git push
 - Modify: `Goosegrass/Features/Customers/CustomerDetailView.swift`
 - Create: `GoosegrassTests/AppointmentFeatureCompositionTests.swift`
 
-- [ ] **Write a RED composition test**
+- [x] **Write a RED composition test (`946e021`; expected RED macOS CI `34947208275`)**
 
 Assert the app-created appointment service uses repositories backed by `PersistenceController.context`, can load the same customer created through the customer service, and persists an appointment visible from both appointment and customer aggregates.
 
-- [ ] **Implement the workspace**
+- [x] **Implement the workspace (`d63cc61`)**
 
 Build a navigation-compatible Appointments route with:
 
@@ -440,7 +440,7 @@ Build a navigation-compatible Appointments route with:
 
 Wire `ContentView` with one `AppointmentListViewModel`. Add “New Appointment” to customer detail; it switches to Appointments and preselects the customer. Keep Calendar, Today, notifications, and follow-up behavior as later-phase placeholders.
 
-- [ ] **Run full CI and commit GREEN**
+- [x] **Run full CI and commit GREEN (macOS CI `34947553894`)**
 
 ```powershell
 git add Goosegrass/App Goosegrass/Features/Appointments Goosegrass/Features/Customers GoosegrassTests/AppointmentFeatureCompositionTests.swift

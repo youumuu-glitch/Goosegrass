@@ -17,6 +17,9 @@ All notable project changes are documented here.
 - A single application-owned persistence controller plus in-memory and explicit disk-store test configurations.
 - Phase 1 repository, relationship, and relaunch-persistence XCTest coverage.
 - Windows Phase 1 static validation gate.
+- Persistent Customers workspace with searchable list, detail and activity timeline, add/edit/archive flows, source/tag choices, and duplicate review with use-existing/create-anyway/merge decisions.
+- Customer aggregate repository behavior for expanded search, source seeding, tag deduplication, relationship-preserving merge, and reverse-chronological history.
+- Customer service, ViewModel, composition, and disk-backed relaunch acceptance tests plus the Windows Phase 2 static validation gate.
 
 ### Verification
 
@@ -27,3 +30,9 @@ All notable project changes are documented here.
 - Phase 1 macOS build and SwiftData XCTest: passed in GitHub Actions push run `34855677073` on 2026-09-14.
 - Customer source identity and shared-main-context regressions have macOS CI RED/GREEN evidence.
 - Phase 1 pull-request CI: passed in GitHub Actions run `34857548677` for PR #2 on 2026-09-14.
+- Windows Phase 2 static validation: passed on 2026-09-15.
+- Phase 2 disk-backed customer acceptance chain: passed in GitHub Actions push run `34940016333` on 2026-09-15.
+- Phase 2 latest source candidate build and full XCTest target: passed in GitHub Actions push run `34940456953` on 2026-09-15, with no Swift compiler warnings.
+- Phase 2 pull-request CI: passed in GitHub Actions run `34941002213` for PR #3 on 2026-09-15.
+- Real Mac Customers UI appearance, keyboard navigation, focus behavior, and VoiceOver: **Not Verified**.
+- Apple Developer Team, signing, provisioning, notarization, and packaging: **Not Verified**.

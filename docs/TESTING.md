@@ -26,3 +26,13 @@ The macOS test target now covers schema registration, Customer CRUD/search/archi
 Two persistence regressions were verified with macOS CI RED/GREEN cycles: run `34766301093` failed the new Customer source-identity round-trip assertion before run `34854777091` passed after the fix; run `34854907950` failed the new shared-main-context assertion before run `34855354576` passed after the fix. Pull-request run `34857548677` completed both build and test successfully for PR #2 on 2026-09-14.
 
 Real Mac interactive UI, keyboard navigation, VoiceOver, notification permission and delivery, signing, notarization, and packaging remain **Not Verified**.
+
+## Phase 2 gates
+
+Windows runs `scripts/validate-phase2.ps1`, preserving all Phase 0/1 checks and verifying the customer source/test inventory, feature-to-persistence boundary, Xcode target membership, and required verification wording. It passed on 2026-09-15; as a static gate it cannot compile Swift or execute SwiftData.
+
+The macOS suite covers service validation and lifecycle behavior, aggregate repository search/catalog/timeline/merge behavior, ViewModel state transitions, application-owned dependency composition, and a disk-backed `Create → Relaunch → Search → Edit → Archive → Relaunch` acceptance chain with stable UUID assertions. Push run `34940016333` proved the disk-relaunch chain; latest source-candidate run `34940456953` completed unsigned `xcodebuild build` and the complete XCTest target successfully on 2026-09-15. Its source logs contained no Swift compiler warnings.
+
+Phase 2 retained explicit RED/GREEN evidence: service boundary run `34859703564`, aggregate run `34860552262`, lifecycle run `34868753639`, ViewModel run `34869420174`, and composition run `34921577925` failed before their implementations; SwiftUI integration run `34921966148` exposed a compiler diagnostic before corrected run `34939712021` passed. Pull-request run `34941002213` completed both Build and Test successfully for PR #3 on 2026-09-15.
+
+Real Mac UI appearance, keyboard navigation, focus behavior, VoiceOver, notification permission/delivery, Apple Developer Team configuration, signing, provisioning, notarization, and packaging remain **Not Verified**.

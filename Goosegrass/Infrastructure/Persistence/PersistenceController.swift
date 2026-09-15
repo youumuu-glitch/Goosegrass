@@ -48,4 +48,8 @@ final class PersistenceController {
     func makeAppointmentRepository() -> LocalAppointmentRepository {
         LocalAppointmentRepository(context: context)
     }
+
+    func makeCustomerService() -> CustomerService {
+        CustomerService(repository: makeCustomerRepository())
+    }
 }

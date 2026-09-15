@@ -28,10 +28,10 @@ No Apple Development Team, signing identity, or provisioning profile is configur
 ## Windows validation
 
 ```powershell
-pwsh -NoProfile -File scripts/validate-phase1.ps1
+pwsh -NoProfile -File scripts/validate-phase2.ps1
 ```
 
-This checks repository shape, Phase 1 persistence wiring, and configuration only. It does not compile Swift, execute SwiftData, or parse the Xcode project.
+This checks repository shape, Phase 1 persistence wiring, the Phase 2 customer feature inventory and boundaries, and Xcode target membership. It does not compile Swift or execute SwiftData.
 
 ## macOS build and test
 
@@ -60,8 +60,9 @@ xcodebuild test \
 | Phase 0 macOS build | Passed in GitHub Actions on 2026-09-13 |
 | Phase 0 macOS unit tests | Passed in GitHub Actions on 2026-09-13 |
 | Phase 1 macOS build and SwiftData tests | Passed in GitHub Actions push run `34855677073` and PR run `34857548677` on 2026-09-14 |
-| macOS UI and manual QA | Not Verified |
+| Phase 2 macOS build and customer tests | Disk-relaunch acceptance passed in push run `34940016333`; latest source candidate passed in push run `34940456953`; PR run `34941002213` passed on 2026-09-15 |
+| Real Mac UI, keyboard, focus, and VoiceOver QA | Not Verified |
 | Notifications and permissions | Not Verified |
 | Signing and packaging | Not Verified |
 
-The Phase 0 and Phase 1 pull-request workflows completed their Xcode build and XCTest steps successfully. Interactive UX, notification, permission, signing, and packaging validation still require a real Mac.
+Phase 2 now provides the persistent Customers workspace: create/edit/search/archive, detail and activity timeline, source/tag catalog, duplicate review and merge, and a disk-backed relaunch acceptance chain. Interactive UX, notification, permission, signing, and packaging validation still require a real Mac.

@@ -117,8 +117,8 @@ enum CustomerSubmissionResult: Equatable {
 - [x] Implement a `@MainActor final class CustomerListViewModel: ObservableObject` with published rows, detail, query, selection, editor, duplicate candidates, archive target, catalog, and alert error.
 - [x] Inject `CustomerService` and a `now` closure. Do not import SwiftData or construct persistence objects.
 - [x] Ensure every successful mutation refreshes rows/detail and every failure preserves the relevant user input.
-- [ ] Run focused and full XCTest; require GREEN.
-- [ ] Commit with `feat(customers): add customer feature state`.
+- [x] Run focused and full XCTest; require GREEN (`34921445085`).
+- [x] Commit with `feat(customers): add customer feature state`.
 
 ### Task 6: Implement the native Customers interface
 
@@ -132,7 +132,7 @@ enum CustomerSubmissionResult: Equatable {
 - Modify: `Goosegrass/App/GoosegrassApp.swift`
 - Create: `GoosegrassTests/CustomerFeatureCompositionTests.swift`
 
-- [ ] Write a failing composition test proving app construction reuses `PersistenceController.context` and the Customers feature can load through the injected service.
+- [x] Write a failing composition test proving app construction reuses `PersistenceController.context` and the Customers feature can load through the injected service.
 - [ ] Replace the Phase 0 placeholder with a `NavigationSplitView` using the Master Spec destinations and a functional Customers route.
 - [ ] Build a searchable customer table/list, selection-driven detail, toolbar Add/Edit/Archive commands, form validation, duplicate sheet with all three choices, and archive confirmation.
 - [ ] Build a reverse-chronological timeline and clear empty/loading/error states. Add accessibility labels, help text, focus order, `Command-N`, Return, and Escape behavior where SwiftUI supports it.

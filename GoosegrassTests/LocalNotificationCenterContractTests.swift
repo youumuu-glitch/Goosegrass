@@ -40,9 +40,12 @@ final class LocalNotificationCenterContractTests: XCTestCase {
 
     func testFoundationPortCanBeUsedWithoutSystemCenter() async throws {
         let fake: any LocalNotificationCenter = ContractFakeNotificationCenter()
-        XCTAssertEqual(await fake.authorizationStatus(), .authorized)
-        XCTAssertTrue(try await fake.requestAuthorization())
-        XCTAssertTrue(await fake.pendingRequests().isEmpty)
+        let status = await fake.authorizationStatus()
+        let granted = try await fake.requestAuthorization()
+        let pending = await fake.pendingRequests()
+        XCTAssertEqual(status, .authorized)
+        XCTAssertTrue(granted)
+        XCTAssertTrue(pending.isEmpty)
     }
 }
 

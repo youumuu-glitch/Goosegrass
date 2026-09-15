@@ -17,7 +17,8 @@ struct GoosegrassApp: App {
         WindowGroup {
             ContentView(
                 customerService: persistenceController.makeCustomerService(),
-                appointmentService: persistenceController.makeAppointmentService()
+                appointmentService: persistenceController.makeAppointmentService(),
+                todayService: persistenceController.makeTodayService()
             )
         }
         .modelContainer(persistenceController.container)

@@ -133,10 +133,10 @@ enum CustomerSubmissionResult: Equatable {
 - Create: `GoosegrassTests/CustomerFeatureCompositionTests.swift`
 
 - [x] Write a failing composition test proving app construction reuses `PersistenceController.context` and the Customers feature can load through the injected service.
-- [ ] Replace the Phase 0 placeholder with a `NavigationSplitView` using the Master Spec destinations and a functional Customers route.
-- [ ] Build a searchable customer table/list, selection-driven detail, toolbar Add/Edit/Archive commands, form validation, duplicate sheet with all three choices, and archive confirmation.
-- [ ] Build a reverse-chronological timeline and clear empty/loading/error states. Add accessibility labels, help text, focus order, `Command-N`, Return, and Escape behavior where SwiftUI supports it.
-- [ ] Keep future destination rows as clearly labeled placeholders without speculative services or containers.
+- [x] Replace the Phase 0 placeholder with a `NavigationSplitView` using the Master Spec destinations and a functional Customers route.
+- [x] Build a searchable customer table/list, selection-driven detail, toolbar Add/Edit/Archive commands, form validation, duplicate sheet with all three choices, and archive confirmation.
+- [x] Build a reverse-chronological timeline and clear empty/loading/error states. Add accessibility labels, help text, focus order, `Command-N`, Return, and Escape behavior where SwiftUI supports it.
+- [x] Keep future destination rows as clearly labeled placeholders without speculative services or containers.
 - [ ] Run the complete XCTest target in macOS CI and require GREEN.
 - [ ] Commit with `feat(customers): build customer workspace`.
 

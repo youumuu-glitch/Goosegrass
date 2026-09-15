@@ -15,7 +15,7 @@ struct GoosegrassApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(customerService: persistenceController.makeCustomerService())
         }
         .modelContainer(persistenceController.container)
     }

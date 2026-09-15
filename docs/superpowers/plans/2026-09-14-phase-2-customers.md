@@ -166,5 +166,5 @@ enum CustomerSubmissionResult: Equatable {
 - [x] Explicitly mark real Mac UI appearance, keyboard, focus, VoiceOver, and notification delivery as **Not Verified**; keep Team ID/signing/provisioning unset.
 - [x] Run `git diff --check` and `pwsh -NoProfile -File scripts/validate-phase2.ps1` from the candidate tree.
 - [x] Push `feature/phase-2-customers` and require macOS push CI Build/Test PASS (`34940456953`).
-- [ ] Open a PR and require PR CI Build/Test PASS.
+- [x] Open PR #3 and require PR CI Build/Test PASS (`34941002213`).
 - [ ] Merge only when PR checks pass and the PR is conflict-free; require post-merge `main` CI PASS before branch/worktree cleanup.

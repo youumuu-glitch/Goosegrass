@@ -60,7 +60,7 @@ xcodebuild test \
 | Phase 0 macOS build | Passed in GitHub Actions on 2026-09-13 |
 | Phase 0 macOS unit tests | Passed in GitHub Actions on 2026-09-13 |
 | Phase 1 macOS build and SwiftData tests | Passed in GitHub Actions push run `34855677073` and PR run `34857548677` on 2026-09-14 |
-| Phase 2 macOS build and customer tests | Disk-relaunch acceptance passed in push run `34940016333`; latest source candidate passed in push run `34940456953` on 2026-09-15; PR gate pending |
+| Phase 2 macOS build and customer tests | Disk-relaunch acceptance passed in push run `34940016333`; latest source candidate passed in push run `34940456953`; PR run `34941002213` passed on 2026-09-15 |
 | Real Mac UI, keyboard, focus, and VoiceOver QA | Not Verified |
 | Notifications and permissions | Not Verified |
 | Signing and packaging | Not Verified |

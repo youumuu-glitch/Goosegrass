@@ -33,6 +33,6 @@ All notable project changes are documented here.
 - Windows Phase 2 static validation: passed on 2026-09-15.
 - Phase 2 disk-backed customer acceptance chain: passed in GitHub Actions push run `34940016333` on 2026-09-15.
 - Phase 2 latest source candidate build and full XCTest target: passed in GitHub Actions push run `34940456953` on 2026-09-15, with no Swift compiler warnings.
-- Phase 2 pull-request CI: pending PR creation.
+- Phase 2 pull-request CI: passed in GitHub Actions run `34941002213` for PR #3 on 2026-09-15.
 - Real Mac Customers UI appearance, keyboard navigation, focus behavior, and VoiceOver: **Not Verified**.
 - Apple Developer Team, signing, provisioning, notarization, and packaging: **Not Verified**.

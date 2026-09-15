@@ -164,6 +164,7 @@ enum CustomerSubmissionResult: Equatable {
 - [x] Add every Phase 2 source and test to the correct Xcode Sources build phase.
 - [x] Update architecture, data model, testing, README, and changelog with exact implemented behavior and evidence IDs.
 - [x] Explicitly mark real Mac UI appearance, keyboard, focus, VoiceOver, and notification delivery as **Not Verified**; keep Team ID/signing/provisioning unset.
-- [ ] Run `git diff --check` and `pwsh -NoProfile -File scripts/validate-phase2.ps1` from a clean candidate tree.
-- [ ] Push `feature/phase-2-customers`, require macOS push CI Build/Test PASS, open a PR, and require PR CI Build/Test PASS.
+- [x] Run `git diff --check` and `pwsh -NoProfile -File scripts/validate-phase2.ps1` from the candidate tree.
+- [x] Push `feature/phase-2-customers` and require macOS push CI Build/Test PASS (`34940456953`).
+- [ ] Open a PR and require PR CI Build/Test PASS.
 - [ ] Merge only when PR checks pass and the PR is conflict-free; require post-merge `main` CI PASS before branch/worktree cleanup.

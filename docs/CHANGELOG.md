@@ -20,6 +20,9 @@ All notable project changes are documented here.
 - Persistent Customers workspace with searchable list, detail and activity timeline, add/edit/archive flows, source/tag choices, and duplicate review with use-existing/create-anyway/merge decisions.
 - Customer aggregate repository behavior for expanded search, source seeding, tag deduplication, relationship-preserving merge, and reverse-chronological history.
 - Customer service, ViewModel, composition, and disk-backed relaunch acceptance tests plus the Windows Phase 2 static validation gate.
+- Schema V2 with durable appointment-change records and a tested V1 lightweight migration.
+- Explicit appointment lifecycle policy, aggregate repository/service boundary, filters, histories, observable feature state, and native Appointments workspace.
+- Disk-backed acceptance for complete, cancel, reschedule/reconfirm, and no-show lifecycle paths.
 
 ### Verification
 
@@ -34,5 +37,8 @@ All notable project changes are documented here.
 - Phase 2 disk-backed customer acceptance chain: passed in GitHub Actions push run `34940016333` on 2026-09-15.
 - Phase 2 latest source candidate build and full XCTest target: passed in GitHub Actions push run `34940456953` on 2026-09-15, with no Swift compiler warnings.
 - Phase 2 pull-request CI: passed in GitHub Actions run `34941002213` for PR #3 on 2026-09-15.
+- Phase 2 post-merge main CI: passed in GitHub Actions run `34941490470` on 2026-09-15.
+- Windows Phase 3 static validation: passed on 2026-09-15.
+- Phase 3 Schema V2 migration, workspace, and lifecycle acceptance passed in macOS runs `34944143389`, `34947553894`, and `34947854294`.
 - Real Mac Customers UI appearance, keyboard navigation, focus behavior, and VoiceOver: **Not Verified**.
 - Apple Developer Team, signing, provisioning, notarization, and packaging: **Not Verified**.

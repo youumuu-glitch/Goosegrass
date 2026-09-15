@@ -42,6 +42,21 @@
 		B00000000000000000000021 /* CustomerListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000023 /* CustomerListViewModelTests.swift */; };
 		B00000000000000000000022 /* CustomerFeatureCompositionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000024 /* CustomerFeatureCompositionTests.swift */; };
 		B00000000000000000000023 /* CustomerAcceptanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000025 /* CustomerAcceptanceTests.swift */; };
+		B00000000000000000000024 /* AppointmentLifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000026 /* AppointmentLifecycle.swift */; };
+		B00000000000000000000025 /* AppointmentPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000027 /* AppointmentPresentation.swift */; };
+		B00000000000000000000026 /* PersistenceSchemaV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000028 /* PersistenceSchemaV2.swift */; };
+		B00000000000000000000027 /* AppointmentEditorDraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000029 /* AppointmentEditorDraft.swift */; };
+		B00000000000000000000028 /* AppointmentListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000002A /* AppointmentListViewModel.swift */; };
+		B00000000000000000000029 /* AppointmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000002B /* AppointmentsView.swift */; };
+		B0000000000000000000002A /* AppointmentEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000002C /* AppointmentEditorView.swift */; };
+		B0000000000000000000002B /* AppointmentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000002D /* AppointmentDetailView.swift */; };
+		B0000000000000000000002C /* AppointmentLifecycleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000002E /* AppointmentLifecycleTests.swift */; };
+		B0000000000000000000002D /* AppointmentServiceLifecycleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000002F /* AppointmentServiceLifecycleTests.swift */; };
+		B0000000000000000000002E /* AppointmentRepositoryAggregateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000030 /* AppointmentRepositoryAggregateTests.swift */; };
+		B0000000000000000000002F /* AppointmentMigrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000031 /* AppointmentMigrationTests.swift */; };
+		B00000000000000000000030 /* AppointmentListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000032 /* AppointmentListViewModelTests.swift */; };
+		B00000000000000000000031 /* AppointmentFeatureCompositionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000033 /* AppointmentFeatureCompositionTests.swift */; };
+		B00000000000000000000032 /* AppointmentAcceptanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000034 /* AppointmentAcceptanceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +107,21 @@
 		C00000000000000000000023 /* CustomerListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerListViewModelTests.swift; sourceTree = "<group>"; };
 		C00000000000000000000024 /* CustomerFeatureCompositionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerFeatureCompositionTests.swift; sourceTree = "<group>"; };
 		C00000000000000000000025 /* CustomerAcceptanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerAcceptanceTests.swift; sourceTree = "<group>"; };
+		C00000000000000000000026 /* AppointmentLifecycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentLifecycle.swift; sourceTree = "<group>"; };
+		C00000000000000000000027 /* AppointmentPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentPresentation.swift; sourceTree = "<group>"; };
+		C00000000000000000000028 /* PersistenceSchemaV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceSchemaV2.swift; sourceTree = "<group>"; };
+		C00000000000000000000029 /* AppointmentEditorDraft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentEditorDraft.swift; sourceTree = "<group>"; };
+		C0000000000000000000002A /* AppointmentListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentListViewModel.swift; sourceTree = "<group>"; };
+		C0000000000000000000002B /* AppointmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsView.swift; sourceTree = "<group>"; };
+		C0000000000000000000002C /* AppointmentEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentEditorView.swift; sourceTree = "<group>"; };
+		C0000000000000000000002D /* AppointmentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentDetailView.swift; sourceTree = "<group>"; };
+		C0000000000000000000002E /* AppointmentLifecycleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentLifecycleTests.swift; sourceTree = "<group>"; };
+		C0000000000000000000002F /* AppointmentServiceLifecycleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentServiceLifecycleTests.swift; sourceTree = "<group>"; };
+		C00000000000000000000030 /* AppointmentRepositoryAggregateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentRepositoryAggregateTests.swift; sourceTree = "<group>"; };
+		C00000000000000000000031 /* AppointmentMigrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentMigrationTests.swift; sourceTree = "<group>"; };
+		C00000000000000000000032 /* AppointmentListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentListViewModelTests.swift; sourceTree = "<group>"; };
+		C00000000000000000000033 /* AppointmentFeatureCompositionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentFeatureCompositionTests.swift; sourceTree = "<group>"; };
+		C00000000000000000000034 /* AppointmentAcceptanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentAcceptanceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +214,7 @@
 			children = (
 				C0000000000000000000000B /* PhoneNormalizer.swift */,
 				C0000000000000000000000C /* AppointmentValidator.swift */,
+				C00000000000000000000026 /* AppointmentLifecycle.swift */,
 			);
 			path = Rules;
 			sourceTree = "<group>";
@@ -202,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				C0000000000000000000001A /* CustomerPresentation.swift */,
+				C00000000000000000000027 /* AppointmentPresentation.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -210,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				100000000000000000000013 /* Customers */,
+				100000000000000000000016 /* Appointments */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -225,6 +258,18 @@
 				C00000000000000000000020 /* DuplicateCustomerView.swift */,
 			);
 			path = Customers;
+			sourceTree = "<group>";
+		};
+		100000000000000000000016 /* Appointments */ = {
+			isa = PBXGroup;
+			children = (
+				C00000000000000000000029 /* AppointmentEditorDraft.swift */,
+				C0000000000000000000002A /* AppointmentListViewModel.swift */,
+				C0000000000000000000002B /* AppointmentsView.swift */,
+				C0000000000000000000002C /* AppointmentEditorView.swift */,
+				C0000000000000000000002D /* AppointmentDetailView.swift */,
+			);
+			path = Appointments;
 			sourceTree = "<group>";
 		};
 		100000000000000000000014 /* Shared */ = {
@@ -273,6 +318,7 @@
 			isa = PBXGroup;
 			children = (
 				C00000000000000000000011 /* PersistenceSchemaV1.swift */,
+				C00000000000000000000028 /* PersistenceSchemaV2.swift */,
 				C00000000000000000000012 /* GoosegrassMigrationPlan.swift */,
 				C00000000000000000000013 /* PersistenceMapper.swift */,
 				C00000000000000000000014 /* LocalCustomerRepository.swift */,
@@ -294,6 +340,13 @@
 				C00000000000000000000023 /* CustomerListViewModelTests.swift */,
 				C00000000000000000000024 /* CustomerFeatureCompositionTests.swift */,
 				C00000000000000000000025 /* CustomerAcceptanceTests.swift */,
+				C0000000000000000000002E /* AppointmentLifecycleTests.swift */,
+				C0000000000000000000002F /* AppointmentServiceLifecycleTests.swift */,
+				C00000000000000000000030 /* AppointmentRepositoryAggregateTests.swift */,
+				C00000000000000000000031 /* AppointmentMigrationTests.swift */,
+				C00000000000000000000032 /* AppointmentListViewModelTests.swift */,
+				C00000000000000000000033 /* AppointmentFeatureCompositionTests.swift */,
+				C00000000000000000000034 /* AppointmentAcceptanceTests.swift */,
 			);
 			path = GoosegrassTests;
 			sourceTree = "<group>";
@@ -431,6 +484,14 @@
 				B0000000000000000000001D /* CustomerDetailView.swift in Sources */,
 				B0000000000000000000001E /* DuplicateCustomerView.swift in Sources */,
 				B0000000000000000000001F /* EmptyStateView.swift in Sources */,
+				B00000000000000000000024 /* AppointmentLifecycle.swift in Sources */,
+				B00000000000000000000025 /* AppointmentPresentation.swift in Sources */,
+				B00000000000000000000026 /* PersistenceSchemaV2.swift in Sources */,
+				B00000000000000000000027 /* AppointmentEditorDraft.swift in Sources */,
+				B00000000000000000000028 /* AppointmentListViewModel.swift in Sources */,
+				B00000000000000000000029 /* AppointmentsView.swift in Sources */,
+				B0000000000000000000002A /* AppointmentEditorView.swift in Sources */,
+				B0000000000000000000002B /* AppointmentDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,6 +508,13 @@
 				B00000000000000000000021 /* CustomerListViewModelTests.swift in Sources */,
 				B00000000000000000000022 /* CustomerFeatureCompositionTests.swift in Sources */,
 				B00000000000000000000023 /* CustomerAcceptanceTests.swift in Sources */,
+				B0000000000000000000002C /* AppointmentLifecycleTests.swift in Sources */,
+				B0000000000000000000002D /* AppointmentServiceLifecycleTests.swift in Sources */,
+				B0000000000000000000002E /* AppointmentRepositoryAggregateTests.swift in Sources */,
+				B0000000000000000000002F /* AppointmentMigrationTests.swift in Sources */,
+				B00000000000000000000030 /* AppointmentListViewModelTests.swift in Sources */,
+				B00000000000000000000031 /* AppointmentFeatureCompositionTests.swift in Sources */,
+				B00000000000000000000032 /* AppointmentAcceptanceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

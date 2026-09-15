@@ -3,6 +3,12 @@ import SwiftUI
 @MainActor
 struct CustomersView: View {
     @ObservedObject var viewModel: CustomerListViewModel
+    let onNewAppointment: (UUID) -> Void
+
+    init(viewModel: CustomerListViewModel, onNewAppointment: @escaping (UUID) -> Void = { _ in }) {
+        self.viewModel = viewModel
+        self.onNewAppointment = onNewAppointment
+    }
 
     var body: some View {
         HSplitView {
@@ -15,7 +21,8 @@ struct CustomersView: View {
                         detail: detail,
                         onEdit: viewModel.beginEdit,
                         onArchive: viewModel.requestArchive,
-                        onAddNote: viewModel.addNote
+                        onAddNote: viewModel.addNote,
+                        onNewAppointment: onNewAppointment
                     )
                 } else {
                     EmptyStateView(

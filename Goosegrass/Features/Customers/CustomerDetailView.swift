@@ -5,6 +5,7 @@ struct CustomerDetailView: View {
     let onEdit: () -> Void
     let onArchive: () -> Void
     let onAddNote: (String) -> Void
+    let onNewAppointment: (UUID) -> Void
 
     @State private var note = ""
 
@@ -33,6 +34,7 @@ struct CustomerDetailView: View {
             }
             Spacer()
             Button("Edit", action: onEdit)
+            Button("New Appointment") { onNewAppointment(detail.customer.id) }
             Button("Archive", role: .destructive, action: onArchive)
         }
     }

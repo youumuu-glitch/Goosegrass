@@ -66,6 +66,23 @@
 		B00000000000000000000039 /* TodayViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000003B /* TodayViewModelTests.swift */; };
 		B0000000000000000000003A /* TodayFeatureCompositionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000003C /* TodayFeatureCompositionTests.swift */; };
 		B0000000000000000000003B /* TodayAcceptanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000003D /* TodayAcceptanceTests.swift */; };
+		B0000000000000000000003C /* ReminderCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000003E /* ReminderCalculator.swift */; };
+		B0000000000000000000003D /* NotificationPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000003F /* NotificationPresentation.swift */; };
+		B0000000000000000000003E /* ReminderRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000040 /* ReminderRepository.swift */; };
+		B0000000000000000000003F /* ReminderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000041 /* ReminderService.swift */; };
+		B00000000000000000000040 /* LocalReminderRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000042 /* LocalReminderRepository.swift */; };
+		B00000000000000000000041 /* UserNotificationCenterAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000043 /* UserNotificationCenterAdapter.swift */; };
+		B00000000000000000000042 /* ReminderPreferencesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000044 /* ReminderPreferencesStore.swift */; };
+		B00000000000000000000043 /* NotificationSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000045 /* NotificationSettingsViewModel.swift */; };
+		B00000000000000000000044 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000046 /* SettingsView.swift */; };
+		B00000000000000000000045 /* ReminderCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000047 /* ReminderCalculatorTests.swift */; };
+		B00000000000000000000046 /* ReminderRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000048 /* ReminderRepositoryTests.swift */; };
+		B00000000000000000000047 /* LocalNotificationCenterContractTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000049 /* LocalNotificationCenterContractTests.swift */; };
+		B00000000000000000000048 /* ReminderServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000004A /* ReminderServiceTests.swift */; };
+		B00000000000000000000049 /* AppointmentReminderIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000004B /* AppointmentReminderIntegrationTests.swift */; };
+		B0000000000000000000004A /* NotificationSettingsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000004C /* NotificationSettingsViewModelTests.swift */; };
+		B0000000000000000000004B /* NotificationFeatureCompositionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000004D /* NotificationFeatureCompositionTests.swift */; };
+		B0000000000000000000004C /* ReminderAcceptanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000004E /* ReminderAcceptanceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +157,23 @@
 		C0000000000000000000003B /* TodayViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewModelTests.swift; sourceTree = "<group>"; };
 		C0000000000000000000003C /* TodayFeatureCompositionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayFeatureCompositionTests.swift; sourceTree = "<group>"; };
 		C0000000000000000000003D /* TodayAcceptanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayAcceptanceTests.swift; sourceTree = "<group>"; };
+		C0000000000000000000003E /* ReminderCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderCalculator.swift; sourceTree = "<group>"; };
+		C0000000000000000000003F /* NotificationPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPresentation.swift; sourceTree = "<group>"; };
+		C00000000000000000000040 /* ReminderRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderRepository.swift; sourceTree = "<group>"; };
+		C00000000000000000000041 /* ReminderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderService.swift; sourceTree = "<group>"; };
+		C00000000000000000000042 /* LocalReminderRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalReminderRepository.swift; sourceTree = "<group>"; };
+		C00000000000000000000043 /* UserNotificationCenterAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationCenterAdapter.swift; sourceTree = "<group>"; };
+		C00000000000000000000044 /* ReminderPreferencesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderPreferencesStore.swift; sourceTree = "<group>"; };
+		C00000000000000000000045 /* NotificationSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsViewModel.swift; sourceTree = "<group>"; };
+		C00000000000000000000046 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		C00000000000000000000047 /* ReminderCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderCalculatorTests.swift; sourceTree = "<group>"; };
+		C00000000000000000000048 /* ReminderRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderRepositoryTests.swift; sourceTree = "<group>"; };
+		C00000000000000000000049 /* LocalNotificationCenterContractTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationCenterContractTests.swift; sourceTree = "<group>"; };
+		C0000000000000000000004A /* ReminderServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderServiceTests.swift; sourceTree = "<group>"; };
+		C0000000000000000000004B /* AppointmentReminderIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentReminderIntegrationTests.swift; sourceTree = "<group>"; };
+		C0000000000000000000004C /* NotificationSettingsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsViewModelTests.swift; sourceTree = "<group>"; };
+		C0000000000000000000004D /* NotificationFeatureCompositionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationFeatureCompositionTests.swift; sourceTree = "<group>"; };
+		C0000000000000000000004E /* ReminderAcceptanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderAcceptanceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +267,7 @@
 				C0000000000000000000000B /* PhoneNormalizer.swift */,
 				C0000000000000000000000C /* AppointmentValidator.swift */,
 				C00000000000000000000026 /* AppointmentLifecycle.swift */,
+				C0000000000000000000003E /* ReminderCalculator.swift */,
 			);
 			path = Rules;
 			sourceTree = "<group>";
@@ -253,6 +288,7 @@
 				C0000000000000000000001A /* CustomerPresentation.swift */,
 				C00000000000000000000027 /* AppointmentPresentation.swift */,
 				C00000000000000000000035 /* TodayPresentation.swift */,
+				C0000000000000000000003F /* NotificationPresentation.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -263,6 +299,7 @@
 				100000000000000000000013 /* Customers */,
 				100000000000000000000016 /* Appointments */,
 				100000000000000000000017 /* Today */,
+				10000000000000000000001A /* Settings */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -302,6 +339,15 @@
 			path = Today;
 			sourceTree = "<group>";
 		};
+		10000000000000000000001A /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				C00000000000000000000045 /* NotificationSettingsViewModel.swift */,
+				C00000000000000000000046 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		100000000000000000000014 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -323,6 +369,7 @@
 			children = (
 				C0000000000000000000000D /* CustomerRepository.swift */,
 				C0000000000000000000000E /* AppointmentRepository.swift */,
+				C00000000000000000000040 /* ReminderRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -333,6 +380,7 @@
 				C0000000000000000000000F /* CustomerService.swift */,
 				C00000000000000000000010 /* AppointmentService.swift */,
 				C00000000000000000000036 /* TodayService.swift */,
+				C00000000000000000000041 /* ReminderService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -341,6 +389,8 @@
 			isa = PBXGroup;
 			children = (
 				100000000000000000000010 /* Persistence */,
+				100000000000000000000018 /* Notifications */,
+				100000000000000000000019 /* Preferences */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -355,8 +405,25 @@
 				C00000000000000000000014 /* LocalCustomerRepository.swift */,
 				C00000000000000000000015 /* LocalAppointmentRepository.swift */,
 				C00000000000000000000016 /* PersistenceController.swift */,
+				C00000000000000000000042 /* LocalReminderRepository.swift */,
 			);
 			path = Persistence;
+			sourceTree = "<group>";
+		};
+		100000000000000000000018 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				C00000000000000000000043 /* UserNotificationCenterAdapter.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		100000000000000000000019 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				C00000000000000000000044 /* ReminderPreferencesStore.swift */,
+			);
+			path = Preferences;
 			sourceTree = "<group>";
 		};
 		100000000000000000000007 /* GoosegrassTests */ = {
@@ -382,6 +449,14 @@
 				C0000000000000000000003B /* TodayViewModelTests.swift */,
 				C0000000000000000000003C /* TodayFeatureCompositionTests.swift */,
 				C0000000000000000000003D /* TodayAcceptanceTests.swift */,
+				C00000000000000000000047 /* ReminderCalculatorTests.swift */,
+				C00000000000000000000048 /* ReminderRepositoryTests.swift */,
+				C00000000000000000000049 /* LocalNotificationCenterContractTests.swift */,
+				C0000000000000000000004A /* ReminderServiceTests.swift */,
+				C0000000000000000000004B /* AppointmentReminderIntegrationTests.swift */,
+				C0000000000000000000004C /* NotificationSettingsViewModelTests.swift */,
+				C0000000000000000000004D /* NotificationFeatureCompositionTests.swift */,
+				C0000000000000000000004E /* ReminderAcceptanceTests.swift */,
 			);
 			path = GoosegrassTests;
 			sourceTree = "<group>";
@@ -532,6 +607,15 @@
 				B00000000000000000000035 /* TodayViewModel.swift in Sources */,
 				B00000000000000000000036 /* TodayView.swift in Sources */,
 				B00000000000000000000037 /* TodaySummaryCard.swift in Sources */,
+				B0000000000000000000003C /* ReminderCalculator.swift in Sources */,
+				B0000000000000000000003D /* NotificationPresentation.swift in Sources */,
+				B0000000000000000000003E /* ReminderRepository.swift in Sources */,
+				B0000000000000000000003F /* ReminderService.swift in Sources */,
+				B00000000000000000000040 /* LocalReminderRepository.swift in Sources */,
+				B00000000000000000000041 /* UserNotificationCenterAdapter.swift in Sources */,
+				B00000000000000000000042 /* ReminderPreferencesStore.swift in Sources */,
+				B00000000000000000000043 /* NotificationSettingsViewModel.swift in Sources */,
+				B00000000000000000000044 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -559,6 +643,14 @@
 				B00000000000000000000039 /* TodayViewModelTests.swift in Sources */,
 				B0000000000000000000003A /* TodayFeatureCompositionTests.swift in Sources */,
 				B0000000000000000000003B /* TodayAcceptanceTests.swift in Sources */,
+				B00000000000000000000045 /* ReminderCalculatorTests.swift in Sources */,
+				B00000000000000000000046 /* ReminderRepositoryTests.swift in Sources */,
+				B00000000000000000000047 /* LocalNotificationCenterContractTests.swift in Sources */,
+				B00000000000000000000048 /* ReminderServiceTests.swift in Sources */,
+				B00000000000000000000049 /* AppointmentReminderIntegrationTests.swift in Sources */,
+				B0000000000000000000004A /* NotificationSettingsViewModelTests.swift in Sources */,
+				B0000000000000000000004B /* NotificationFeatureCompositionTests.swift in Sources */,
+				B0000000000000000000004C /* ReminderAcceptanceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

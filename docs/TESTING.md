@@ -50,3 +50,7 @@ Windows `scripts/validate-phase4.ps1` passed on 2026-09-15. It preserves Phase 0
 macOS CI covers local-calendar aggregation, future-confirmed runtime inclusion without status mutation, card/list semantic separation, ViewModel selection and authoritative refresh, shared application composition, native SwiftUI compilation, and a two-relaunch disk acceptance chain. Expected RED runs were aggregation `34983956109`, ViewModel `34984876473`, and composition `34985697981`. Their GREEN runs were `34984242542`, `34985334535`, and `34986213102`; disk-relaunch acceptance passed in `34986598003`, and documented source candidate `5f8437b` passed in `34987024444`. Phase 3 PR #4 and post-merge `main` passed in `34948458801` and `34948667447`.
 
 Real Mac Today UI appearance, keyboard/focus behavior, VoiceOver, notification delivery, Apple Developer Team configuration, signing, provisioning, notarization, and packaging remain **Not Verified**.
+
+## Phase 5 gates
+
+Phase 5 adds durable local-reminder calculation, persistence, permission handling, scheduling, lifecycle repair, and launch reconciliation. Until the Phase 5 macOS workflows execute, its Build and XCTest results are **Not Verified**. Real Mac notification permission, sound, and delivery, reschedule removal, cancellation non-delivery, Settings UI, keyboard/focus behavior, VoiceOver, Apple Developer Team configuration, signing, provisioning, notarization, and packaging remain **Not Verified**.

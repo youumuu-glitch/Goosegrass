@@ -186,7 +186,8 @@ final class AppointmentRepositoryAggregateTests: XCTestCase {
             activities: [olderActivity, newerActivity],
             isNew: true
         ))
-        try appointments.commit(AppointmentMutation(appointment: archived, changes: [], activities: [], isNew: true))
+        // Compatibility CRUD models legacy appointment data whose customer is now archived.
+        try appointments.create(archived)
 
         let targetRecord = try XCTUnwrap(
             controller.context.fetch(FetchDescriptor<PersistenceSchemaV1.AppointmentRecord>())

@@ -147,6 +147,56 @@ enum PersistenceMapper {
         )
     }
 
+    static func makeReminderRecord(
+        from reminder: Reminder,
+        appointment: PersistenceSchemaV1.AppointmentRecord
+    ) -> PersistenceSchemaV1.ReminderRecord {
+        PersistenceSchemaV1.ReminderRecord(
+            id: reminder.id,
+            appointmentID: reminder.appointmentID,
+            typeRawValue: reminder.type.rawValue,
+            fireAt: reminder.fireAt,
+            systemNotificationID: reminder.systemNotificationID,
+            statusRawValue: reminder.status.rawValue,
+            createdAt: reminder.createdAt,
+            updatedAt: reminder.updatedAt,
+            appointment: appointment
+        )
+    }
+
+    static func update(
+        _ record: PersistenceSchemaV1.ReminderRecord,
+        from reminder: Reminder,
+        appointment: PersistenceSchemaV1.AppointmentRecord
+    ) {
+        record.appointmentID = reminder.appointmentID
+        record.typeRawValue = reminder.type.rawValue
+        record.fireAt = reminder.fireAt
+        record.systemNotificationID = reminder.systemNotificationID
+        record.statusRawValue = reminder.status.rawValue
+        record.updatedAt = reminder.updatedAt
+        record.appointment = appointment
+    }
+
+    static func makeReminder(from record: PersistenceSchemaV1.ReminderRecord) throws -> Reminder {
+        guard let type = ReminderType(rawValue: record.typeRawValue) else {
+            throw PersistenceError.invalidStoredValue(field: "Reminder.type", value: record.typeRawValue)
+        }
+        guard let status = ReminderStatus(rawValue: record.statusRawValue) else {
+            throw PersistenceError.invalidStoredValue(field: "Reminder.status", value: record.statusRawValue)
+        }
+        return Reminder(
+            id: record.id,
+            appointmentID: record.appointmentID,
+            type: type,
+            fireAt: record.fireAt,
+            systemNotificationID: record.systemNotificationID,
+            status: status,
+            createdAt: record.createdAt,
+            updatedAt: record.updatedAt
+        )
+    }
+
     static func makeAppointmentChangeRecord(
         from change: AppointmentChange
     ) -> PersistenceSchemaV2.AppointmentChangeRecord {

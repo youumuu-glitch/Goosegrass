@@ -71,7 +71,7 @@ Change the workflow validation step to:
 
 Create empty Swift placeholders and add all file references/build entries to the appropriate app or test Sources phase. Re-run the validator and require `Phase 3 static validation passed.`
 
-- [ ] **Commit and push the gate**
+- [x] **Commit and push the gate (`dd7e70b`; macOS CI `34943166930`)**
 
 ```powershell
 git add scripts/validate-phase3.ps1 .github/workflows/macos-build.yml Goosegrass.xcodeproj/project.pbxproj Goosegrass GoosegrassTests

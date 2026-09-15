@@ -7,7 +7,7 @@ final class PersistenceController {
     let context: ModelContext
 
     convenience init(inMemory: Bool = false) throws {
-        let schema = Schema(versionedSchema: PersistenceSchemaV1.self)
+        let schema = Schema(versionedSchema: PersistenceSchemaV2.self)
         let configuration = ModelConfiguration(
             "Goosegrass",
             schema: schema,
@@ -20,7 +20,7 @@ final class PersistenceController {
     }
 
     convenience init(storeURL: URL) throws {
-        let schema = Schema(versionedSchema: PersistenceSchemaV1.self)
+        let schema = Schema(versionedSchema: PersistenceSchemaV2.self)
         let configuration = ModelConfiguration(
             "Goosegrass",
             schema: schema,

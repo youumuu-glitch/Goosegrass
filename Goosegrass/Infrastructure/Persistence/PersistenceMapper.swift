@@ -147,6 +147,40 @@ enum PersistenceMapper {
         )
     }
 
+    static func makeAppointmentChangeRecord(
+        from change: AppointmentChange
+    ) -> PersistenceSchemaV2.AppointmentChangeRecord {
+        PersistenceSchemaV2.AppointmentChangeRecord(
+            id: change.id,
+            appointmentID: change.appointmentID,
+            changeTypeRawValue: change.changeType.rawValue,
+            oldValueJSON: change.oldValueJSON,
+            newValueJSON: change.newValueJSON,
+            reason: change.reason,
+            changedAt: change.changedAt
+        )
+    }
+
+    static func makeAppointmentChange(
+        from record: PersistenceSchemaV2.AppointmentChangeRecord
+    ) throws -> AppointmentChange {
+        guard let changeType = AppointmentChangeType(rawValue: record.changeTypeRawValue) else {
+            throw PersistenceError.invalidStoredValue(
+                field: "AppointmentChange.changeType",
+                value: record.changeTypeRawValue
+            )
+        }
+        return AppointmentChange(
+            id: record.id,
+            appointmentID: record.appointmentID,
+            changeType: changeType,
+            oldValueJSON: record.oldValueJSON,
+            newValueJSON: record.newValueJSON,
+            reason: record.reason,
+            changedAt: record.changedAt
+        )
+    }
+
     static func makeActivityRecord(
         from activity: Activity,
         customer: PersistenceSchemaV1.CustomerRecord,

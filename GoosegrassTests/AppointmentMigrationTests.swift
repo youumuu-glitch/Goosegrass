@@ -70,4 +70,23 @@ final class AppointmentMigrationTests: XCTestCase {
         )
         XCTAssertEqual(try PersistenceMapper.makeAppointmentChange(from: stored), change)
     }
+
+    func testInvalidStoredAppointmentChangeTypeIsRejected() {
+        let record = PersistenceSchemaV2.AppointmentChangeRecord(
+            appointmentID: UUID(),
+            changeTypeRawValue: "unsupported",
+            oldValueJSON: "null",
+            newValueJSON: "null"
+        )
+
+        XCTAssertThrowsError(try PersistenceMapper.makeAppointmentChange(from: record)) { error in
+            XCTAssertEqual(
+                error as? PersistenceError,
+                .invalidStoredValue(
+                    field: "AppointmentChange.changeType",
+                    value: "unsupported"
+                )
+            )
+        }
+    }
 }

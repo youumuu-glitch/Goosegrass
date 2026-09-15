@@ -214,11 +214,11 @@ git push
 - Modify: `Goosegrass/Infrastructure/Persistence/PersistenceController.swift`
 - Create: `GoosegrassTests/TodayFeatureCompositionTests.swift`
 
-- [ ] **Write RED composition tests**
+- [x] **Write RED composition tests (`c65bc5d`; expected RED macOS CI `34985697981`)**
 
 Create one in-memory `PersistenceController`, write a customer and appointment through its services, construct `TodayService` from a new `makeTodayService(calendar:now:)` factory, and assert the Today snapshot sees the same UUIDs. Instantiate `TodayView(viewModel:)` and `ContentView` and require Today to be the default destination.
 
-- [ ] **Implement native dashboard UI**
+- [x] **Implement native dashboard UI (`4d41751`)**
 
 Build four compact buttons using `TodaySummaryCard`, each with a text label and numeric value. Render a native appointment table for appointment selections and a customer list for Need Contact. Appointment rows must include time, customer, party size, phone tail, source, status text, tags, and request summary. Add valid quick actions from the intersection of:
 
@@ -231,7 +231,7 @@ Reuse `AppointmentDetailView` in the trailing inspector, use `AppointmentEditorV
 
 Change `ContentView`'s initial destination to `.today`, accept `TodayService` in its initializer, own one `TodayViewModel`, and route the Today destination to `TodayView`. Add `PersistenceController.makeTodayService(calendar:now:)` using the same appointment/customer repositories; `GoosegrassApp` supplies that service together with the existing appointment and customer services.
 
-- [ ] **Run full CI and commit UI GREEN**
+- [x] **Run full CI and commit UI GREEN (macOS CI `34986213102`)**
 
 ```powershell
 git add Goosegrass/App Goosegrass/Features/Today Goosegrass/Infrastructure/Persistence/PersistenceController.swift GoosegrassTests/TodayFeatureCompositionTests.swift

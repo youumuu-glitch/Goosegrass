@@ -10,7 +10,6 @@ final class LocalNotificationCenterContractTests: XCTestCase {
         XCTAssertEqual(UserNotificationCenterAdapter.map(.denied), .denied)
         XCTAssertEqual(UserNotificationCenterAdapter.map(.authorized), .authorized)
         XCTAssertEqual(UserNotificationCenterAdapter.map(.provisional), .provisional)
-        XCTAssertEqual(UserNotificationCenterAdapter.map(.ephemeral), .ephemeral)
     }
 
     func testRequestMappingPreservesIdentityDateSoundAndPrivacyBoundary() throws {

@@ -47,11 +47,15 @@ struct ContentView: View {
         reminderPreferencesStore: any ReminderPreferencesStoring
     ) {
         self.reminderService = reminderService
-        _todayViewModel = StateObject(wrappedValue: TodayViewModel(service: todayService))
+        _todayViewModel = StateObject(wrappedValue: TodayViewModel(
+            service: todayService,
+            followUpService: followUpService
+        ))
         _customerViewModel = StateObject(wrappedValue: CustomerListViewModel(service: customerService))
         _appointmentViewModel = StateObject(wrappedValue: AppointmentListViewModel(
             service: appointmentService,
-            customerService: customerService
+            customerService: customerService,
+            followUpService: followUpService
         ))
         _followUpViewModel = StateObject(wrappedValue: FollowUpListViewModel(
             service: followUpService,

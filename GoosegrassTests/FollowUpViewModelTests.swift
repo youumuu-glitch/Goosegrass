@@ -222,10 +222,10 @@ final class FollowUpViewModelTests: XCTestCase {
         let controller = try PersistenceController(inMemory: true)
         let customers = controller.makeCustomerService()
         let appointments = controller.makeAppointmentService()
-        let followUps = controller.makeFollowUpService()
         var calendar = Calendar(identifier: .gregorian)
         calendar.timeZone = try XCTUnwrap(TimeZone(secondsFromGMT: 0))
         let now = Date(timeIntervalSince1970: 2_000_000_000)
+        let followUps = controller.makeFollowUpService(calendar: calendar, now: { now })
         let customer = Customer(
             displayName: "No-show Customer",
             phone: "13800000402",

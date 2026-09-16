@@ -12,11 +12,24 @@ final class TodayViewModel: ObservableObject {
     @Published var rescheduleDraft: AppointmentEditorDraft?
     @Published private(set) var pendingAction: AppointmentAction?
     @Published private(set) var errorMessage: String?
+    @Published private(set) var pendingNoShowFollowUpRequest: NoShowFollowUpRequest?
+    @Published var customFollowUpDraft: FollowUpEditorDraft?
 
     private let service: TodayService
+    private let followUpService: FollowUpService?
+    private let calendar: Calendar
+    private let now: () -> Date
 
-    init(service: TodayService) {
+    init(
+        service: TodayService,
+        followUpService: FollowUpService? = nil,
+        calendar: Calendar = .current,
+        now: @escaping () -> Date = Date.init
+    ) {
         self.service = service
+        self.followUpService = followUpService
+        self.calendar = calendar
+        self.now = now
     }
 
     var availableQuickActions: [AppointmentAction] {
@@ -104,6 +117,60 @@ final class TodayViewModel: ObservableObject {
         errorMessage = nil
     }
 
+    func createNoShowFollowUpTomorrow() {
+        guard let request = pendingNoShowFollowUpRequest else { return }
+        perform {
+            guard let followUpService else { throw NoShowFollowUpError.serviceUnavailable }
+            _ = try followUpService.createNoShowFollowUp(
+                customerID: request.customerID,
+                appointmentID: request.appointmentID,
+                at: request.requestedAt
+            )
+            pendingNoShowFollowUpRequest = nil
+        }
+    }
+
+    func beginCustomNoShowFollowUp() {
+        guard let request = pendingNoShowFollowUpRequest else { return }
+        let dueAt = (try? FollowUpSchedule.tomorrowAtEleven(
+            from: request.requestedAt,
+            calendar: calendar
+        )) ?? request.requestedAt.addingTimeInterval(3_600)
+        customFollowUpDraft = FollowUpEditorDraft(
+            customerID: request.customerID,
+            appointmentID: request.appointmentID,
+            dueAt: dueAt,
+            reason: "No-show follow-up"
+        )
+        pendingNoShowFollowUpRequest = nil
+    }
+
+    func skipNoShowFollowUp() {
+        pendingNoShowFollowUpRequest = nil
+    }
+
+    func cancelCustomNoShowFollowUp() {
+        customFollowUpDraft = nil
+    }
+
+    func saveCustomNoShowFollowUp() {
+        guard let draft = customFollowUpDraft else { return }
+        perform {
+            guard let followUpService else { throw NoShowFollowUpError.serviceUnavailable }
+            guard let customerID = draft.customerID else { throw NoShowFollowUpError.customerRequired }
+            _ = try followUpService.create(
+                customerID: customerID,
+                appointmentID: draft.appointmentID,
+                dueAt: draft.dueAt,
+                reason: draft.reason,
+                note: draft.note,
+                priority: draft.priority,
+                at: now()
+            )
+            customFollowUpDraft = nil
+        }
+    }
+
     private var selectedAppointment: Appointment? {
         detail?.listItem.appointment
             ?? snapshot?.allAppointments.first(where: { $0.id == selectedAppointmentID })?.appointment
@@ -112,7 +179,15 @@ final class TodayViewModel: ObservableObject {
     private func performSelected(_ action: AppointmentAction) {
         guard let id = selectedAppointmentID else { return }
         perform {
-            _ = try service.transition(appointmentID: id, action: action)
+            let operationTime = now()
+            let appointment = try service.transition(appointmentID: id, action: action)
+            if action == .markNoShow {
+                pendingNoShowFollowUpRequest = NoShowFollowUpRequest(
+                    appointmentID: appointment.id,
+                    customerID: appointment.customerID,
+                    requestedAt: operationTime
+                )
+            }
             try reloadThrowing()
         }
     }

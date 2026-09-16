@@ -35,9 +35,12 @@ enum FollowUpLifecycle {
             throw FollowUpValidationError.invalidTransition(from: status, action: action)
         }
         switch action {
-        case .complete: .completed
-        case .snooze: .snoozed
-        case .cancel: .cancelled
+        case .complete:
+            return .completed
+        case .snooze:
+            return .snoozed
+        case .cancel:
+            return .cancelled
         }
     }
 

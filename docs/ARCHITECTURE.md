@@ -42,7 +42,13 @@ Phase 1 implements Customer and Appointment repository/service foundations. Acti
 
 `TodayService` combines `AppointmentService` and `CustomerService` at runtime; it introduces no repository, cache, timer, or stored dashboard state. `Calendar.dateInterval(of: .day)` defines the local civil day. Upcoming Arrivals includes future `confirmed` and `upcoming` appointments without changing their persisted lifecycle status. The Today's Appointments card excludes cancelled records, while the default main list preserves every same-day record for complete operational history.
 
-`TodayViewModel` replaces its snapshot, selected rows, counts, and inspector detail by rereading `TodayService` after every successful action. `ContentView` owns this ViewModel, makes Today the initial destination, and reuses the Phase 3 appointment inspector and editor. Schema V2 remains unchanged, and Phase 5 notification behavior is not implemented here.
+`TodayViewModel` replaces its snapshot, selected rows, counts, and inspector detail by rereading `TodayService` after every successful action. `ContentView` owns this ViewModel, makes Today the initial destination, and reuses the Phase 3 appointment inspector and editor. Schema V2 remains unchanged.
+
+## Reminder and notification composition
+
+Phase 5 reuses the V1 `ReminderRecord`; Schema V2 remains unchanged. `ReminderCalculator` uses injected local-calendar arithmetic, `ReminderRepository` owns durable intent, and `ReminderService` compares appointments, reminder records, and system pending requests. Standard system identifiers are namespaced by the stable Reminder UUID, making rebuilds idempotent.
+
+Only `UserNotificationCenterAdapter` imports UserNotifications. Appointment commits report their authoritative result through `AppointmentReminderScheduling`; notification failure never rolls back committed business data and is instead persisted as a failed Reminder for later reconcile. `GoosegrassApp` constructs one reminder graph for Appointments, Today, Settings, and one launch reconcile. No timer or Phase 6 FollowUp behavior is introduced.
 
 ## Customers feature composition
 

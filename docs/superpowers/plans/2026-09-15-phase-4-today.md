@@ -287,14 +287,14 @@ Require a clean worktree and successful macOS push Build/Test for the exact cand
 
 ### Task 7: Create, verify, merge, and clean Phase 4
 
-- [ ] **Create PR and require all gates**
+- [x] **Create PR and require all gates (PR #5; macOS CI `34987583693`)**
 
 Create a PR from `feature/phase-4-today` to `main`. Require the pull-request Build/Test check to succeed, `mergeable=true`, `mergeable_state=clean`, and no conflict before merging.
 
-- [ ] **Merge and verify main**
+- [x] **Merge and verify main (merge `cc37a69`; main CI `34987950782`)**
 
 Merge without rewriting history, synchronize local main with `git pull --ff-only`, and require the post-merge `main` Build/Test run to succeed.
 
-- [ ] **Clean safely and begin Phase 5**
+- [x] **Clean safely and begin Phase 5**
 
 Confirm the worktree is clean and its resolved path is under `E:\Goosegrass\.worktrees`, remove it with `git worktree remove`, prune, delete the merged local and remote branch, then create `feature/phase-5-notifications` from the verified main commit in a new isolated worktree.

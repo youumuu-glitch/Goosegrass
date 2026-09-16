@@ -49,26 +49,52 @@ final class PersistenceController {
         LocalAppointmentRepository(context: context)
     }
 
+    func makeReminderRepository() -> LocalReminderRepository {
+        LocalReminderRepository(context: context)
+    }
+
     func makeCustomerService() -> CustomerService {
         CustomerService(repository: makeCustomerRepository())
     }
 
-    func makeAppointmentService() -> AppointmentService {
+    func makeAppointmentService(
+        reminderScheduler: (any AppointmentReminderScheduling)? = nil
+    ) -> AppointmentService {
         AppointmentService(
             repository: makeAppointmentRepository(),
-            customerRepository: makeCustomerRepository()
+            customerRepository: makeCustomerRepository(),
+            reminderScheduler: reminderScheduler
         )
     }
 
     func makeTodayService(
+        reminderScheduler: (any AppointmentReminderScheduling)? = nil,
         calendar: Calendar = .current,
         now: @escaping () -> Date = Date.init
     ) -> TodayService {
         TodayService(
-            appointmentService: makeAppointmentService(),
+            appointmentService: makeAppointmentService(reminderScheduler: reminderScheduler),
             customerService: makeCustomerService(),
             calendar: calendar,
             now: now
+        )
+    }
+
+    func makeReminderService(
+        notificationCenter: any LocalNotificationCenter,
+        preferences: @escaping () -> ReminderPreferences,
+        calendar: Calendar = .current,
+        now: @escaping () -> Date = Date.init,
+        makeID: @escaping () -> UUID = UUID.init
+    ) -> ReminderService {
+        ReminderService(
+            repository: makeReminderRepository(),
+            appointmentRepository: makeAppointmentRepository(),
+            notificationCenter: notificationCenter,
+            preferences: preferences,
+            calendar: calendar,
+            now: now,
+            makeID: makeID
         )
     }
 }

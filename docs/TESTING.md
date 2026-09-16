@@ -50,3 +50,11 @@ Windows `scripts/validate-phase4.ps1` passed on 2026-09-15. It preserves Phase 0
 macOS CI covers local-calendar aggregation, future-confirmed runtime inclusion without status mutation, card/list semantic separation, ViewModel selection and authoritative refresh, shared application composition, native SwiftUI compilation, and a two-relaunch disk acceptance chain. Expected RED runs were aggregation `34983956109`, ViewModel `34984876473`, and composition `34985697981`. Their GREEN runs were `34984242542`, `34985334535`, and `34986213102`; disk-relaunch acceptance passed in `34986598003`, and documented source candidate `5f8437b` passed in `34987024444`. Phase 3 PR #4 and post-merge `main` passed in `34948458801` and `34948667447`.
 
 Real Mac Today UI appearance, keyboard/focus behavior, VoiceOver, notification delivery, Apple Developer Team configuration, signing, provisioning, notarization, and packaging remain **Not Verified**.
+
+## Phase 5 gates
+
+Windows `scripts/validate-phase5.ps1` passed on 2026-09-16. It preserves Phase 0–4 gates, checks the notification source/test inventory and Xcode membership, restricts SwiftData/UserNotifications imports to adapters, and proves Schema V2 remains `2.0.0`.
+
+macOS CI covers DST-aware preset calculation (`34989539790`), Reminder repository/disk persistence (`34990280651`), UserNotifications adapter mapping (`34991319616`), permission/schedule/reschedule/cancel/reconcile behavior (`34995287430`), Appointment/Today integration (`34995913095`), Settings and launch composition (`35044468228`), and the full disk-relaunch acceptance chain (`35044707134`). Expected RED runs were `34989245721`, `34989959426`, `34990712192`, `34994971973`, `34995609792`, and `35044192788`; run `34991024061` exposed the macOS-unavailable ephemeral test case before the scoped correction.
+
+Real Mac notification permission, sound, and delivery, reschedule removal, cancellation non-delivery, Settings UI, keyboard/focus behavior, VoiceOver, Apple Developer Team configuration, signing, provisioning, notarization, and packaging remain **Not Verified**.

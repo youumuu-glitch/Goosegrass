@@ -4,10 +4,19 @@ import SwiftData
 @main
 struct GoosegrassApp: App {
     private let persistenceController: PersistenceController
+    private let reminderPreferencesStore: UserDefaultsReminderPreferencesStore
+    private let reminderService: ReminderService
 
     init() {
         do {
-            persistenceController = try PersistenceController()
+            let controller = try PersistenceController()
+            let store = UserDefaultsReminderPreferencesStore()
+            persistenceController = controller
+            reminderPreferencesStore = store
+            reminderService = controller.makeReminderService(
+                notificationCenter: UserNotificationCenterAdapter(),
+                preferences: { store.preferences }
+            )
         } catch {
             fatalError("Unable to initialize the local data store: \(error.localizedDescription)")
         }
@@ -17,8 +26,10 @@ struct GoosegrassApp: App {
         WindowGroup {
             ContentView(
                 customerService: persistenceController.makeCustomerService(),
-                appointmentService: persistenceController.makeAppointmentService(),
-                todayService: persistenceController.makeTodayService()
+                appointmentService: persistenceController.makeAppointmentService(reminderScheduler: reminderService),
+                todayService: persistenceController.makeTodayService(reminderScheduler: reminderService),
+                reminderService: reminderService,
+                reminderPreferencesStore: reminderPreferencesStore
             )
         }
         .modelContainer(persistenceController.container)

@@ -37,7 +37,12 @@ final class AppointmentFeatureCompositionTests: XCTestCase {
         _ = ContentView(
             customerService: controller.makeCustomerService(),
             appointmentService: controller.makeAppointmentService(),
-            todayService: controller.makeTodayService()
+            todayService: controller.makeTodayService(),
+            reminderService: controller.makeReminderService(
+                notificationCenter: FakeNotificationCenter(),
+                preferences: { ReminderPreferences() }
+            ),
+            reminderPreferencesStore: InMemoryReminderPreferencesStore()
         ).body
     }
 }

@@ -4,18 +4,26 @@ import Foundation
 final class AppointmentService {
     private let repository: any AppointmentRepository
     private let customerRepository: any CustomerRepository
+    private let reminderScheduler: (any AppointmentReminderScheduling)?
 
-    init(repository: any AppointmentRepository, customerRepository: any CustomerRepository) {
+    init(
+        repository: any AppointmentRepository,
+        customerRepository: any CustomerRepository,
+        reminderScheduler: (any AppointmentReminderScheduling)? = nil
+    ) {
         self.repository = repository
         self.customerRepository = customerRepository
+        self.reminderScheduler = reminderScheduler
     }
 
     func create(_ appointment: Appointment) throws {
         try repository.create(appointment)
+        reminderScheduler?.synchronizeAfterAppointmentMutation(appointment)
     }
 
     func update(_ appointment: Appointment) throws {
         try repository.update(appointment)
+        reminderScheduler?.synchronizeAfterAppointmentMutation(appointment)
     }
 
     func fetch(id: UUID) throws -> Appointment? {
@@ -39,6 +47,7 @@ final class AppointmentService {
             activities: [activity(for: .submit, appointment: appointment, at: now)],
             isNew: true
         ))
+        reminderScheduler?.synchronizeAfterAppointmentMutation(appointment)
         return appointment
     }
 
@@ -59,6 +68,7 @@ final class AppointmentService {
             activities: [],
             isNew: false
         ))
+        reminderScheduler?.synchronizeAfterAppointmentMutation(appointment)
         return appointment
     }
 
@@ -89,6 +99,7 @@ final class AppointmentService {
             activities: [activity(for: action, appointment: appointment, at: now)],
             isNew: false
         ))
+        reminderScheduler?.synchronizeAfterAppointmentMutation(appointment)
         return appointment
     }
 
@@ -123,6 +134,7 @@ final class AppointmentService {
             activities: [activity(for: .reschedule, appointment: appointment, at: now)],
             isNew: false
         ))
+        reminderScheduler?.synchronizeAfterAppointmentMutation(appointment)
         return appointment
     }
 

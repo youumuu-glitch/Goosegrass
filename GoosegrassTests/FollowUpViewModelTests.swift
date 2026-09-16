@@ -89,6 +89,99 @@ final class FollowUpViewModelTests: XCTestCase {
         XCTAssertTrue(system.viewModel.rows.isEmpty)
     }
 
+    func testAppointmentsNoShowOffersTomorrowAndSkipOnlyAfterSuccessfulTransition() throws {
+        let system = try makeNoShowIntegrationSystem()
+        let skipAppointment = try system.createUpcomingAppointment(offset: 3_600)
+        let createAppointment = try system.createUpcomingAppointment(offset: 7_200)
+        let viewModel = AppointmentListViewModel(
+            service: system.appointments,
+            customerService: system.customers,
+            followUpService: system.followUps,
+            calendar: system.calendar,
+            now: { system.now }
+        )
+        viewModel.applyDatePreset(.all)
+        viewModel.select(skipAppointment.id)
+
+        viewModel.perform(.markNoShow)
+
+        XCTAssertEqual(viewModel.pendingNoShowFollowUpRequest?.appointmentID, skipAppointment.id)
+        viewModel.skipNoShowFollowUp()
+        XCTAssertNil(viewModel.pendingNoShowFollowUpRequest)
+        XCTAssertTrue(try system.followUps.list(filter: FollowUpListFilter(scope: .all)).isEmpty)
+
+        viewModel.select(createAppointment.id)
+        viewModel.perform(.markNoShow)
+        viewModel.createNoShowFollowUpTomorrow()
+        let rows = try system.followUps.list(filter: FollowUpListFilter(scope: .all))
+        XCTAssertEqual(rows.count, 1)
+        XCTAssertEqual(rows.first?.followUp.appointmentID, createAppointment.id)
+        XCTAssertEqual(rows.first?.followUp.reason, "No-show follow-up")
+        XCTAssertNil(viewModel.pendingNoShowFollowUpRequest)
+    }
+
+    func testAppointmentsCustomNoShowPrefillWritesOnlyOnSaveAndFailureDoesNotPrompt() throws {
+        let system = try makeNoShowIntegrationSystem()
+        let customAppointment = try system.createUpcomingAppointment(offset: 3_600)
+        let failingAppointment = try system.createUpcomingAppointment(offset: 7_200)
+        let viewModel = AppointmentListViewModel(
+            service: system.appointments,
+            customerService: system.customers,
+            followUpService: system.followUps,
+            calendar: system.calendar,
+            now: { system.now }
+        )
+        viewModel.applyDatePreset(.all)
+        viewModel.select(customAppointment.id)
+        viewModel.perform(.markNoShow)
+
+        viewModel.beginCustomNoShowFollowUp()
+
+        XCTAssertNil(viewModel.pendingNoShowFollowUpRequest)
+        XCTAssertEqual(viewModel.customFollowUpDraft?.customerID, system.customer.id)
+        XCTAssertEqual(viewModel.customFollowUpDraft?.appointmentID, customAppointment.id)
+        XCTAssertEqual(viewModel.customFollowUpDraft?.reason, "No-show follow-up")
+        XCTAssertTrue(try system.followUps.list(filter: FollowUpListFilter(scope: .all)).isEmpty)
+        viewModel.customFollowUpDraft?.dueAt = system.now.addingTimeInterval(20_000)
+        viewModel.saveCustomNoShowFollowUp()
+        XCTAssertNil(viewModel.customFollowUpDraft)
+        XCTAssertEqual(try system.followUps.list(filter: FollowUpListFilter(scope: .all)).count, 1)
+
+        viewModel.select(failingAppointment.id)
+        try system.controller.makeCustomerRepository().archive(id: system.customer.id, at: system.now)
+        viewModel.perform(.markNoShow)
+        XCTAssertNil(viewModel.pendingNoShowFollowUpRequest)
+        XCTAssertNotNil(viewModel.errorMessage)
+    }
+
+    func testTodayNoShowUsesSameFollowUpService() throws {
+        let system = try makeNoShowIntegrationSystem()
+        let appointment = try system.createUpcomingAppointment(offset: 3_600)
+        let today = system.controller.makeTodayService(
+            calendar: system.calendar,
+            now: { system.now }
+        )
+        let viewModel = TodayViewModel(
+            service: today,
+            followUpService: system.followUps,
+            calendar: system.calendar,
+            now: { system.now }
+        )
+        viewModel.load()
+        viewModel.selectAppointment(appointment.id)
+
+        viewModel.perform(.markNoShow)
+        viewModel.createNoShowFollowUpTomorrow()
+
+        let row = try XCTUnwrap(system.followUps.list(filter: FollowUpListFilter(scope: .all)).first)
+        XCTAssertEqual(row.followUp.appointmentID, appointment.id)
+        XCTAssertEqual(row.followUp.customerID, system.customer.id)
+        XCTAssertEqual(
+            system.calendar.dateComponents([.year, .month, .day, .hour, .minute], from: row.followUp.dueAt),
+            DateComponents(year: 2033, month: 5, day: 19, hour: 11, minute: 0)
+        )
+    }
+
     private func makeSystem() throws -> FollowUpViewModelSystem {
         let controller = try PersistenceController(inMemory: true)
         let customers = controller.makeCustomerService()
@@ -124,6 +217,31 @@ final class FollowUpViewModelTests: XCTestCase {
             now: now
         )
     }
+
+    private func makeNoShowIntegrationSystem() throws -> NoShowIntegrationSystem {
+        let controller = try PersistenceController(inMemory: true)
+        let customers = controller.makeCustomerService()
+        let appointments = controller.makeAppointmentService()
+        let followUps = controller.makeFollowUpService()
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = try XCTUnwrap(TimeZone(secondsFromGMT: 0))
+        let now = Date(timeIntervalSince1970: 2_000_000_000)
+        let customer = Customer(
+            displayName: "No-show Customer",
+            phone: "13800000402",
+            normalizedPhone: "13800000402"
+        )
+        try customers.create(customer)
+        return NoShowIntegrationSystem(
+            controller: controller,
+            customers: customers,
+            appointments: appointments,
+            followUps: followUps,
+            customer: customer,
+            calendar: calendar,
+            now: now
+        )
+    }
 }
 
 @MainActor
@@ -134,4 +252,26 @@ private struct FollowUpViewModelSystem {
     let customer: Customer
     let appointment: Appointment
     let now: Date
+}
+
+@MainActor
+private struct NoShowIntegrationSystem {
+    let controller: PersistenceController
+    let customers: CustomerService
+    let appointments: AppointmentService
+    let followUps: FollowUpService
+    let customer: Customer
+    let calendar: Calendar
+    let now: Date
+
+    func createUpcomingAppointment(offset: TimeInterval) throws -> Appointment {
+        let appointment = Appointment(
+            customerID: customer.id,
+            startAt: now.addingTimeInterval(offset),
+            partySize: 2,
+            status: .upcoming
+        )
+        try appointments.create(appointment)
+        return appointment
+    }
 }

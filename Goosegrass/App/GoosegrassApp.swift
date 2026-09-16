@@ -28,6 +28,7 @@ struct GoosegrassApp: App {
                 customerService: persistenceController.makeCustomerService(),
                 appointmentService: persistenceController.makeAppointmentService(reminderScheduler: reminderService),
                 todayService: persistenceController.makeTodayService(reminderScheduler: reminderService),
+                followUpService: persistenceController.makeFollowUpService(),
                 reminderService: reminderService,
                 reminderPreferencesStore: reminderPreferencesStore
             )

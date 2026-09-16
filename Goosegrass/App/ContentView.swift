@@ -34,6 +34,7 @@ struct ContentView: View {
     @StateObject private var todayViewModel: TodayViewModel
     @StateObject private var customerViewModel: CustomerListViewModel
     @StateObject private var appointmentViewModel: AppointmentListViewModel
+    @StateObject private var followUpViewModel: FollowUpListViewModel
     @StateObject private var settingsViewModel: NotificationSettingsViewModel
     private let reminderService: ReminderService
 
@@ -41,6 +42,7 @@ struct ContentView: View {
         customerService: CustomerService,
         appointmentService: AppointmentService,
         todayService: TodayService,
+        followUpService: FollowUpService,
         reminderService: ReminderService,
         reminderPreferencesStore: any ReminderPreferencesStoring
     ) {
@@ -50,6 +52,11 @@ struct ContentView: View {
         _appointmentViewModel = StateObject(wrappedValue: AppointmentListViewModel(
             service: appointmentService,
             customerService: customerService
+        ))
+        _followUpViewModel = StateObject(wrappedValue: FollowUpListViewModel(
+            service: followUpService,
+            customerService: customerService,
+            appointmentService: appointmentService
         ))
         _settingsViewModel = StateObject(wrappedValue: NotificationSettingsViewModel(
             service: reminderService,
@@ -79,6 +86,8 @@ struct ContentView: View {
                     appointmentViewModel.beginAdd(customerID: customerID)
                     destination = .appointments
                 }
+            case .followUp:
+                FollowUpView(viewModel: followUpViewModel)
             case .settings:
                 SettingsView(viewModel: settingsViewModel)
             case let .some(item):

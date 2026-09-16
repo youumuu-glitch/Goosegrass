@@ -106,7 +106,11 @@ final class FollowUpAcceptanceTests: XCTestCase {
         let appointmentDetail = try XCTUnwrap(reopened.makeAppointmentService().detail(id: appointmentID))
         XCTAssertEqual(appointmentDetail.listItem.appointment.status, .noShow)
         XCTAssertEqual(appointmentDetail.changes.count, 1)
-        XCTAssertEqual(appointmentDetail.activities.map(\.type), [.appointmentNoShow])
+        XCTAssertEqual(appointmentDetail.activities.first?.type, .followUpCompleted)
+        XCTAssertEqual(
+            Set(appointmentDetail.activities.dropFirst().map(\.type)),
+            Set([.followUpCreated, .appointmentNoShow])
+        )
         let customerActivities = try reopened.makeCustomerService().detail(id: customerID)?.activities.map(\.type)
         XCTAssertEqual(customerActivities?.first, .followUpCompleted)
         XCTAssertEqual(Set(customerActivities?.dropFirst() ?? []), Set([.followUpCreated, .appointmentNoShow]))

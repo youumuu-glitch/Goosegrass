@@ -58,3 +58,9 @@ Windows `scripts/validate-phase5.ps1` passed on 2026-09-16. It preserves Phase 0
 macOS CI covers DST-aware preset calculation (`34989539790`), Reminder repository/disk persistence (`34990280651`), UserNotifications adapter mapping (`34991319616`), permission/schedule/reschedule/cancel/reconcile behavior (`34995287430`), Appointment/Today integration (`34995913095`), Settings and launch composition (`35044468228`), and the full disk-relaunch acceptance chain (`35044707134`). Expected RED runs were `34989245721`, `34989959426`, `34990712192`, `34994971973`, `34995609792`, and `35044192788`; run `34991024061` exposed the macOS-unavailable ephemeral test case before the scoped correction.
 
 Real Mac notification permission, sound, and delivery, reschedule removal, cancellation non-delivery, Settings UI, keyboard/focus behavior, VoiceOver, Apple Developer Team configuration, signing, provisioning, notarization, and packaging remain **Not Verified**.
+
+## Phase 6 gates
+
+Windows `scripts/validate-phase6.ps1` preserves Phase 0–5 checks and validates the Follow-up source/test inventory, architecture boundaries, unchanged Schema V2, workflow integration, and Xcode membership. macOS build, XCTest, and disk-relaunch evidence will be recorded as implementation proceeds.
+
+Real Mac follow-up dialog, sheet, keyboard/focus behavior, and VoiceOver, Apple Developer Team configuration, signing, provisioning, notarization, and packaging remain **Not Verified**.

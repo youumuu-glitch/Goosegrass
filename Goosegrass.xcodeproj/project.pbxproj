@@ -101,6 +101,14 @@
 		B0000000000000000000005C /* FollowUpViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000005E /* FollowUpViewModelTests.swift */; };
 		B0000000000000000000005D /* FollowUpFeatureCompositionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000005F /* FollowUpFeatureCompositionTests.swift */; };
 		B0000000000000000000005E /* FollowUpAcceptanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000060 /* FollowUpAcceptanceTests.swift */; };
+		B0000000000000000000005F /* CalendarPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000061 /* CalendarPresentation.swift */; };
+		B00000000000000000000060 /* CalendarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000062 /* CalendarService.swift */; };
+		B00000000000000000000061 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000063 /* CalendarViewModel.swift */; };
+		B00000000000000000000062 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000064 /* CalendarView.swift */; };
+		B00000000000000000000063 /* CalendarServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000065 /* CalendarServiceTests.swift */; };
+		B00000000000000000000064 /* CalendarViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000066 /* CalendarViewModelTests.swift */; };
+		B00000000000000000000065 /* CalendarFeatureCompositionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000067 /* CalendarFeatureCompositionTests.swift */; };
+		B00000000000000000000066 /* CalendarAcceptanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000068 /* CalendarAcceptanceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -210,6 +218,14 @@
 		C0000000000000000000005E /* FollowUpViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowUpViewModelTests.swift; sourceTree = "<group>"; };
 		C0000000000000000000005F /* FollowUpFeatureCompositionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowUpFeatureCompositionTests.swift; sourceTree = "<group>"; };
 		C00000000000000000000060 /* FollowUpAcceptanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowUpAcceptanceTests.swift; sourceTree = "<group>"; };
+		C00000000000000000000061 /* CalendarPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPresentation.swift; sourceTree = "<group>"; };
+		C00000000000000000000062 /* CalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarService.swift; sourceTree = "<group>"; };
+		C00000000000000000000063 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
+		C00000000000000000000064 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		C00000000000000000000065 /* CalendarServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarServiceTests.swift; sourceTree = "<group>"; };
+		C00000000000000000000066 /* CalendarViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModelTests.swift; sourceTree = "<group>"; };
+		C00000000000000000000067 /* CalendarFeatureCompositionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarFeatureCompositionTests.swift; sourceTree = "<group>"; };
+		C00000000000000000000068 /* CalendarAcceptanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarAcceptanceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -329,6 +345,7 @@
 				C0000000000000000000003F /* NotificationPresentation.swift */,
 				C00000000000000000000051 /* FollowUpPresentation.swift */,
 				C00000000000000000000052 /* NoShowFollowUpRequest.swift */,
+				C00000000000000000000061 /* CalendarPresentation.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -341,6 +358,7 @@
 				100000000000000000000017 /* Today */,
 				10000000000000000000001A /* Settings */,
 				10000000000000000000001B /* FollowUp */,
+				10000000000000000000001C /* Calendar */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -401,6 +419,15 @@
 			path = FollowUp;
 			sourceTree = "<group>";
 		};
+		10000000000000000000001C /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				C00000000000000000000063 /* CalendarViewModel.swift */,
+				C00000000000000000000064 /* CalendarView.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
 		100000000000000000000014 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -436,6 +463,7 @@
 				C00000000000000000000036 /* TodayService.swift */,
 				C00000000000000000000041 /* ReminderService.swift */,
 				C00000000000000000000054 /* FollowUpService.swift */,
+				C00000000000000000000062 /* CalendarService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -519,6 +547,10 @@
 				C0000000000000000000005E /* FollowUpViewModelTests.swift */,
 				C0000000000000000000005F /* FollowUpFeatureCompositionTests.swift */,
 				C00000000000000000000060 /* FollowUpAcceptanceTests.swift */,
+				C00000000000000000000065 /* CalendarServiceTests.swift */,
+				C00000000000000000000066 /* CalendarViewModelTests.swift */,
+				C00000000000000000000067 /* CalendarFeatureCompositionTests.swift */,
+				C00000000000000000000068 /* CalendarAcceptanceTests.swift */,
 			);
 			path = GoosegrassTests;
 			sourceTree = "<group>";
@@ -690,6 +722,10 @@
 				B00000000000000000000056 /* FollowUpEditorView.swift in Sources */,
 				B00000000000000000000057 /* FollowUpDetailView.swift in Sources */,
 				B00000000000000000000058 /* FollowUpView.swift in Sources */,
+				B0000000000000000000005F /* CalendarPresentation.swift in Sources */,
+				B00000000000000000000060 /* CalendarService.swift in Sources */,
+				B00000000000000000000061 /* CalendarViewModel.swift in Sources */,
+				B00000000000000000000062 /* CalendarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -731,6 +767,10 @@
 				B0000000000000000000005C /* FollowUpViewModelTests.swift in Sources */,
 				B0000000000000000000005D /* FollowUpFeatureCompositionTests.swift in Sources */,
 				B0000000000000000000005E /* FollowUpAcceptanceTests.swift in Sources */,
+				B00000000000000000000063 /* CalendarServiceTests.swift in Sources */,
+				B00000000000000000000064 /* CalendarViewModelTests.swift in Sources */,
+				B00000000000000000000065 /* CalendarFeatureCompositionTests.swift in Sources */,
+				B00000000000000000000066 /* CalendarAcceptanceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

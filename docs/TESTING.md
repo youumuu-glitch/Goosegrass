@@ -68,3 +68,9 @@ macOS CI covers calendar-aware Tomorrow 11:00 and lifecycle rules (`35046788189`
 Expected RED runs were schedule/lifecycle `35046306474`, repository `35047027821`, service `35049232485`, workspace `35049655055`, and no-show integration `35050040588`. Run `35046449104` exposed Swift 5 implicit-return incompatibility before `35046788189` passed. Acceptance run `35066138738` exposed an async XCTest autoclosure compile error; `35066490974` then exposed an outdated Inspector-history expectation; corrected run `35066929093` completed unsigned Build and the full XCTest target successfully.
 
 Real Mac follow-up dialog, sheet, keyboard/focus behavior, and VoiceOver remain **Not Verified**. Follow-up workspace appearance, notification permission/delivery, Apple Developer Team configuration, signing, provisioning, notarization, and packaging also remain **Not Verified**.
+
+## Phase 7 gates
+
+Windows `scripts/validate-phase7.ps1` preserves Phase 0–6 checks and validates the Calendar source/test inventory, application boundary, unchanged Schema V2, CI wiring, and Xcode membership. macOS Build/XCTest evidence will be recorded as implementation proceeds.
+
+Real Mac Calendar month-grid appearance, date navigation, keyboard/focus behavior, VoiceOver, notification delivery, Apple Developer Team configuration, signing, provisioning, notarization, and packaging remain **Not Verified**.

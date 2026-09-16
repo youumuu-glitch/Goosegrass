@@ -21,7 +21,7 @@ Schema V2 adds only `AppointmentChangeRecord`, keyed by `appointmentID`, with st
 - `Appointment`: customer-linked time, party size, independent appointment status, customer request, internal note, lifecycle timestamps, and optional source/sync metadata.
 - `AppointmentChange`: immutable description of a reschedule or other material field change.
 - `Reminder`: appointment-linked reminder intent, calendar-derived fire time, stable namespaced system notification identifier, and scheduled/delivered/cancelled/failed state. Phase 5 reuses the V1 record and enforces one standard preset per appointment/type in the repository; no Schema V3 is introduced.
-- `FollowUp`: customer-linked next action, optional appointment context, priority, status, and completion time.
+- `FollowUp`: customer-linked next action with a required future `dueAt`, non-empty reason, optional note and appointment context, low/normal/high priority, pending/snoozed/completed/cancelled status, and optional completion time. Phase 6 reuses the V1 record without changing Schema V2.
 - `Activity`: customer timeline event with optional appointment context.
 - `LeadSource`, `Tag`, `ImportBatch`, and `AppSettings`: supporting domain records and preferences.
 
@@ -36,6 +36,9 @@ All main records use UUID identifiers and `Date` values. Business timestamps use
 - Customer requests and internal notes are separate fields.
 - Archive/cancel operations must retain related history.
 - Rescheduling must produce change history before Phase 3 can be accepted.
+- A FollowUp must reference an active Customer. If it references an Appointment, that appointment must belong to the same Customer.
+- Pending and snoozed FollowUps may be completed or cancelled; pending/snoozed transitions remain explicit, completed/cancelled records are terminal, and overdue is computed at presentation time rather than persisted.
+- FollowUp creation and completion append `followUpCreated` and `followUpCompleted` Activity records atomically. Cancellation never physically deletes a record.
 
 ## Phase 2 customer aggregates
 

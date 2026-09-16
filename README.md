@@ -28,10 +28,10 @@ No Apple Development Team, signing identity, or provisioning profile is configur
 ## Windows validation
 
 ```powershell
-pwsh -NoProfile -File scripts/validate-phase5.ps1
+pwsh -NoProfile -File scripts/validate-phase6.ps1
 ```
 
-This preserves earlier gates and checks the Phase 5 reminder/notification source and test inventory, framework boundaries, unchanged Schema V2, documentation, and Xcode target membership. It does not compile Swift, execute SwiftData, or deliver notifications.
+This preserves earlier gates and checks the Phase 6 follow-up source and test inventory, framework boundaries, unchanged Schema V2, documentation, and Xcode target membership. It does not compile Swift, execute SwiftData, display native UI, or deliver notifications.
 
 ## macOS build and test
 
@@ -66,8 +66,10 @@ xcodebuild test \
 | Phase 4 macOS build and Today tests | Aggregation passed in `34984242542`; ViewModel in `34985334535`; workspace in `34986213102`; disk-relaunch acceptance in `34986598003`; documented source candidate in `34987024444` on 2026-09-15 |
 | Phase 4 PR and post-merge verification | PR #5 passed in `34987583693`; merged `main` passed in `34987950782` on 2026-09-15 |
 | Phase 5 macOS build and reminder tests | Calculator `34989539790`; repository `34990280651`; adapter `34991319616`; service `34995287430`; integration `34995913095`; settings `35044468228`; disk acceptance `35044707134` |
+| Phase 5 PR and post-merge verification | PR #6 passed in `35045171957`; merged `main` passed in `35045404404` on 2026-09-16 |
+| Phase 6 macOS build and follow-up tests | Schedule/lifecycle `35046788189`; repository `35047214902`; service `35049406856`; workspace `35049858179`; no-show integration `35050252734`; disk acceptance `35066929093` on 2026-09-16 |
 | Real Mac UI, keyboard, focus, and VoiceOver QA | Not Verified |
 | Notifications and permissions | Not Verified |
 | Signing and packaging | Not Verified |
 
-Phase 5 now provides durable local-reminder intent, calendar-aware presets, appointment lifecycle integration, permission/settings UI, UserNotifications isolation, and launch reconciliation. Real notification permission prompts, sound/banner delivery, interactive UX, signing, and packaging still require a real Mac.
+Phase 6 now provides a durable active follow-up queue, manual and no-show-linked creation, complete/snooze/cancel lifecycle actions, shared Appointments/Today prompts, and disk-relaunch coverage without a schema change. Real follow-up dialog/sheet behavior, keyboard/focus/VoiceOver QA, notification permission and delivery, signing, and packaging still require a real Mac and remain **Not Verified**.

@@ -61,6 +61,10 @@ Real Mac notification permission, sound, and delivery, reschedule removal, cance
 
 ## Phase 6 gates
 
-Windows `scripts/validate-phase6.ps1` preserves Phase 0–5 checks and validates the Follow-up source/test inventory, architecture boundaries, unchanged Schema V2, workflow integration, and Xcode membership. macOS build, XCTest, and disk-relaunch evidence will be recorded as implementation proceeds.
+Windows `scripts/validate-phase6.ps1` passed on 2026-09-16. It preserves Phase 0–5 checks and validates the Follow-up source/test inventory, architecture boundaries, unchanged Schema V2, workflow integration, and Xcode membership; Windows still cannot compile Swift or execute SwiftData.
 
-Real Mac follow-up dialog, sheet, keyboard/focus behavior, and VoiceOver, Apple Developer Team configuration, signing, provisioning, notarization, and packaging remain **Not Verified**.
+macOS CI covers calendar-aware Tomorrow 11:00 and lifecycle rules (`35046788189`), durable repository relationships/filtering/sorting/disk reopen (`35047214902`), service creation and terminal transitions (`35049406856`), workspace and shared composition (`35049858179`), Appointments/Today no-show recovery (`35050252734`), and the two-relaunch disk acceptance chain (`35066929093`). The acceptance chain proves `No Show → Tomorrow 11:00 → reopen → Complete → reopen`, retained appointment and customer histories, reminder cancellation, stable linkage, terminal timestamps, no duplicate FollowUp, plus manual snooze/cancel persistence.
+
+Expected RED runs were schedule/lifecycle `35046306474`, repository `35047027821`, service `35049232485`, workspace `35049655055`, and no-show integration `35050040588`. Run `35046449104` exposed Swift 5 implicit-return incompatibility before `35046788189` passed. Acceptance run `35066138738` exposed an async XCTest autoclosure compile error; `35066490974` then exposed an outdated Inspector-history expectation; corrected run `35066929093` completed unsigned Build and the full XCTest target successfully.
+
+Real Mac follow-up dialog, sheet, keyboard/focus behavior, and VoiceOver remain **Not Verified**. Follow-up workspace appearance, notification permission/delivery, Apple Developer Team configuration, signing, provisioning, notarization, and packaging also remain **Not Verified**.

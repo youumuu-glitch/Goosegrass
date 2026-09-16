@@ -2,6 +2,15 @@
 
 All notable project changes are documented here.
 
+## Phase 6 — Follow-up workflows
+
+- Added pure calendar-aware FollowUp scheduling and lifecycle validation without adding a timer or changing Schema V2.
+- Added the durable FollowUp repository/service with active/all scopes, deterministic ordering, atomic timeline activities, and authoritative rereads.
+- Added a native Follow-up workspace for manual create, inspect, complete, snooze, cancel, and retained terminal history.
+- Connected successful no-show transitions in Appointments and Today to transient Tomorrow 11:00, Custom, or Skip recovery flows using one shared service.
+- Added disk-backed two-relaunch acceptance coverage for no-show recovery, completion, reminder cancellation, complete appointment/customer history, and manual snooze/cancel persistence.
+- Passed Windows Phase 0–6 static validation and macOS Build/XCTest run `35066929093`; real Mac UI/accessibility and release operations remain Not Verified.
+
 ## Unreleased
 
 ### Added

@@ -7,8 +7,8 @@ Work proceeds one verifiable phase at a time:
 3. Phase 2 — customer workflows.
 4. Phase 3 — appointment lifecycle and history. **Implemented, verified, and merged.**
 5. Phase 4 — Today workspace. **Implemented, verified, and merged.**
-6. Phase 5 — local notifications. **Implemented; PR verification pending.**
-7. Phase 6 — follow-up workflows.
+6. Phase 5 — local notifications. **Implemented, verified, and merged.**
+7. Phase 6 — follow-up workflows. **Implemented; candidate/PR verification pending.**
 8. Phase 7 — calendar.
 9. Phase 8 — inbox and reviewed CSV import.
 10. Phase 9 — global search and filters.

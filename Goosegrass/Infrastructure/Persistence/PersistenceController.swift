@@ -57,6 +57,19 @@ final class PersistenceController {
         LocalFollowUpRepository(context: context)
     }
 
+    func makeFollowUpService(
+        calendar: Calendar = .current,
+        now: @escaping () -> Date = Date.init,
+        makeID: @escaping () -> UUID = UUID.init
+    ) -> FollowUpService {
+        FollowUpService(
+            repository: makeFollowUpRepository(),
+            calendar: calendar,
+            now: now,
+            makeID: makeID
+        )
+    }
+
     func makeCustomerService() -> CustomerService {
         CustomerService(repository: makeCustomerRepository())
     }

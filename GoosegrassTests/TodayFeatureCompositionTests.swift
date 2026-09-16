@@ -40,7 +40,12 @@ final class TodayFeatureCompositionTests: XCTestCase {
         _ = ContentView(
             customerService: controller.makeCustomerService(),
             appointmentService: controller.makeAppointmentService(),
-            todayService: todayService
+            todayService: todayService,
+            reminderService: controller.makeReminderService(
+                notificationCenter: FakeNotificationCenter(),
+                preferences: { ReminderPreferences() }
+            ),
+            reminderPreferencesStore: InMemoryReminderPreferencesStore()
         ).body
 
         XCTAssertEqual(ContentView.initialDestination, .today)

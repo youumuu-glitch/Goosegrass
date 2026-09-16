@@ -6,7 +6,14 @@ protocol AppointmentReminderScheduling: AnyObject {
 }
 
 @MainActor
-final class ReminderService: AppointmentReminderScheduling {
+protocol NotificationSettingsServicing: AnyObject {
+    func authorizationStatus() async -> LocalNotificationAuthorizationStatus
+    func requestPermission() async throws -> Bool
+    func reconcilePendingNotifications() async
+}
+
+@MainActor
+final class ReminderService: AppointmentReminderScheduling, NotificationSettingsServicing {
     private let repository: any ReminderRepository
     private let appointmentRepository: any AppointmentRepository
     private let notificationCenter: any LocalNotificationCenter

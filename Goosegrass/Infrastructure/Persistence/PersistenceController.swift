@@ -79,4 +79,22 @@ final class PersistenceController {
             now: now
         )
     }
+
+    func makeReminderService(
+        notificationCenter: any LocalNotificationCenter,
+        preferences: @escaping () -> ReminderPreferences,
+        calendar: Calendar = .current,
+        now: @escaping () -> Date = Date.init,
+        makeID: @escaping () -> UUID = UUID.init
+    ) -> ReminderService {
+        ReminderService(
+            repository: makeReminderRepository(),
+            appointmentRepository: makeAppointmentRepository(),
+            notificationCenter: notificationCenter,
+            preferences: preferences,
+            calendar: calendar,
+            now: now,
+            makeID: makeID
+        )
+    }
 }

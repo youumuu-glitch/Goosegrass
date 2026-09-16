@@ -34,17 +34,26 @@ struct ContentView: View {
     @StateObject private var todayViewModel: TodayViewModel
     @StateObject private var customerViewModel: CustomerListViewModel
     @StateObject private var appointmentViewModel: AppointmentListViewModel
+    @StateObject private var settingsViewModel: NotificationSettingsViewModel
+    private let reminderService: ReminderService
 
     init(
         customerService: CustomerService,
         appointmentService: AppointmentService,
-        todayService: TodayService
+        todayService: TodayService,
+        reminderService: ReminderService,
+        reminderPreferencesStore: any ReminderPreferencesStoring
     ) {
+        self.reminderService = reminderService
         _todayViewModel = StateObject(wrappedValue: TodayViewModel(service: todayService))
         _customerViewModel = StateObject(wrappedValue: CustomerListViewModel(service: customerService))
         _appointmentViewModel = StateObject(wrappedValue: AppointmentListViewModel(
             service: appointmentService,
             customerService: customerService
+        ))
+        _settingsViewModel = StateObject(wrappedValue: NotificationSettingsViewModel(
+            service: reminderService,
+            store: reminderPreferencesStore
         ))
     }
 
@@ -70,6 +79,8 @@ struct ContentView: View {
                     appointmentViewModel.beginAdd(customerID: customerID)
                     destination = .appointments
                 }
+            case .settings:
+                SettingsView(viewModel: settingsViewModel)
             case let .some(item):
                 EmptyStateView(
                     icon: item.icon,
@@ -81,5 +92,6 @@ struct ContentView: View {
             }
         }
         .frame(minWidth: 900, minHeight: 600)
+        .task { await reminderService.reconcilePendingNotifications() }
     }
 }

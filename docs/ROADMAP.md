@@ -6,8 +6,8 @@ Work proceeds one verifiable phase at a time:
 2. Phase 1 — versioned SwiftData persistence, repositories, services, Customer/Appointment relationships, and persistence tests.
 3. Phase 2 — customer workflows.
 4. Phase 3 — appointment lifecycle and history. **Implemented, verified, and merged.**
-5. Phase 4 — Today workspace. **Implemented; PR verification pending.**
-6. Phase 5 — local notifications.
+5. Phase 4 — Today workspace. **Implemented, verified, and merged.**
+6. Phase 5 — local notifications. **Implemented; PR verification pending.**
 7. Phase 6 — follow-up workflows.
 8. Phase 7 — calendar.
 9. Phase 8 — inbox and reviewed CSV import.

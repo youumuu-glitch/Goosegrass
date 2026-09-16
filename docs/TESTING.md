@@ -53,4 +53,8 @@ Real Mac Today UI appearance, keyboard/focus behavior, VoiceOver, notification d
 
 ## Phase 5 gates
 
-Phase 5 adds durable local-reminder calculation, persistence, permission handling, scheduling, lifecycle repair, and launch reconciliation. Until the Phase 5 macOS workflows execute, its Build and XCTest results are **Not Verified**. Real Mac notification permission, sound, and delivery, reschedule removal, cancellation non-delivery, Settings UI, keyboard/focus behavior, VoiceOver, Apple Developer Team configuration, signing, provisioning, notarization, and packaging remain **Not Verified**.
+Windows `scripts/validate-phase5.ps1` passed on 2026-09-16. It preserves Phase 0–4 gates, checks the notification source/test inventory and Xcode membership, restricts SwiftData/UserNotifications imports to adapters, and proves Schema V2 remains `2.0.0`.
+
+macOS CI covers DST-aware preset calculation (`34989539790`), Reminder repository/disk persistence (`34990280651`), UserNotifications adapter mapping (`34991319616`), permission/schedule/reschedule/cancel/reconcile behavior (`34995287430`), Appointment/Today integration (`34995913095`), Settings and launch composition (`35044468228`), and the full disk-relaunch acceptance chain (`35044707134`). Expected RED runs were `34989245721`, `34989959426`, `34990712192`, `34994971973`, `34995609792`, and `35044192788`; run `34991024061` exposed the macOS-unavailable ephemeral test case before the scoped correction.
+
+Real Mac notification permission, sound, and delivery, reschedule removal, cancellation non-delivery, Settings UI, keyboard/focus behavior, VoiceOver, Apple Developer Team configuration, signing, provisioning, notarization, and packaging remain **Not Verified**.

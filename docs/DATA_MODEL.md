@@ -20,7 +20,7 @@ Schema V2 adds only `AppointmentChangeRecord`, keyed by `appointmentID`, with st
 - `Customer`: durable customer identity, original and normalized phone, lifecycle status, notes, archive flag, and optional sync metadata.
 - `Appointment`: customer-linked time, party size, independent appointment status, customer request, internal note, lifecycle timestamps, and optional source/sync metadata.
 - `AppointmentChange`: immutable description of a reschedule or other material field change.
-- `Reminder`: appointment-linked reminder intent and system notification identifier.
+- `Reminder`: appointment-linked reminder intent, calendar-derived fire time, stable namespaced system notification identifier, and scheduled/delivered/cancelled/failed state. Phase 5 reuses the V1 record and enforces one standard preset per appointment/type in the repository; no Schema V3 is introduced.
 - `FollowUp`: customer-linked next action, optional appointment context, priority, status, and completion time.
 - `Activity`: customer timeline event with optional appointment context.
 - `LeadSource`, `Tag`, `ImportBatch`, and `AppSettings`: supporting domain records and preferences.

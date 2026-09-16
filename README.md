@@ -28,10 +28,10 @@ No Apple Development Team, signing identity, or provisioning profile is configur
 ## Windows validation
 
 ```powershell
-pwsh -NoProfile -File scripts/validate-phase4.ps1
+pwsh -NoProfile -File scripts/validate-phase5.ps1
 ```
 
-This preserves earlier gates and checks the Phase 4 Today source/test inventory, feature boundaries, unchanged Schema V2, documentation, and Xcode target membership. It does not compile Swift or execute SwiftData.
+This preserves earlier gates and checks the Phase 5 reminder/notification source and test inventory, framework boundaries, unchanged Schema V2, documentation, and Xcode target membership. It does not compile Swift, execute SwiftData, or deliver notifications.
 
 ## macOS build and test
 
@@ -64,8 +64,10 @@ xcodebuild test \
 | Phase 3 macOS build and appointment tests | Schema migration passed in `34944143389`; workspace passed in `34947553894`; disk lifecycle acceptance passed in `34947854294` on 2026-09-15 |
 | Phase 3 PR and post-merge verification | PR #4 passed in `34948458801`; merged `main` passed in `34948667447` on 2026-09-15 |
 | Phase 4 macOS build and Today tests | Aggregation passed in `34984242542`; ViewModel in `34985334535`; workspace in `34986213102`; disk-relaunch acceptance in `34986598003`; documented source candidate in `34987024444` on 2026-09-15 |
+| Phase 4 PR and post-merge verification | PR #5 passed in `34987583693`; merged `main` passed in `34987950782` on 2026-09-15 |
+| Phase 5 macOS build and reminder tests | Calculator `34989539790`; repository `34990280651`; adapter `34991319616`; service `34995287430`; integration `34995913095`; settings `35044468228`; disk acceptance `35044707134` |
 | Real Mac UI, keyboard, focus, and VoiceOver QA | Not Verified |
 | Notifications and permissions | Not Verified |
 | Signing and packaging | Not Verified |
 
-Phase 4 now provides the default Today workspace, runtime-only upcoming-arrival aggregation, complete same-day history, quick actions with authoritative reloads, and disk-backed relaunch acceptance. Interactive UX, notification, permission, signing, and packaging validation still require a real Mac.
+Phase 5 now provides durable local-reminder intent, calendar-aware presets, appointment lifecycle integration, permission/settings UI, UserNotifications isolation, and launch reconciliation. Real notification permission prompts, sound/banner delivery, interactive UX, signing, and packaging still require a real Mac.

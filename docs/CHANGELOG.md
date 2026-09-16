@@ -25,6 +25,7 @@ All notable project changes are documented here.
 - Disk-backed acceptance for complete, cancel, reschedule/reconfirm, and no-show lifecycle paths.
 - Default Today workspace with four summary cards, a complete same-day appointment list, Need Contact queue, Phase 3 inspector reuse, and lifecycle-derived quick actions.
 - Runtime Upcoming Arrivals aggregation for future confirmed/upcoming appointments, card/list semantic separation, authoritative post-action refresh, and two-relaunch disk acceptance without a schema change.
+- Calendar-aware default reminders, durable Reminder repository behavior, permission/settings UI, UserNotifications adapter, appointment lifecycle scheduling, and launch reconciliation without a schema change.
 
 ### Verification
 
@@ -45,5 +46,8 @@ All notable project changes are documented here.
 - Phase 3 PR #4 and post-merge main CI passed in runs `34948458801` and `34948667447`.
 - Windows Phase 4 static validation passed on 2026-09-15.
 - Phase 4 aggregation, ViewModel, workspace, disk-relaunch acceptance, and documented source candidate passed in macOS runs `34984242542`, `34985334535`, `34986213102`, `34986598003`, and `34987024444`.
+- Phase 4 PR #5 and post-merge main CI passed in `34987583693` and `34987950782`.
+- Windows Phase 5 static validation passed on 2026-09-16.
+- Phase 5 calculator, persistence, adapter, service, integration, settings, and disk acceptance passed in macOS runs `34989539790`, `34990280651`, `34991319616`, `34995287430`, `34995913095`, `35044468228`, and `35044707134`.
 - Real Mac Customers UI appearance, keyboard navigation, focus behavior, and VoiceOver: **Not Verified**.
 - Apple Developer Team, signing, provisioning, notarization, and packaging: **Not Verified**.

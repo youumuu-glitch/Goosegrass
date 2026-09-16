@@ -83,6 +83,24 @@
 		B0000000000000000000004A /* NotificationSettingsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000004C /* NotificationSettingsViewModelTests.swift */; };
 		B0000000000000000000004B /* NotificationFeatureCompositionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000004D /* NotificationFeatureCompositionTests.swift */; };
 		B0000000000000000000004C /* ReminderAcceptanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000004E /* ReminderAcceptanceTests.swift */; };
+		B0000000000000000000004D /* FollowUpSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000004F /* FollowUpSchedule.swift */; };
+		B0000000000000000000004E /* FollowUpLifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000050 /* FollowUpLifecycle.swift */; };
+		B0000000000000000000004F /* FollowUpPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000051 /* FollowUpPresentation.swift */; };
+		B00000000000000000000050 /* NoShowFollowUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000052 /* NoShowFollowUpRequest.swift */; };
+		B00000000000000000000051 /* FollowUpRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000053 /* FollowUpRepository.swift */; };
+		B00000000000000000000052 /* FollowUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000054 /* FollowUpService.swift */; };
+		B00000000000000000000053 /* LocalFollowUpRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000055 /* LocalFollowUpRepository.swift */; };
+		B00000000000000000000054 /* FollowUpEditorDraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000056 /* FollowUpEditorDraft.swift */; };
+		B00000000000000000000055 /* FollowUpListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000057 /* FollowUpListViewModel.swift */; };
+		B00000000000000000000056 /* FollowUpEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000058 /* FollowUpEditorView.swift */; };
+		B00000000000000000000057 /* FollowUpDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000059 /* FollowUpDetailView.swift */; };
+		B00000000000000000000058 /* FollowUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000005A /* FollowUpView.swift */; };
+		B00000000000000000000059 /* FollowUpScheduleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000005B /* FollowUpScheduleTests.swift */; };
+		B0000000000000000000005A /* FollowUpRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000005C /* FollowUpRepositoryTests.swift */; };
+		B0000000000000000000005B /* FollowUpServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000005D /* FollowUpServiceTests.swift */; };
+		B0000000000000000000005C /* FollowUpViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000005E /* FollowUpViewModelTests.swift */; };
+		B0000000000000000000005D /* FollowUpFeatureCompositionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000005F /* FollowUpFeatureCompositionTests.swift */; };
+		B0000000000000000000005E /* FollowUpAcceptanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000060 /* FollowUpAcceptanceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -174,6 +192,24 @@
 		C0000000000000000000004C /* NotificationSettingsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsViewModelTests.swift; sourceTree = "<group>"; };
 		C0000000000000000000004D /* NotificationFeatureCompositionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationFeatureCompositionTests.swift; sourceTree = "<group>"; };
 		C0000000000000000000004E /* ReminderAcceptanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderAcceptanceTests.swift; sourceTree = "<group>"; };
+		C0000000000000000000004F /* FollowUpSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowUpSchedule.swift; sourceTree = "<group>"; };
+		C00000000000000000000050 /* FollowUpLifecycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowUpLifecycle.swift; sourceTree = "<group>"; };
+		C00000000000000000000051 /* FollowUpPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowUpPresentation.swift; sourceTree = "<group>"; };
+		C00000000000000000000052 /* NoShowFollowUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoShowFollowUpRequest.swift; sourceTree = "<group>"; };
+		C00000000000000000000053 /* FollowUpRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowUpRepository.swift; sourceTree = "<group>"; };
+		C00000000000000000000054 /* FollowUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowUpService.swift; sourceTree = "<group>"; };
+		C00000000000000000000055 /* LocalFollowUpRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFollowUpRepository.swift; sourceTree = "<group>"; };
+		C00000000000000000000056 /* FollowUpEditorDraft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowUpEditorDraft.swift; sourceTree = "<group>"; };
+		C00000000000000000000057 /* FollowUpListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowUpListViewModel.swift; sourceTree = "<group>"; };
+		C00000000000000000000058 /* FollowUpEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowUpEditorView.swift; sourceTree = "<group>"; };
+		C00000000000000000000059 /* FollowUpDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowUpDetailView.swift; sourceTree = "<group>"; };
+		C0000000000000000000005A /* FollowUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowUpView.swift; sourceTree = "<group>"; };
+		C0000000000000000000005B /* FollowUpScheduleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowUpScheduleTests.swift; sourceTree = "<group>"; };
+		C0000000000000000000005C /* FollowUpRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowUpRepositoryTests.swift; sourceTree = "<group>"; };
+		C0000000000000000000005D /* FollowUpServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowUpServiceTests.swift; sourceTree = "<group>"; };
+		C0000000000000000000005E /* FollowUpViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowUpViewModelTests.swift; sourceTree = "<group>"; };
+		C0000000000000000000005F /* FollowUpFeatureCompositionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowUpFeatureCompositionTests.swift; sourceTree = "<group>"; };
+		C00000000000000000000060 /* FollowUpAcceptanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowUpAcceptanceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -268,6 +304,8 @@
 				C0000000000000000000000C /* AppointmentValidator.swift */,
 				C00000000000000000000026 /* AppointmentLifecycle.swift */,
 				C0000000000000000000003E /* ReminderCalculator.swift */,
+				C0000000000000000000004F /* FollowUpSchedule.swift */,
+				C00000000000000000000050 /* FollowUpLifecycle.swift */,
 			);
 			path = Rules;
 			sourceTree = "<group>";
@@ -289,6 +327,8 @@
 				C00000000000000000000027 /* AppointmentPresentation.swift */,
 				C00000000000000000000035 /* TodayPresentation.swift */,
 				C0000000000000000000003F /* NotificationPresentation.swift */,
+				C00000000000000000000051 /* FollowUpPresentation.swift */,
+				C00000000000000000000052 /* NoShowFollowUpRequest.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -300,6 +340,7 @@
 				100000000000000000000016 /* Appointments */,
 				100000000000000000000017 /* Today */,
 				10000000000000000000001A /* Settings */,
+				10000000000000000000001B /* FollowUp */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -348,6 +389,18 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		10000000000000000000001B /* FollowUp */ = {
+			isa = PBXGroup;
+			children = (
+				C00000000000000000000056 /* FollowUpEditorDraft.swift */,
+				C00000000000000000000057 /* FollowUpListViewModel.swift */,
+				C00000000000000000000058 /* FollowUpEditorView.swift */,
+				C00000000000000000000059 /* FollowUpDetailView.swift */,
+				C0000000000000000000005A /* FollowUpView.swift */,
+			);
+			path = FollowUp;
+			sourceTree = "<group>";
+		};
 		100000000000000000000014 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -370,6 +423,7 @@
 				C0000000000000000000000D /* CustomerRepository.swift */,
 				C0000000000000000000000E /* AppointmentRepository.swift */,
 				C00000000000000000000040 /* ReminderRepository.swift */,
+				C00000000000000000000053 /* FollowUpRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -381,6 +435,7 @@
 				C00000000000000000000010 /* AppointmentService.swift */,
 				C00000000000000000000036 /* TodayService.swift */,
 				C00000000000000000000041 /* ReminderService.swift */,
+				C00000000000000000000054 /* FollowUpService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -406,6 +461,7 @@
 				C00000000000000000000015 /* LocalAppointmentRepository.swift */,
 				C00000000000000000000016 /* PersistenceController.swift */,
 				C00000000000000000000042 /* LocalReminderRepository.swift */,
+				C00000000000000000000055 /* LocalFollowUpRepository.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -457,6 +513,12 @@
 				C0000000000000000000004C /* NotificationSettingsViewModelTests.swift */,
 				C0000000000000000000004D /* NotificationFeatureCompositionTests.swift */,
 				C0000000000000000000004E /* ReminderAcceptanceTests.swift */,
+				C0000000000000000000005B /* FollowUpScheduleTests.swift */,
+				C0000000000000000000005C /* FollowUpRepositoryTests.swift */,
+				C0000000000000000000005D /* FollowUpServiceTests.swift */,
+				C0000000000000000000005E /* FollowUpViewModelTests.swift */,
+				C0000000000000000000005F /* FollowUpFeatureCompositionTests.swift */,
+				C00000000000000000000060 /* FollowUpAcceptanceTests.swift */,
 			);
 			path = GoosegrassTests;
 			sourceTree = "<group>";
@@ -616,6 +678,18 @@
 				B00000000000000000000042 /* ReminderPreferencesStore.swift in Sources */,
 				B00000000000000000000043 /* NotificationSettingsViewModel.swift in Sources */,
 				B00000000000000000000044 /* SettingsView.swift in Sources */,
+				B0000000000000000000004D /* FollowUpSchedule.swift in Sources */,
+				B0000000000000000000004E /* FollowUpLifecycle.swift in Sources */,
+				B0000000000000000000004F /* FollowUpPresentation.swift in Sources */,
+				B00000000000000000000050 /* NoShowFollowUpRequest.swift in Sources */,
+				B00000000000000000000051 /* FollowUpRepository.swift in Sources */,
+				B00000000000000000000052 /* FollowUpService.swift in Sources */,
+				B00000000000000000000053 /* LocalFollowUpRepository.swift in Sources */,
+				B00000000000000000000054 /* FollowUpEditorDraft.swift in Sources */,
+				B00000000000000000000055 /* FollowUpListViewModel.swift in Sources */,
+				B00000000000000000000056 /* FollowUpEditorView.swift in Sources */,
+				B00000000000000000000057 /* FollowUpDetailView.swift in Sources */,
+				B00000000000000000000058 /* FollowUpView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -651,6 +725,12 @@
 				B0000000000000000000004A /* NotificationSettingsViewModelTests.swift in Sources */,
 				B0000000000000000000004B /* NotificationFeatureCompositionTests.swift in Sources */,
 				B0000000000000000000004C /* ReminderAcceptanceTests.swift in Sources */,
+				B00000000000000000000059 /* FollowUpScheduleTests.swift in Sources */,
+				B0000000000000000000005A /* FollowUpRepositoryTests.swift in Sources */,
+				B0000000000000000000005B /* FollowUpServiceTests.swift in Sources */,
+				B0000000000000000000005C /* FollowUpViewModelTests.swift in Sources */,
+				B0000000000000000000005D /* FollowUpFeatureCompositionTests.swift in Sources */,
+				B0000000000000000000005E /* FollowUpAcceptanceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -53,6 +53,22 @@ struct AppointmentsView: View {
                 onSave: viewModel.saveEditor
             )
         }
+        .sheet(isPresented: customFollowUpPresented) {
+            FollowUpEditorView(
+                draft: customFollowUpDraft,
+                customers: viewModel.customerRows,
+                appointments: customFollowUpAppointments,
+                onCancel: viewModel.cancelCustomNoShowFollowUp,
+                onSave: viewModel.saveCustomNoShowFollowUp
+            )
+        }
+        .confirmationDialog("Create a follow-up?", isPresented: noShowFollowUpPresented) {
+            Button("Tomorrow 11:00", action: viewModel.createNoShowFollowUpTomorrow)
+            Button("Custom…", action: viewModel.beginCustomNoShowFollowUp)
+            Button("Skip", role: .cancel, action: viewModel.skipNoShowFollowUp)
+        } message: {
+            Text("The appointment is already marked no-show. Choose whether to add a customer follow-up.")
+        }
         .confirmationDialog("Cancel this appointment?", isPresented: cancellationPresented) {
             Button("Cancel Appointment", role: .destructive, action: viewModel.confirmPendingAction)
             Button("Keep Appointment", role: .cancel, action: viewModel.cancelPendingAction)
@@ -146,5 +162,27 @@ struct AppointmentsView: View {
     }
     private var errorPresented: Binding<Bool> {
         Binding(get: { viewModel.errorMessage != nil }, set: { if !$0 { viewModel.clearError() } })
+    }
+    private var noShowFollowUpPresented: Binding<Bool> {
+        Binding(
+            get: { viewModel.pendingNoShowFollowUpRequest != nil },
+            set: { if !$0 { viewModel.skipNoShowFollowUp() } }
+        )
+    }
+    private var customFollowUpPresented: Binding<Bool> {
+        Binding(
+            get: { viewModel.customFollowUpDraft != nil },
+            set: { if !$0 { viewModel.cancelCustomNoShowFollowUp() } }
+        )
+    }
+    private var customFollowUpDraft: Binding<FollowUpEditorDraft> {
+        Binding(
+            get: { viewModel.customFollowUpDraft ?? FollowUpEditorDraft() },
+            set: { viewModel.customFollowUpDraft = $0 }
+        )
+    }
+    private var customFollowUpAppointments: [AppointmentListItem] {
+        guard let item = viewModel.detail?.listItem else { return [] }
+        return [item]
     }
 }

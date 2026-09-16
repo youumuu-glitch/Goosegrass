@@ -20,6 +20,7 @@ final class NotificationFeatureCompositionTests: XCTestCase {
             customerService: controller.makeCustomerService(),
             appointmentService: controller.makeAppointmentService(reminderScheduler: reminderService),
             todayService: controller.makeTodayService(reminderScheduler: reminderService),
+            followUpService: controller.makeFollowUpService(),
             reminderService: reminderService,
             reminderPreferencesStore: store
         ).body

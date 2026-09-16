@@ -32,7 +32,7 @@ Phase 0 establishes the project, boundaries, and value-oriented domain contracts
 
 `PersistenceController` owns the one application `ModelContainer` and its main `ModelContext`. The app injects that container once at the scene boundary. Local repositories receive a context; they never create hidden containers. Tests may create isolated in-memory containers or an explicitly located disk store.
 
-Phase 1 implements Customer and Appointment repository/service foundations. Activity, FollowUp, LeadSource, Tag, and Reminder are present in the schema so later phases extend behavior without introducing an unversioned store.
+Phase 1 implements Customer and Appointment repository/service foundations. Activity, FollowUp, LeadSource, Tag, and Reminder are present in the schema so later phases extend behavior without introducing an unversioned store. Phases 5 and 6 deliberately reuse those V1 Reminder and FollowUp records, so Schema V2 remains `2.0.0`.
 
 ## Appointments feature composition
 
@@ -49,6 +49,12 @@ Phase 1 implements Customer and Appointment repository/service foundations. Acti
 Phase 5 reuses the V1 `ReminderRecord`; Schema V2 remains unchanged. `ReminderCalculator` uses injected local-calendar arithmetic, `ReminderRepository` owns durable intent, and `ReminderService` compares appointments, reminder records, and system pending requests. Standard system identifiers are namespaced by the stable Reminder UUID, making rebuilds idempotent.
 
 Only `UserNotificationCenterAdapter` imports UserNotifications. Appointment commits report their authoritative result through `AppointmentReminderScheduling`; notification failure never rolls back committed business data and is instead persisted as a failed Reminder for later reconcile. `GoosegrassApp` constructs one reminder graph for Appointments, Today, Settings, and one launch reconcile. No timer or Phase 6 FollowUp behavior is introduced.
+
+## Follow-up composition
+
+Phase 6 reuses `PersistenceSchemaV1.FollowUpRecord`; there is no repository cache, timer, notification scheduler, or schema change. `FollowUpLifecycle` and `FollowUpSchedule` are Foundation-only rules. `LocalFollowUpRepository` validates customer/appointment ownership and commits the follow-up plus timeline activities atomically. `FollowUpService` owns manual and no-show-linked creation and complete/snooze/cancel transitions, then rereads authoritative persisted state.
+
+`GoosegrassApp` constructs one shared `FollowUpService` for the Follow-up workspace, Appointments, and Today. The no-show prompt is transient UI state created only after a successful appointment transition; Tomorrow creates a linked normal-priority item at local 11:00, Custom opens a prefilled editor, and Skip persists nothing. Appointment status and reminder cancellation remain owned by the existing appointment/reminder graph. The Follow-up workspace defaults to pending and snoozed records, while the All scope preserves terminal history.
 
 ## Customers feature composition
 

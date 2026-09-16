@@ -38,6 +38,7 @@ final class AppointmentFeatureCompositionTests: XCTestCase {
             customerService: controller.makeCustomerService(),
             appointmentService: controller.makeAppointmentService(),
             todayService: controller.makeTodayService(),
+            followUpService: controller.makeFollowUpService(),
             reminderService: controller.makeReminderService(
                 notificationCenter: FakeNotificationCenter(),
                 preferences: { ReminderPreferences() }

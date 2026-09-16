@@ -29,6 +29,7 @@ jobs:
         run: |
           ./scripts/validate-phase4.ps1
           ./scripts/validate-phase5.ps1
+          ./scripts/validate-phase6.ps1
 
       - name: Build
         run: >-

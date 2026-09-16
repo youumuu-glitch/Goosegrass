@@ -22,9 +22,12 @@ final class AppointmentListViewModel: ObservableObject {
     @Published private(set) var customerRows: [CustomerListItem] = []
     @Published private(set) var catalog = CustomerCatalog(sources: [], tags: [])
     @Published private(set) var errorMessage: String?
+    @Published private(set) var pendingNoShowFollowUpRequest: NoShowFollowUpRequest?
+    @Published var customFollowUpDraft: FollowUpEditorDraft?
 
     private let service: AppointmentService
     private let customerService: CustomerService
+    private let followUpService: FollowUpService?
     private let calendar: Calendar
     private let now: () -> Date
     private var isRescheduling = false
@@ -32,11 +35,13 @@ final class AppointmentListViewModel: ObservableObject {
     init(
         service: AppointmentService,
         customerService: CustomerService,
+        followUpService: FollowUpService? = nil,
         calendar: Calendar = .current,
         now: @escaping () -> Date = Date.init
     ) {
         self.service = service
         self.customerService = customerService
+        self.followUpService = followUpService
         self.calendar = calendar
         self.now = now
         filter = AppointmentFilter(dateInterval: Self.dayInterval(
@@ -194,6 +199,60 @@ final class AppointmentListViewModel: ObservableObject {
         errorMessage = nil
     }
 
+    func createNoShowFollowUpTomorrow() {
+        guard let request = pendingNoShowFollowUpRequest else { return }
+        perform {
+            guard let followUpService else { throw NoShowFollowUpError.serviceUnavailable }
+            _ = try followUpService.createNoShowFollowUp(
+                customerID: request.customerID,
+                appointmentID: request.appointmentID,
+                at: request.requestedAt
+            )
+            pendingNoShowFollowUpRequest = nil
+        }
+    }
+
+    func beginCustomNoShowFollowUp() {
+        guard let request = pendingNoShowFollowUpRequest else { return }
+        let dueAt = (try? FollowUpSchedule.tomorrowAtEleven(
+            from: request.requestedAt,
+            calendar: calendar
+        )) ?? request.requestedAt.addingTimeInterval(3_600)
+        customFollowUpDraft = FollowUpEditorDraft(
+            customerID: request.customerID,
+            appointmentID: request.appointmentID,
+            dueAt: dueAt,
+            reason: "No-show follow-up"
+        )
+        pendingNoShowFollowUpRequest = nil
+    }
+
+    func skipNoShowFollowUp() {
+        pendingNoShowFollowUpRequest = nil
+    }
+
+    func cancelCustomNoShowFollowUp() {
+        customFollowUpDraft = nil
+    }
+
+    func saveCustomNoShowFollowUp() {
+        guard let draft = customFollowUpDraft else { return }
+        perform {
+            guard let followUpService else { throw NoShowFollowUpError.serviceUnavailable }
+            guard let customerID = draft.customerID else { throw NoShowFollowUpError.customerRequired }
+            _ = try followUpService.create(
+                customerID: customerID,
+                appointmentID: draft.appointmentID,
+                dueAt: draft.dueAt,
+                reason: draft.reason,
+                note: draft.note,
+                priority: draft.priority,
+                at: now()
+            )
+            customFollowUpDraft = nil
+        }
+    }
+
     private var selectedAppointment: Appointment? {
         detail?.listItem.appointment
             ?? rows.first(where: { $0.id == selectedAppointmentID })?.appointment
@@ -202,7 +261,15 @@ final class AppointmentListViewModel: ObservableObject {
     private func performSelected(_ action: AppointmentAction) {
         guard let id = selectedAppointmentID else { return }
         perform {
-            _ = try service.transition(id: id, action: action, at: now())
+            let operationTime = now()
+            let appointment = try service.transition(id: id, action: action, at: operationTime)
+            if action == .markNoShow {
+                pendingNoShowFollowUpRequest = NoShowFollowUpRequest(
+                    appointmentID: appointment.id,
+                    customerID: appointment.customerID,
+                    requestedAt: operationTime
+                )
+            }
             try refreshThrowing()
             detail = try service.detail(id: id)
         }

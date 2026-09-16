@@ -4,6 +4,7 @@ enum PersistenceError: Error, Equatable {
     case duplicateIdentifier(UUID)
     case customerNotFound(UUID)
     case recordNotFound(UUID)
+    case appointmentCustomerMismatch(appointmentID: UUID, customerID: UUID)
     case invalidStoredValue(field: String, value: String)
 }
 
@@ -192,6 +193,75 @@ enum PersistenceMapper {
             fireAt: record.fireAt,
             systemNotificationID: record.systemNotificationID,
             status: status,
+            createdAt: record.createdAt,
+            updatedAt: record.updatedAt
+        )
+    }
+
+    static func makeFollowUpRecord(
+        from followUp: FollowUp,
+        customer: PersistenceSchemaV1.CustomerRecord,
+        appointment: PersistenceSchemaV1.AppointmentRecord?
+    ) -> PersistenceSchemaV1.FollowUpRecord {
+        PersistenceSchemaV1.FollowUpRecord(
+            id: followUp.id,
+            customerID: followUp.customerID,
+            appointmentID: followUp.appointmentID,
+            dueAt: followUp.dueAt,
+            reason: followUp.reason,
+            note: followUp.note,
+            priorityRawValue: followUp.priority.rawValue,
+            statusRawValue: followUp.status.rawValue,
+            completedAt: followUp.completedAt,
+            createdAt: followUp.createdAt,
+            updatedAt: followUp.updatedAt,
+            customer: customer,
+            appointment: appointment
+        )
+    }
+
+    static func update(
+        _ record: PersistenceSchemaV1.FollowUpRecord,
+        from followUp: FollowUp,
+        customer: PersistenceSchemaV1.CustomerRecord,
+        appointment: PersistenceSchemaV1.AppointmentRecord?
+    ) {
+        record.customerID = followUp.customerID
+        record.appointmentID = followUp.appointmentID
+        record.dueAt = followUp.dueAt
+        record.reason = followUp.reason
+        record.note = followUp.note
+        record.priorityRawValue = followUp.priority.rawValue
+        record.statusRawValue = followUp.status.rawValue
+        record.completedAt = followUp.completedAt
+        record.updatedAt = followUp.updatedAt
+        record.customer = customer
+        record.appointment = appointment
+    }
+
+    static func makeFollowUp(from record: PersistenceSchemaV1.FollowUpRecord) throws -> FollowUp {
+        guard let priority = FollowUpPriority(rawValue: record.priorityRawValue) else {
+            throw PersistenceError.invalidStoredValue(
+                field: "FollowUp.priority",
+                value: record.priorityRawValue
+            )
+        }
+        guard let status = FollowUpStatus(rawValue: record.statusRawValue) else {
+            throw PersistenceError.invalidStoredValue(
+                field: "FollowUp.status",
+                value: record.statusRawValue
+            )
+        }
+        return FollowUp(
+            id: record.id,
+            customerID: record.customerID,
+            appointmentID: record.appointmentID,
+            dueAt: record.dueAt,
+            reason: record.reason,
+            note: record.note,
+            priority: priority,
+            status: status,
+            completedAt: record.completedAt,
             createdAt: record.createdAt,
             updatedAt: record.updatedAt
         )

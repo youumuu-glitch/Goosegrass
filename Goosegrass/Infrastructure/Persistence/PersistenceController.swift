@@ -53,6 +53,10 @@ final class PersistenceController {
         LocalReminderRepository(context: context)
     }
 
+    func makeFollowUpRepository() -> LocalFollowUpRepository {
+        LocalFollowUpRepository(context: context)
+    }
+
     func makeCustomerService() -> CustomerService {
         CustomerService(repository: makeCustomerRepository())
     }

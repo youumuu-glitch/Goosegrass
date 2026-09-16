@@ -47,7 +47,8 @@ final class FollowUpAcceptanceTests: XCTestCase {
                     return UUID(uuidString: String(format: "%08d-0000-0000-0000-%012d", reminderIndex, reminderIndex))!
                 }
             )
-            XCTAssertEqual(await reminders.schedule(appointment).count, 3)
+            let scheduled = await reminders.schedule(appointment)
+            XCTAssertEqual(scheduled.count, 3)
             XCTAssertEqual(center.requests.count, 3)
 
             let followUps = controller.makeFollowUpService(calendar: calendar, now: { now })

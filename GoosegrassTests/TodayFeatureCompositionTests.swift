@@ -41,6 +41,7 @@ final class TodayFeatureCompositionTests: XCTestCase {
             customerService: controller.makeCustomerService(),
             appointmentService: controller.makeAppointmentService(),
             todayService: todayService,
+            followUpService: controller.makeFollowUpService(),
             reminderService: controller.makeReminderService(
                 notificationCenter: FakeNotificationCenter(),
                 preferences: { ReminderPreferences() }
